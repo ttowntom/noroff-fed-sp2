@@ -7,7 +7,8 @@
 		"build": "tailwindcss -i ./input.css -o ./css/style.css",
 		"watch": "tailwindcss -i ./input.css -o ./css/style.css --watch",
 		"start": "live-server",
-		"dev": "npm-run-all --parallel watch start"
+		"dev": "npm-run-all --parallel watch start",
+		"prepare": "husky"
 	},
 	"repository": {
 		"type": "git",
@@ -27,8 +28,13 @@
 	},
 	"homepage": "https://github.com/ttowntom/noroff-fed-sp2#readme",
 	"devDependencies": {
+		"@eslint/js": "^9.9.0",
+		"eslint": "^9.9.0",
+		"globals": "^15.9.0",
+		"husky": "^9.1.4",
 		"live-server": "^1.2.2",
 		"npm-run-all": "^4.1.5",
+		"prettier": "^3.3.3",
 		"tailwindcss": "^3.4.10"
 	}
 }
