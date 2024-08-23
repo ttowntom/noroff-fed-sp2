@@ -2,8 +2,6 @@ import InputField from "../../components/InputField.mjs";
 import Button from "../../components/Button.mjs";
 
 export default function loadRegistrationPage() {
-  console.log("Registration Page Loaded");
-
   // Grab the form element
   const form = document.querySelector(`form`);
 
