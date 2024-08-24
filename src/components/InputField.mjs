@@ -1,0 +1,43 @@
+import continuousInputValidation from "../handlers/continuousInputValildation.mjs";
+
+export default function InputField(label, type, name, required = true) {
+  const container = document.createElement("div");
+  const inputLabel = document.createElement("label");
+  const input = document.createElement("input");
+  const errorField = document.createElement("div");
+
+  container.classList.add("flex", "flex-col");
+
+  inputLabel.textContent = label;
+  inputLabel.classList.add("block", "font-semibold", "text-gray-600");
+
+  input.id = `input-${name}`;
+  input.required = required;
+  input.type = type;
+  input.name = name;
+  input.classList.add(
+    "w-full",
+    "px-4",
+    "py-2",
+    "mt-1",
+    "border",
+    "border-battleship",
+    "rounded-md",
+    "focus:outline-none",
+    "focus:ring",
+    "focus:ring-lavender",
+  );
+
+  container.appendChild(inputLabel);
+  container.appendChild(input);
+
+  // Error field
+  errorField.id = `error-${name}`;
+  errorField.classList.add("text-red-500", "text-sm", "mt-1");
+  container.appendChild(errorField);
+
+  // Add event listener for input validation
+  continuousInputValidation(input);
+
+  return container;
+}
