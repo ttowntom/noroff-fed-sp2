@@ -1,10 +1,8 @@
 import InputField from "../../components/InputField.mjs";
 import Button from "../../components/Button.mjs";
-import { setRegistrationFormListener } from "../../handlers/registration.mjs";
+import { setLoginFormListener } from "../../handlers/login.mjs";
 
 export default function loadLoginPage() {
-  console.log("Login Page Loaded");
-
   // Grab the form element
   const form = document.querySelector(`form`);
 
@@ -12,8 +10,8 @@ export default function loadLoginPage() {
   form.appendChild(InputField(`Email`, `email`, `email`, true));
   form.appendChild(InputField(`Password`, `password`, `password`, true));
 
-  form.appendChild(Button(null, `submit`, `Sign Up`));
+  form.appendChild(Button(null, `submit`, `Log in`));
 
   // Add "sign up" event listener to the form
-  setRegistrationFormListener();
+  setLoginFormListener();
 }

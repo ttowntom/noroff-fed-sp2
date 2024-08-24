@@ -1,6 +1,5 @@
 import { API_BASE_URL } from "../constants.mjs";
-// import * as storage from "../../storage/index.mjs";
-// import { getProfile } from "../profile/profileRead.mjs";
+import * as storage from "../../storage/index.mjs";
 
 export async function login(profile, action, method) {
   const actionURL = new URL(action);
@@ -19,35 +18,29 @@ export async function login(profile, action, method) {
 
     // Handle error
     if (!response.ok) {
-      // const errorData = await response.json();
-      // const errContainer = document.querySelector(`#loginErrorContainer`);
-      // const errMsg = document.querySelector(`#loginError`);
-      // Show error message
-      // errContainer.classList.remove("hidden");
-      // errContainer.classList.add("flex");
-      // if (errorData) {
-      //   errMsg.textContent = errorData.errors[0].message;
-      // } else {
-      //   errMsg.textContent = error.message;
-      // }
+      const errorData = await response.json();
+      const errContainer = document.querySelector(`#error-container`);
+      errContainer.innerHTML = "";
+
+      errorData.errors.forEach((error) => {
+        const errMsg = document.createElement("p");
+        errMsg.textContent = error.message;
+        errContainer.classList.remove("hidden");
+        errContainer.appendChild(errMsg);
+      });
     }
 
     // Handle success
     const data = await response.json();
-    // const { accessToken, ...user } = data.data;
+    console.log(data);
+    const { accessToken, ...user } = data.data;
 
-    // Save token to local storage
-    // storage.save("token", accessToken);
-
-    // Get following
-    // const profile = await getProfile(user.name);
-    // user.following = profile.data.following;
-
-    // Save to local storage
-    // storage.save("profile", user);
+    // Save data to local storage
+    storage.save("token", accessToken);
+    storage.save("profile", user);
 
     // Redirect
-    window.location.href = "/";
+    // window.location.href = "/";
   } catch (error) {
     throw new Error(error);
   }
