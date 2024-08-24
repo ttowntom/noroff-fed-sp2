@@ -35,12 +35,14 @@ export default function continuousInputValidation(inputField) {
 
     if (error) {
       errorField.textContent = error;
+      inputField.classList.add("border-red-500");
       // Disable submit button
       const submitButton = document.querySelector(`#btn-sign-up`);
       submitButton.disabled = true;
       submitButton.classList.add(`cursor-not-allowed`, `opacity-50`);
     } else {
       errorField.textContent = "";
+      inputField.classList.remove("border-red-500");
       // Enable submit button
       const submitButton = document.querySelector(`#btn-sign-up`);
       submitButton.disabled = false;

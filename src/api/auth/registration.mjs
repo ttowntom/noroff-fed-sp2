@@ -15,8 +15,8 @@ export async function register(profile, action, method) {
       body,
     });
 
-    // Handle error
     if (!response.ok) {
+      // Handle error
       const errorData = await response.json();
       console.log(errorData);
       const errContainer = document.querySelector(`#error-container`);
