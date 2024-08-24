@@ -1,5 +1,5 @@
+// Validation rules for name, email and password
 const emailRegex = "^[\\w.-]+@(stud.)?noroff.no$";
-
 function validateInput(name, value) {
   switch (name) {
     case "name":
