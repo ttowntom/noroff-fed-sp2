@@ -20,7 +20,7 @@ export default function router() {
       loadRegistrationPage();
       break;
     case "/user/login/":
-      // Registration page
+      // Login page
       loadLoginPage();
       break;
 
