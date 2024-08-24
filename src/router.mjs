@@ -1,3 +1,4 @@
+import loadLoginPage from "./pages/user/login.mjs";
 import loadRegistrationPage from "./pages/user/registration.mjs";
 
 export default function router() {
@@ -14,9 +15,13 @@ export default function router() {
     case "/":
       // Listings page
       break;
-    case "/user/sign-up/index.html":
+    case "/user/sign-up/":
       // Registration page
       loadRegistrationPage();
+      break;
+    case "/user/login/":
+      // Login page
+      loadLoginPage();
       break;
 
     default:

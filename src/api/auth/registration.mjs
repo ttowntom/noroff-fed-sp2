@@ -18,12 +18,13 @@ export async function register(profile, action, method) {
     if (!response.ok) {
       // Handle error
       const errorData = await response.json();
-      console.log(errorData);
       const errContainer = document.querySelector(`#error-container`);
+      errContainer.innerHTML = "";
 
       errorData.errors.forEach((error) => {
         const errMsg = document.createElement("p");
         errMsg.textContent = error.message;
+        errContainer.classList.remove("hidden");
         errContainer.appendChild(errMsg);
       });
     } else if (response.ok) {

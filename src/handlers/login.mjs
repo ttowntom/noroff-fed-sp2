@@ -1,7 +1,7 @@
-import { register } from "../api/auth/registration.mjs";
+import { login } from "../api/auth/login.mjs";
 
-export function setRegistrationFormListener() {
-  const form = document.querySelector("#registrationForm");
+export function setLoginFormListener() {
+  const form = document.querySelector("form");
 
   if (form) {
     form.addEventListener("submit", (e) => {
@@ -17,7 +17,8 @@ export function setRegistrationFormListener() {
       const errContainer = document.querySelector(`#error-container`);
       errContainer.classList.add("hidden");
 
-      register(profile, action, method);
+      // Send to API
+      login(profile, action, method);
     });
   }
 }

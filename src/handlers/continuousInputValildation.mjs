@@ -1,5 +1,5 @@
+// Validation rules for name, email and password
 const emailRegex = "^[\\w.-]+@(stud.)?noroff.no$";
-
 function validateInput(name, value) {
   switch (name) {
     case "name":
@@ -22,6 +22,29 @@ function validateInput(name, value) {
   }
 }
 
+// Disable submit button if there are validation errors
+let validationErrors = {
+  name: false,
+  email: false,
+  password: false,
+};
+
+function handleSubmitButton(validationErrors) {
+  if (
+    validationErrors.name ||
+    validationErrors.email ||
+    validationErrors.password
+  ) {
+    const submitButton = document.querySelector(`#btn-sign-up`);
+    submitButton.disabled = true;
+    submitButton.classList.add(`cursor-not-allowed`, `opacity-50`);
+  } else {
+    const submitButton = document.querySelector(`#btn-sign-up`);
+    submitButton.disabled = false;
+    submitButton.classList.remove(`cursor-not-allowed`, `opacity-50`);
+  }
+}
+
 /**
  * This function will handle the validation of the input fields,
  * and will enable/disable the submit button based on the validation.
@@ -36,17 +59,17 @@ export default function continuousInputValidation(inputField) {
     if (error) {
       errorField.textContent = error;
       inputField.classList.add("border-red-500");
-      // Disable submit button
-      const submitButton = document.querySelector(`#btn-sign-up`);
-      submitButton.disabled = true;
-      submitButton.classList.add(`cursor-not-allowed`, `opacity-50`);
+
+      // Validate submit button
+      validationErrors[inputField.name] = true;
+      handleSubmitButton(validationErrors);
     } else {
       errorField.textContent = "";
       inputField.classList.remove("border-red-500");
-      // Enable submit button
-      const submitButton = document.querySelector(`#btn-sign-up`);
-      submitButton.disabled = false;
-      submitButton.classList.remove(`cursor-not-allowed`, `opacity-50`);
+
+      // Validate submit button
+      validationErrors[inputField.name] = false;
+      handleSubmitButton(validationErrors);
     }
   };
 
