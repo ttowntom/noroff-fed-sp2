@@ -2,7 +2,7 @@
 import { API_KEY } from "./constants.mjs";
 
 export function headers() {
-  const token = load("token");
+  // const token = load("token");
 
   return {
     "Content-Type": "application/json",

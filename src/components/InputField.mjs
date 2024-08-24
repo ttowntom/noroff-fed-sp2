@@ -1,4 +1,4 @@
-export default function InputField(label, type) {
+export default function InputField(label, type, name, required = true) {
   const container = document.createElement("div");
   const inputLabel = document.createElement("label");
   const input = document.createElement("input");
@@ -8,7 +8,9 @@ export default function InputField(label, type) {
   inputLabel.textContent = label;
   inputLabel.classList.add("block", "font-semibold", "text-gray-600");
 
+  input.required = required;
   input.type = type;
+  input.name = name;
   input.classList.add(
     "w-full",
     "px-4",
