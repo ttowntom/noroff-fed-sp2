@@ -10,23 +10,23 @@
     />
     <link rel="stylesheet" href="../../css/style.css" />
     <script src="../../src/main.mjs" type="module"></script>
-    <title>Sign up | QuickBid</title>
+    <title>Log in | QuickBid</title>
   </head>
   <body class="bg-white font-titillium">
     <main class="min-h-screen flex flex-col">
       <form
-        id="registrationForm"
+        id="loginForm"
         method="post"
-        action="/auth/register"
+        action="/auth/login"
         class="w-1/2 flex flex-col gap-1 mx-auto"
       ></form>
       <div id="error-container" class="mt-2 text-red-500 text-center"></div>
       <div class="flex flex-col items-center mt-8">
-        <p>Already have an account?</p>
+        <p>New around here?</p>
         <a
-          href="../login/"
+          href="../sign-up/"
           class="text-lavender font-semibold hover:text-lavender-dark"
-          >Log in</a
+          >Sign up</a
         >
       </div>
     </main>
