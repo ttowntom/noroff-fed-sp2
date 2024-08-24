@@ -13,6 +13,10 @@ export function setRegistrationFormListener() {
       const action = form.action;
       const method = form.method;
 
+      // Hide error message, if any
+      const errContainer = document.querySelector(`#error-container`);
+      errContainer.classList.add("hidden");
+
       register(profile, action, method);
     });
   }
