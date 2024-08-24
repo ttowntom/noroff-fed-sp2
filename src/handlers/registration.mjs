@@ -6,7 +6,6 @@ export function setRegistrationFormListener() {
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      console.log("form submitted");
 
       const form = e.target;
       const formData = new FormData(form);
@@ -14,9 +13,7 @@ export function setRegistrationFormListener() {
       const action = form.action;
       const method = form.method;
 
-      // Send to API
       register(profile, action, method);
-      console.log("form sent to API");
     });
   }
 }

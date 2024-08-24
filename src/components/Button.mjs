@@ -3,6 +3,7 @@ export default function Button(icon, type, label) {
   const iconElement = document.createElement("i");
   const labelElement = document.createElement("span");
 
+  button.id = `btn-${label.toLowerCase().replace(/\s/g, "-")}`;
   button.type = type;
   button.classList.add(
     "px-4",

@@ -13,6 +13,6 @@ export default function loadRegistrationPage() {
 
   form.appendChild(Button(null, `submit`, `Sign Up`));
 
-  // Add event listener to the form
+  // Add "sign up" event listener to the form
   setRegistrationFormListener();
 }

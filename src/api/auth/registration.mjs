@@ -19,16 +19,13 @@ export async function register(profile, action, method) {
     if (!response.ok) {
       const errorData = await response.json();
       console.log(errorData);
-      // const errContainer = document.querySelector(`#registerErrorContainer`);
-      // const errMsg = document.querySelector(`#registerError`);
-      // Show error message
-      // errContainer.classList.remove("hidden");
-      // errContainer.classList.add("flex");
-      // if (errorData) {
-      //   errMsg.textContent = errorData.errors[0].message;
-      // } else {
-      //   errMsg.textContent = errorData.message;
-      // }
+      const errContainer = document.querySelector(`#error-container`);
+
+      errorData.errors.forEach((error) => {
+        const errMsg = document.createElement("p");
+        errMsg.textContent = error.message;
+        errContainer.appendChild(errMsg);
+      });
     } else if (response.ok) {
       // Handle success
       console.log(response);
