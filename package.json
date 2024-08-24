@@ -1,6 +1,6 @@
 {
   "name": "noroff-fed-sp2",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Semester Project 2 for Noroff FED",
   "main": "index.js",
   "scripts": {
