@@ -3,8 +3,9 @@ const emailRegex = "^[\\w.-]+@(stud.)?noroff.no$";
 function validateInput(name, value) {
   switch (name) {
     case "name":
+    case "title":
       if (value.length < 3) {
-        return "Name must be at least 3 characters";
+        return "Must be at least 3 characters";
       }
       break;
     case "email":
