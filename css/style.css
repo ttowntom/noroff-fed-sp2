@@ -593,6 +593,11 @@ video {
   margin-right: auto;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -607,6 +612,10 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
 }
 
 .block {
@@ -625,20 +634,24 @@ video {
   min-height: 100vh;
 }
 
-.w-1\/2 {
-  width: 50%;
+.w-5\/6 {
+  width: 83.333333%;
 }
 
 .w-full {
   width: 100%;
 }
 
-.w-5\/6 {
-  width: 83.333333%;
+.flex-grow {
+  flex-grow: 1;
 }
 
 .cursor-not-allowed {
   cursor: not-allowed;
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -649,8 +662,24 @@ video {
   align-items: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .gap-1 {
   gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.self-auto {
+  align-self: auto;
+}
+
+.self-start {
+  align-self: flex-start;
 }
 
 .rounded-md {
@@ -671,6 +700,11 @@ video {
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 
+.bg-golf {
+  --tw-bg-opacity: 1;
+  background-color: hsl(169 100% 27% / var(--tw-bg-opacity));
+}
+
 .bg-lavender {
   --tw-bg-opacity: 1;
   background-color: hsl(252 19% 52% / var(--tw-bg-opacity));
@@ -679,6 +713,11 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-rust {
+  --tw-bg-opacity: 1;
+  background-color: hsl(5 36% 51% / var(--tw-bg-opacity));
 }
 
 .px-4 {
@@ -747,9 +786,13 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.hover\:bg-lavender-dark:hover {
-  --tw-bg-opacity: 1;
-  background-color: hsl(251 19% 28% / var(--tw-bg-opacity));
+.hover\:bg-opacity-90:hover {
+  --tw-bg-opacity: 0.9;
+}
+
+.hover\:text-blue-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(29 78 216 / var(--tw-text-opacity));
 }
 
 .hover\:text-lavender-dark:hover {
@@ -776,18 +819,6 @@ video {
 @media (min-width: 768px) {
   .md\:w-1\/2 {
     width: 50%;
-  }
-
-  .md\:max-w-lg {
-    max-width: 32rem;
-  }
-
-  .md\:max-w-60 {
-    max-width: 15rem;
-  }
-
-  .md\:max-w-screen-lg {
-    max-width: 1024px;
   }
 
   .md\:max-w-screen-md {
