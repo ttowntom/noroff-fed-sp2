@@ -633,6 +633,10 @@ video {
   width: 100%;
 }
 
+.w-5\/6 {
+  width: 83.333333%;
+}
+
 .cursor-not-allowed {
   cursor: not-allowed;
 }
@@ -767,4 +771,26 @@ video {
 .focus\:ring-lavender:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: hsl(252 19% 52% / var(--tw-ring-opacity));
+}
+
+@media (min-width: 768px) {
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
+  .md\:max-w-lg {
+    max-width: 32rem;
+  }
+
+  .md\:max-w-60 {
+    max-width: 15rem;
+  }
+
+  .md\:max-w-screen-lg {
+    max-width: 1024px;
+  }
+
+  .md\:max-w-screen-md {
+    max-width: 768px;
+  }
 }
