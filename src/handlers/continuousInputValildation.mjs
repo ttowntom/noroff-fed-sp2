@@ -18,6 +18,13 @@ function validateInput(name, value) {
         return "Password must be at least 8 characters";
       }
       break;
+    case "image-url":
+      try {
+        new URL(value);
+        return null;
+      } catch (error) {
+        return "Please enter a valid URL (including 'http' or 'https')";
+      }
     default:
       break;
   }
