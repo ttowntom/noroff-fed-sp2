@@ -15,7 +15,7 @@ export default function Button(
   button.classList.add(
     "px-4",
     "py-2",
-    "my-4",
+    "my-2",
     "text-white",
     "rounded-md",
     "hover:bg-opacity-90",
