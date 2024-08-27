@@ -46,9 +46,11 @@ export default function addImage() {
   const inputContainer = document.createElement("div");
   inputContainer.classList.add("flex", "flex-col", "flex-grow");
 
-  inputContainer.appendChild(InputField("Image URL", "url", "image-url", true));
   inputContainer.appendChild(
-    InputField("Image description", "text", "image-description", true),
+    InputField("Image URL", "url", "image-url", true, false),
+  );
+  inputContainer.appendChild(
+    InputField("Image description", "text", "image-description", true, false),
   );
 
   // Append the input fields and button to the form
