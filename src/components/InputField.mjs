@@ -20,12 +20,14 @@ export default function InputField(
   inputLabel.textContent = label;
   inputLabel.classList.add("block", "font-semibold", "text-gray-600");
 
-  input.id = `input-${name}`;
+  const uniqueId = Math.floor(Math.random() * 100);
+
+  input.id = `input-${name}-${uniqueId}`;
+  input.name = `${name}`;
   input.required = required;
   if (!textArea) {
     input.type = type;
   }
-  input.name = name;
   input.classList.add(
     "w-full",
     "px-4",
