@@ -1,6 +1,7 @@
 import InputField from "../../components/InputField.mjs";
 import Button from "../../components/Button.mjs";
 import addImage from "../../handlers/addImage.mjs";
+import { setListingFormListener } from "../../handlers/createListing.mjs";
 // import { setRegistrationFormListener } from "../../handlers/registration.mjs";
 
 export default function loadNewListingPage() {
@@ -10,7 +11,7 @@ export default function loadNewListingPage() {
   const buttonContainer = document.createElement("div");
 
   // Append the input fields and button to the form
-  form.prepend(InputField("Description", "text", "description", false));
+  form.prepend(InputField("Description", "text", "description", false, true));
   form.prepend(InputField("Title", "text", "title", true));
   form.appendChild(
     InputField("Auction ends at", "datetime-local", "end-date", true),
@@ -33,10 +34,17 @@ export default function loadNewListingPage() {
     Button("minus", "button", "Delete listing", "rust", true),
   );
   buttonContainer.appendChild(
-    Button("plus", "submit", "Save listing", "golf", true),
+    Button(
+      "plus",
+      "submit",
+      "Save listing",
+      "golf",
+      true,
+      setListingFormListener,
+    ),
   );
   form.appendChild(buttonContainer);
 
-  // Add "sign up" event listener to the form
+  // Add "create listing" event listener to the form
   // setRegistrationFormListener();
 }
