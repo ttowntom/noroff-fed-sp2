@@ -1,9 +1,18 @@
 import continuousInputValidation from "../handlers/continuousInputValildation.mjs";
 
-export default function InputField(label, type, name, required = true) {
+export default function InputField(
+  label,
+  type,
+  name,
+  required = true,
+  textArea = false,
+) {
   const container = document.createElement("div");
   const inputLabel = document.createElement("label");
-  const input = document.createElement("input");
+  const input =
+    textArea === true
+      ? document.createElement("textarea")
+      : document.createElement("input");
   const errorField = document.createElement("div");
 
   container.classList.add("flex", "flex-col");
@@ -11,10 +20,14 @@ export default function InputField(label, type, name, required = true) {
   inputLabel.textContent = label;
   inputLabel.classList.add("block", "font-semibold", "text-gray-600");
 
-  input.id = `input-${name}`;
+  const uniqueId = Math.floor(Math.random() * 100);
+
+  input.id = `input-${name}-${uniqueId}`;
+  input.name = `${name}`;
   input.required = required;
-  input.type = type;
-  input.name = name;
+  if (!textArea) {
+    input.type = type;
+  }
   input.classList.add(
     "w-full",
     "px-4",

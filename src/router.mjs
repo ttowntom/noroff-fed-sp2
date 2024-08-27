@@ -1,5 +1,6 @@
 import loadLoginPage from "./pages/user/login.mjs";
 import loadRegistrationPage from "./pages/user/registration.mjs";
+import loadNewListingPage from "./pages/listings/newListing.mjs";
 
 export default function router() {
   console.log("Router Loaded");
@@ -22,6 +23,10 @@ export default function router() {
     case "/user/login/":
       // Login page
       loadLoginPage();
+      break;
+    case "/listings/new-listing/":
+      // New listing page
+      loadNewListingPage();
       break;
 
     default:

@@ -3,8 +3,9 @@ const emailRegex = "^[\\w.-]+@(stud.)?noroff.no$";
 function validateInput(name, value) {
   switch (name) {
     case "name":
+    case "title":
       if (value.length < 3) {
-        return "Name must be at least 3 characters";
+        return "Must be at least 3 characters";
       }
       break;
     case "email":
@@ -17,6 +18,13 @@ function validateInput(name, value) {
         return "Password must be at least 8 characters";
       }
       break;
+    case "image-url":
+      try {
+        new URL(value);
+        return null;
+      } catch (error) {
+        return "Please enter a valid URL (including 'http' or 'https')";
+      }
     default:
       break;
   }
