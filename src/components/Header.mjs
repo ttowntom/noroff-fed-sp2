@@ -1,10 +1,28 @@
 import MenuCard from "./MenuCard.mjs";
 
 export default function Header() {
+  const header = createHeader();
+  const contentsContainer = createContentsContainer();
+  const col1 = createLogoColumn();
+  const col2 = createCreditsColumn();
+  const col3 = createActionsColumn();
+
+  header.append(MenuCard(), contentsContainer);
+  contentsContainer.append(col1, col2, col3);
+  return header;
+}
+
+function createHeader() {
   const header = document.createElement("header");
-  header.classList.add(
+  header.classList.add("sm:w-5/6", "flex", "justify-end", "sm:mx-auto");
+  return header;
+}
+
+function createContentsContainer() {
+  const container = document.createElement("div");
+  container.classList.add(
     "w-full",
-    "sm:w-5/6",
+    // "sm:w-5/6",
     "sm:max-w-screen-xl",
     "mx-auto",
     "p-4",
@@ -14,15 +32,21 @@ export default function Header() {
     "justify-between",
     "gap-4",
   );
+  return container;
+}
 
+function createLogoColumn() {
   const col1 = document.createElement("div");
   col1.classList.add("sm:w-1/4");
   col1.innerHTML = `
-		<a href="/">
-		<img src="/assets/quickBid-logo.svg" alt="QuickBid Logo" class="w-full max-h-16" />
-		</a>
-	`;
+    <a href="/">
+      <img src="/assets/quickBid-logo.svg" alt="QuickBid Logo" class="w-full max-h-16" />
+    </a>
+  `;
+  return col1;
+}
 
+function createCreditsColumn() {
   const col2 = document.createElement("div");
   col2.classList.add(
     "hidden",
@@ -33,40 +57,59 @@ export default function Header() {
     "text-lavender-dark",
   );
   col2.innerHTML = `
-		<i class="fa-solid fa-dollar-sign "></i>
-		<div class="flex flex-col">
-			<p class="font-semibold mb-0 pb-0" text-lavender-dark>10 000</p>
-			<p class="font-light -mt-2 pt-0 text-lavender-dark">credits</p>
-		</div>
-	`;
+    <i class="fa-solid fa-dollar-sign"></i>
+    <div class="flex flex-col">
+      <p class="font-semibold mb-0 pb-0 text-lavender-dark">10 000</p>
+      <p class="font-light -mt-2 pt-0 text-lavender-dark">credits</p>
+    </div>
+  `;
+  return col2;
+}
 
-  const col3 = document.createElement("div");
+function createActionsColumn() {
+  const col3 = document.createElement("nav");
   col3.classList.add("flex", "justify-end", "gap-6", "pt-2");
-  col3.innerHTML = `
-		<a href="/listings/new-listing/" class="hidden sm:flex gap-2 items-center hover:text-opacity-90 group">
-			<i class="fa-solid fa-circle-plus text-3xl text-lavender group-hover:text-opacity-90"></i>
-			<p class="font-semibold text-sm text-lavender-dark group-hover:text-opacity-90">New listing</p>
-		</a>
-	`;
-  // <button class="hidden sm:flex gap-2 items-center hover:text-opacity-90 group">
-  // 		<i class="fa-solid fa-circle-user text-3xl text-lavender group-hover:text-opacity-90"></i>
-  // 		<p class="font-semibold text-sm text-lavender-dark group-hover:text-opacity-90">John Doe</p>
-  // 	</button>
-  // 	<button class="sm:hidden">
-  // 		<i class="fa-solid fa-circle-chevron-down text-4xl text-lavender hover:text-opacity-90"></i>
-  // 	</button>
 
-  const menuButton = document.createElement("button");
-  menuButton.classList.add(
+  const newListingLink = createNewListingLink();
+  const menuButton = createMenuButton();
+
+  col3.append(newListingLink, menuButton);
+  setupMenuToggle(menuButton);
+
+  return col3;
+}
+
+function createNewListingLink() {
+  const link = document.createElement("a");
+  link.href = "/listings/new-listing/";
+  link.classList.add(
+    "hidden",
+    "sm:flex",
+    "gap-2",
+    "items-center",
+    "hover:text-opacity-90",
+    "group",
+  );
+  link.innerHTML = `
+    <i class="fa-solid fa-circle-plus text-3xl text-lavender group-hover:text-opacity-90"></i>
+    <p class="font-semibold text-sm text-lavender-dark group-hover:text-opacity-90">New listing</p>
+  `;
+  return link;
+}
+
+function createMenuButton() {
+  const button = document.createElement("button");
+  button.classList.add(
     "flex",
     "gap-2",
     "items-center",
     "hover:text-opacity-90",
     "group",
   );
-  const menuIcon = document.createElement("i");
-  menuIcon.id = "menu-icon";
-  menuIcon.classList.add(
+
+  const icon = document.createElement("i");
+  icon.id = "menu-icon";
+  icon.classList.add(
     "fa-solid",
     "fa-circle-chevron-down",
     "sm:fa-circle-user",
@@ -75,8 +118,9 @@ export default function Header() {
     "text-lavender",
     "group-hover:text-opacity-90",
   );
-  const menuText = document.createElement("p");
-  menuText.classList.add(
+
+  const text = document.createElement("p");
+  text.classList.add(
     "hidden",
     "sm:flex",
     "font-semibold",
@@ -84,24 +128,24 @@ export default function Header() {
     "text-lavender-dark",
     "group-hover:text-opacity-90",
   );
-  menuText.textContent = "John Doe";
+  text.textContent = "John Doe";
 
-  menuButton.appendChild(menuIcon);
-  menuButton.appendChild(menuText);
-  col3.appendChild(menuButton);
-  col3.appendChild(MenuCard());
+  button.append(icon, text);
+  return button;
+}
 
-  // Open menu when clicking on button
+function setupMenuToggle(menuButton) {
   let menuOpen = false;
+
   menuButton.addEventListener("click", () => {
     const menuCard = document.querySelector("#menu-card");
+    const menuIcon = document.querySelector("#menu-icon");
     menuCard.classList.toggle("hidden");
-    menuIcon.classList.remove("fa-circle-chevron-down");
-    menuIcon.classList.add("fa-circle-xmark");
-    menuOpen = true;
+    menuIcon.classList.toggle("fa-circle-chevron-down");
+    menuIcon.classList.toggle("fa-circle-xmark");
+    menuOpen = !menuOpen;
   });
 
-  // Close menu when clicking outside
   document.addEventListener("click", (e) => {
     if (
       menuOpen &&
@@ -116,10 +160,4 @@ export default function Header() {
       menuOpen = false;
     }
   });
-
-  header.appendChild(col1);
-  header.appendChild(col2);
-  header.appendChild(col3);
-
-  return header;
 }
