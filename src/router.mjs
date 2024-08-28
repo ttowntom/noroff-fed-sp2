@@ -1,7 +1,6 @@
 import loadLoginPage from "./pages/user/login.mjs";
 import loadRegistrationPage from "./pages/user/registration.mjs";
 import loadNewListingPage from "./pages/listings/newListing.mjs";
-import Footer from "./components/Footer.mjs";
 
 export default function router() {
   console.log("Router Loaded");
@@ -16,22 +15,18 @@ export default function router() {
   switch (path) {
     case "/":
       // Listings page
-      document.body.appendChild(Footer());
       break;
     case "/user/sign-up/":
       // Registration page
       loadRegistrationPage();
-      document.body.appendChild(Footer());
       break;
     case "/user/login/":
       // Login page
       loadLoginPage();
-      document.body.appendChild(Footer());
       break;
     case "/listings/new-listing/":
       // New listing page
       loadNewListingPage();
-      document.body.appendChild(Footer());
       break;
 
     default:
