@@ -40,7 +40,7 @@ export async function login(profile, action, method) {
     storage.save("profile", user);
 
     // Redirect
-    // window.location.href = "/";
+    window.location.href = "/";
   } catch (error) {
     throw new Error(error);
   }
