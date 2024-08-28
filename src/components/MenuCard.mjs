@@ -1,5 +1,8 @@
+import { load } from "../storage/index.mjs";
 import logout from "../handlers/logout.mjs";
 import Button from "./Button.mjs";
+
+const credits = load("credits");
 
 function createCreditsContainer() {
   const creditsContainer = document.createElement("div");
@@ -19,7 +22,7 @@ function createCreditsContainer() {
   creditsContainer.innerHTML = `
     <i class="fa-solid fa-dollar-sign"></i>
     <div class="flex flex-col">
-      <p class="font-semibold mb-0 pb-0 text-lavender-dark">10 000</p>
+      <p class="font-semibold mb-0 pb-0 text-lavender-dark">${credits}</p>
       <p class="font-light -mt-2 pt-0 text-lavender-dark">credits</p>
     </div>
   `;

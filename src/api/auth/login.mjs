@@ -1,4 +1,5 @@
 import { API_BASE_URL } from "../constants.mjs";
+import { getProfile } from "../profile/profileRead.mjs";
 import * as storage from "../../storage/index.mjs";
 
 export async function login(profile, action, method) {
@@ -32,12 +33,15 @@ export async function login(profile, action, method) {
 
     // Handle success
     const data = await response.json();
-    console.log(data);
     const { accessToken, ...user } = data.data;
+
+    // Get full user profile
+    const profile = await getProfile(user.name);
 
     // Save data to local storage
     storage.save("token", accessToken);
     storage.save("profile", user);
+    storage.save("credits", profile.data.credits);
 
     // Redirect
     window.location.href = "/";

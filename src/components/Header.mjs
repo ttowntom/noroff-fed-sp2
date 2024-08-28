@@ -3,6 +3,7 @@ import MenuCard from "./MenuCard.mjs";
 import MenuButton from "./MenuButton.mjs";
 import hamburgerMenuToggle from "../handlers/hamburgerMenuToggle.mjs";
 const user = load("profile");
+const credits = load("credits");
 
 export default function Header() {
   const header = createHeader();
@@ -66,7 +67,7 @@ function createCreditsColumn() {
     col2.innerHTML = `
     <i class="fa-solid fa-dollar-sign"></i>
     <div class="flex flex-col">
-      <p class="font-semibold mb-0 pb-0 text-lavender-dark">10 000</p>
+      <p class="font-semibold mb-0 pb-0 text-lavender-dark">${credits}</p>
       <p class="font-light -mt-2 pt-0 text-lavender-dark">credits</p>
     </div>
   `;
