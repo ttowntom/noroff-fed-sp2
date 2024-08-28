@@ -81,7 +81,14 @@ function createActionsColumn() {
   // New listing link
   let newListingLink;
   if (user) {
-    newListingLink = MenuButton(["fa-circle-plus"], "New listing", null);
+    newListingLink = MenuButton(
+      ["fa-circle-plus"],
+      "New listing",
+      () => {
+        window.location.href = "/listings/new-listing/";
+      },
+      true,
+    );
     col3.append(newListingLink);
   }
 

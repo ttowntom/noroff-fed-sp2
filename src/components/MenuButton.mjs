@@ -1,12 +1,14 @@
-export default function MenuButton(iconClasses, text, onClick) {
+export default function MenuButton(iconClasses, text, onClick, hideOnMobile) {
   const button = document.createElement("button");
   button.id = `btn-${text.toLowerCase().replace(" ", "-")}`;
   button.classList.add(
-    "flex",
+    "sm:flex",
     "gap-2",
     "items-center",
     "hover:text-opacity-90",
     "group",
+
+    hideOnMobile ? "hidden" : "flex",
   );
 
   const icon = document.createElement("i");
