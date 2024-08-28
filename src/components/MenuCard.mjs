@@ -1,4 +1,5 @@
 import logout from "../handlers/logout.mjs";
+import Button from "./Button.mjs";
 
 function createCreditsContainer() {
   const creditsContainer = document.createElement("div");
@@ -25,23 +26,6 @@ function createCreditsContainer() {
   return creditsContainer;
 }
 
-function createLogoutButton() {
-  const logoutButton = document.createElement("button");
-  logoutButton.classList.add(
-    "w-full",
-    "bg-lavender-light",
-    "text-white",
-    "py-2",
-    "rounded-md",
-    "hover:bg-lavender",
-  );
-  logoutButton.textContent = "Log out";
-
-  logoutButton.addEventListener("click", logout);
-
-  return logoutButton;
-}
-
 function createMenuItem(name, link) {
   const menuItem = document.createElement("li");
   const menuLink = document.createElement("a");
@@ -59,7 +43,16 @@ function createMenuList() {
   menuList.appendChild(createMenuItem("Profile", "/user/"));
   menuList.appendChild(createMenuItem("New listing", "/listings/new-listing/"));
   menuList.appendChild(createCreditsContainer());
-  menuList.appendChild(createLogoutButton());
+  menuList.appendChild(
+    Button(
+      "left-from-bracket",
+      "button",
+      "Log out",
+      "lavender-light",
+      true,
+      logout,
+    ),
+  );
 
   return menuList;
 }

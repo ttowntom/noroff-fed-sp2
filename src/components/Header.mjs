@@ -1,4 +1,6 @@
+import { load } from "../storage/index.mjs";
 import MenuCard from "./MenuCard.mjs";
+const user = load("profile");
 
 export default function Header() {
   const header = createHeader();
@@ -22,7 +24,6 @@ function createContentsContainer() {
   const container = document.createElement("div");
   container.classList.add(
     "w-full",
-    // "sm:w-5/6",
     "sm:max-w-screen-xl",
     "mx-auto",
     "p-4",
@@ -56,13 +57,18 @@ function createCreditsColumn() {
     "pt-2",
     "text-lavender-dark",
   );
-  col2.innerHTML = `
+
+  if (!user) {
+    col2.innerHTML = ``;
+  } else {
+    col2.innerHTML = `
     <i class="fa-solid fa-dollar-sign"></i>
     <div class="flex flex-col">
       <p class="font-semibold mb-0 pb-0 text-lavender-dark">10 000</p>
       <p class="font-light -mt-2 pt-0 text-lavender-dark">credits</p>
     </div>
   `;
+  }
   return col2;
 }
 
@@ -70,10 +76,21 @@ function createActionsColumn() {
   const col3 = document.createElement("nav");
   col3.classList.add("flex", "justify-end", "gap-6", "pt-2");
 
-  const newListingLink = createNewListingLink();
-  const menuButton = createMenuButton();
+  let menuButton;
+  let newListingLink;
+  if (user) {
+    newListingLink = createNewListingLink();
+    col3.append(newListingLink);
+  }
+  if (user) {
+    menuButton = createMenuButton();
+  } else {
+    menuButton = document.createElement("a");
+    menuButton.href = "/user/login/";
+    menuButton.innerHTML = createLoginButton();
+  }
 
-  col3.append(newListingLink, menuButton);
+  col3.append(menuButton);
   setupMenuToggle(menuButton);
 
   return col3;
@@ -97,7 +114,7 @@ function createNewListingLink() {
   return link;
 }
 
-function createMenuButton() {
+function createButton(iconClass, textContent) {
   const button = document.createElement("button");
   button.classList.add(
     "flex",
@@ -108,11 +125,9 @@ function createMenuButton() {
   );
 
   const icon = document.createElement("i");
-  icon.id = "menu-icon";
   icon.classList.add(
+    ...iconClass,
     "fa-solid",
-    "fa-circle-chevron-down",
-    "sm:fa-circle-user",
     "text-4xl",
     "sm:text-3xl",
     "text-lavender",
@@ -128,36 +143,48 @@ function createMenuButton() {
     "text-lavender-dark",
     "group-hover:text-opacity-90",
   );
-  text.textContent = "John Doe";
+  text.textContent = textContent;
 
   button.append(icon, text);
   return button;
 }
 
+function createLoginButton() {
+  const iconClass = ["fa-right-to-bracket"];
+  return createButton(iconClass, "Log in");
+}
+
+function createMenuButton(user) {
+  const iconClass = ["fa-circle-chevron-down"];
+  return createButton(iconClass, "username");
+}
+
 function setupMenuToggle(menuButton) {
   let menuOpen = false;
 
-  menuButton.addEventListener("click", () => {
-    const menuCard = document.querySelector("#menu-card");
-    const menuIcon = document.querySelector("#menu-icon");
-    menuCard.classList.toggle("hidden");
-    menuIcon.classList.toggle("fa-circle-chevron-down");
-    menuIcon.classList.toggle("fa-circle-xmark");
-    menuOpen = !menuOpen;
-  });
-
-  document.addEventListener("click", (e) => {
-    if (
-      menuOpen &&
-      !e.target.closest("#menu-card") &&
-      !e.target.closest("button")
-    ) {
+  user &&
+    menuButton.addEventListener("click", () => {
       const menuCard = document.querySelector("#menu-card");
       const menuIcon = document.querySelector("#menu-icon");
-      menuCard.classList.add("hidden");
-      menuIcon.classList.remove("fa-circle-xmark");
-      menuIcon.classList.add("fa-circle-chevron-down");
-      menuOpen = false;
-    }
-  });
+      menuCard.classList.toggle("hidden");
+      menuIcon.classList.toggle("fa-circle-chevron-down");
+      menuIcon.classList.toggle("fa-circle-xmark");
+      menuOpen = !menuOpen;
+    });
+
+  user &&
+    document.addEventListener("click", (e) => {
+      if (
+        menuOpen &&
+        !e.target.closest("#menu-card") &&
+        !e.target.closest("button")
+      ) {
+        const menuCard = document.querySelector("#menu-card");
+        const menuIcon = document.querySelector("#menu-icon");
+        menuCard.classList.add("hidden");
+        menuIcon.classList.remove("fa-circle-xmark");
+        menuIcon.classList.add("fa-circle-chevron-down");
+        menuOpen = false;
+      }
+    });
 }
