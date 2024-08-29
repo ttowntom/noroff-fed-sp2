@@ -4,14 +4,8 @@ import loadNewListingPage from "./pages/listings/newListing.mjs";
 import loadUserPage from "./pages/user/user.mjs";
 
 export default function router() {
-  console.log("Router Loaded");
-
-  // Get current path
+  // Get path
   const path = location.pathname;
-  console.log(path);
-
-  // Get url parameters
-  // const urlParams = new URLSearchParams(window.location.search);
 
   switch (path) {
     case "/":
@@ -30,7 +24,7 @@ export default function router() {
       loadNewListingPage();
       break;
     case "/user/":
-      // New listing page
+      // User page
       loadUserPage();
       break;
 
