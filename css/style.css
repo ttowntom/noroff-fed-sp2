@@ -660,6 +660,10 @@ video {
   height: 3rem;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .max-h-16 {
   max-height: 4rem;
 }
@@ -670,6 +674,10 @@ video {
 
 .w-12 {
   width: 3rem;
+}
+
+.w-16 {
+  width: 4rem;
 }
 
 .w-5\/6 {
@@ -1047,11 +1055,11 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:w-1\/2 {
-    width: 50%;
+  .md\:max-w-screen-sm {
+    max-width: 640px;
   }
 
-  .md\:max-w-screen-md {
-    max-width: 768px;
+  .md\:max-w-screen-xsm {
+    max-width: 350px;
   }
 }
