@@ -1,16 +1,28 @@
+import { load } from "../storage/index.mjs";
 import { getProfile } from "../api/profile/profileRead.mjs";
+import Button from "./Button.mjs";
+import editAvatar from "../handlers/editAvatar.mjs";
 
 // Get URL path and parameters
 const searchParams = new URLSearchParams(window.location.search);
 const nameParam = searchParams.get("name");
 
+// Check if the logged in user is viewing their own profile
+const loggedInUser = load("profile");
+const isSelf = nameParam === loggedInUser.name;
+
 export default async function UserBadge() {
   const user = await getProfile(nameParam);
+  console.log(user.data);
+
+  const badgeContainer = document.createElement("div");
+  badgeContainer.id = "badge-container";
+  badgeContainer.classList.add("flex", "gap-4");
 
   const userBadge = document.createElement("div");
-  userBadge.id = user.data.name;
   userBadge.classList.add(
     "flex",
+    "flex-grow",
     "items-center",
     "gap-4",
     "bg-white",
@@ -37,6 +49,13 @@ export default async function UserBadge() {
 
   userBadge.appendChild(userAvatar);
   userBadge.appendChild(textContainer);
+  badgeContainer.appendChild(userBadge);
+  isSelf &&
+    badgeContainer.appendChild(
+      Button("user-pen", "button", "Edit avatar", "lavender", false, () =>
+        editAvatar(user.data),
+      ),
+    );
 
-  return userBadge;
+  return badgeContainer;
 }
