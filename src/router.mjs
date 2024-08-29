@@ -1,6 +1,7 @@
 import loadLoginPage from "./pages/user/login.mjs";
 import loadRegistrationPage from "./pages/user/registration.mjs";
 import loadNewListingPage from "./pages/listings/newListing.mjs";
+import loadUserPage from "./pages/user/user.mjs";
 
 export default function router() {
   console.log("Router Loaded");
@@ -28,9 +29,12 @@ export default function router() {
       // New listing page
       loadNewListingPage();
       break;
+    case "/user/":
+      // New listing page
+      loadUserPage();
+      break;
 
     default:
-      // Insert Footer before closing body tag
       break;
   }
 }
