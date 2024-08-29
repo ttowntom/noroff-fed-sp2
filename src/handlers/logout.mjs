@@ -1,9 +1,7 @@
-import { remove } from "../storage/index.mjs";
-
 export default function logout() {
-  // Remove user data from local storage
-  remove("profile");
-  remove("token");
+  // Clear local storage
+  localStorage.clear();
+
   // Redirect to login page
   location.href = "/";
 }
