@@ -1,5 +1,5 @@
 import { API_BASE_URL } from "../constants.mjs";
-// import { login } from "./login.mjs";
+import { login } from "./login.mjs";
 
 export async function register(profile, action, method) {
   const actionURL = new URL(action);
@@ -29,16 +29,15 @@ export async function register(profile, action, method) {
       });
     } else if (response.ok) {
       // Handle success
-      console.log(response);
 
       // Log in user after registration
-      // const loginProfile = {
-      //   email: profile.email,
-      //   password: profile.password,
-      // };
-      // const loginAction = `${API_BASE_URL}/auth/login`;
-      // const loginMethod = "POST";
-      // login(loginProfile, loginAction, loginMethod);
+      const loginProfile = {
+        email: profile.email,
+        password: profile.password,
+      };
+      const loginAction = `${API_BASE_URL}/auth/login`;
+      const loginMethod = "POST";
+      login(loginProfile, loginAction, loginMethod);
     }
   } catch (error) {
     throw new Error(error);
