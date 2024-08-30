@@ -1,12 +1,16 @@
 import ListingActionButton from "./ListingActionButton.mjs";
 
 export default function ListingCard(listing) {
+  console.log(listing);
+
   const imgUrl =
     listing.media[0]?.url ||
     "https://images.unsplash.com/photo-1519114563721-eb52c00b9129?q=80&w=2448&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
   const price = listing.price || null;
 
   // Create the card container
+  const cardLink = document.createElement("a");
+  cardLink.href = `/listings/?listing=${listing.id}`;
   const card = document.createElement("article");
   card.id = listing.id;
   card.classList.add(
@@ -67,9 +71,15 @@ export default function ListingCard(listing) {
   }
   price && textContainer.appendChild(priceEl);
 
+  // Create the action button
+  const actionBtn = ListingActionButton(listing);
+
+  // Append the elements to the card
   wrapper.appendChild(textContainer);
-  wrapper.appendChild(ListingActionButton(listing));
+  wrapper.appendChild(actionBtn);
   cardContent.appendChild(wrapper);
+  cardLink.appendChild(cardContent);
+  card.appendChild(cardLink);
 
   return card;
 }
