@@ -31,7 +31,6 @@ function createContentsContainer() {
     "w-full",
     "sm:max-w-screen-xl",
     "mx-auto",
-    "p-4",
     "flex",
     "flex-row",
     "items-center",
