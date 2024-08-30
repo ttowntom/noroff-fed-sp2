@@ -13,7 +13,6 @@ const isSelf = nameParam === loggedInUser.name;
 
 export default async function UserBadge() {
   const user = await getProfile(nameParam);
-  console.log(user.data);
 
   const badgeContainer = document.createElement("div");
   badgeContainer.id = "badge-container";
