@@ -11,8 +11,10 @@ export default function Header() {
   const col1 = createLogoColumn();
   const col2 = createCreditsColumn();
   const col3 = createActionsColumn();
+  const menuCard = MenuCard();
 
-  header.append(MenuCard(), contentsContainer);
+  menuCard && header.append(menuCard);
+  header.append(contentsContainer);
   contentsContainer.append(col1, col2, col3);
   return header;
 }
@@ -29,7 +31,6 @@ function createContentsContainer() {
     "w-full",
     "sm:max-w-screen-xl",
     "mx-auto",
-    "p-4",
     "flex",
     "flex-row",
     "items-center",

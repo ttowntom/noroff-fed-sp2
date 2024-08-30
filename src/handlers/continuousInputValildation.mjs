@@ -19,10 +19,12 @@ function validateInput(name, value) {
       }
       break;
     case "image-url":
+    case "avatarurl":
       try {
         new URL(value);
         return null;
-      } catch (error) {
+      } catch (err) {
+        console.error("Error:", err.message);
         return "Please enter a valid URL (including 'http' or 'https')";
       }
     default:

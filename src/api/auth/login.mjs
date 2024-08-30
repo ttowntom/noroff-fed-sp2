@@ -35,12 +35,12 @@ export async function login(profile, action, method) {
     const data = await response.json();
     const { accessToken, ...user } = data.data;
 
-    // Get full user profile
-    const profile = await getProfile(user.name);
-
     // Save data to local storage
     storage.save("token", accessToken);
     storage.save("profile", user);
+
+    // Get full user profile and save credits
+    const profile = await getProfile(user.name);
     storage.save("credits", profile.data.credits);
 
     // Redirect

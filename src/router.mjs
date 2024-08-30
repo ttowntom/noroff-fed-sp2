@@ -1,16 +1,11 @@
 import loadLoginPage from "./pages/user/login.mjs";
 import loadRegistrationPage from "./pages/user/registration.mjs";
 import loadNewListingPage from "./pages/listings/newListing.mjs";
+import loadUserPage from "./pages/user/user.mjs";
 
 export default function router() {
-  console.log("Router Loaded");
-
-  // Get current path
+  // Get path
   const path = location.pathname;
-  console.log(path);
-
-  // Get url parameters
-  // const urlParams = new URLSearchParams(window.location.search);
 
   switch (path) {
     case "/":
@@ -28,9 +23,12 @@ export default function router() {
       // New listing page
       loadNewListingPage();
       break;
+    case "/user/":
+      // User page
+      loadUserPage();
+      break;
 
     default:
-      // Insert Footer before closing body tag
       break;
   }
 }

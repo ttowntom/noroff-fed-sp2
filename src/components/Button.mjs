@@ -20,7 +20,7 @@ export default function Button(
     "rounded-md",
     "hover:bg-opacity-90",
     "shadow-md",
-    "self-start",
+    "self-center",
   );
 
   // Set background color based on color prop
@@ -47,10 +47,11 @@ export default function Button(
     button.addEventListener("click", onClick);
   }
 
-  iconElement.classList.add(`fa-solid`, `fa-${icon}`, `mr-2`);
+  if (icon) {
+    iconElement.classList.add(`fa-solid`, `fa-${icon}`, `mr-2`);
+    button.appendChild(iconElement);
+  }
   labelElement.textContent = label;
-
-  button.appendChild(iconElement);
   button.appendChild(labelElement);
 
   return button;

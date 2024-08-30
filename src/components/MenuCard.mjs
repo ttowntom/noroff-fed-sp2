@@ -2,6 +2,7 @@ import { load } from "../storage/index.mjs";
 import logout from "../handlers/logout.mjs";
 import Button from "./Button.mjs";
 
+const user = load("profile");
 const credits = load("credits");
 
 function createCreditsContainer() {
@@ -43,7 +44,9 @@ function createMenuList() {
   const menuList = document.createElement("ul");
   menuList.classList.add("flex", "flex-col", "gap-2", "items-center");
 
-  menuList.appendChild(createMenuItem("Profile", "/user/"));
+  menuList.appendChild(
+    createMenuItem("Profile", `/user/?name=${encodeURIComponent(user.name)}`),
+  );
   menuList.appendChild(createMenuItem("New listing", "/listings/new-listing/"));
   menuList.appendChild(createCreditsContainer());
   menuList.appendChild(
@@ -61,6 +64,7 @@ function createMenuList() {
 }
 
 export default function MenuCard() {
+  if (!user) return;
   const menuCard = document.createElement("div");
   menuCard.id = "menu-card";
   menuCard.classList.add(
