@@ -1,18 +1,26 @@
+import editProfile from "./editProfile.mjs";
 import InputField from "../components/InputField.mjs";
 import Button from "../components/Button.mjs";
 
 export default function editAvatar(userData) {
+  // Keep badge in memory in case of cancel
   const container = document.querySelector(`#badge-container`);
 
-  const formContainer = document.createElement("div");
-  formContainer.classList.add("flex", "gap-4", "items-center");
+  // Create form
   const form = document.createElement("form");
-  form.classList.add("flex", "flex-col", "flex-grow", "gap-2");
+  form.classList.add(
+    "flex",
+    "flex-col",
+    "flex-grow",
+    "gap-2",
+    "p-4",
+    "shadow-lg",
+  );
   form.appendChild(
     InputField(
       "Avatar URL",
       "url",
-      "avatar-url",
+      "avatarurl",
       true,
       false,
       userData.avatar.url,
@@ -22,24 +30,33 @@ export default function editAvatar(userData) {
     InputField(
       "Avatar alt text",
       "text",
-      "avatar-alt",
+      "avataralt",
       false,
       false,
       userData.avatar.alt,
     ),
   );
 
-  formContainer.appendChild(form);
-
+  // Add buttons
   const buttonContainer = document.createElement("div");
-  buttonContainer.classList.add("flex", "gap-2", "flex-col");
-  buttonContainer.appendChild(Button("cloud", "submit", "Save", "golf", true));
+  buttonContainer.classList.add("flex", "gap-2");
   buttonContainer.appendChild(
     Button("ban", "button", "Cancel", "rust", true, () => {
-      formContainer.replaceWith(container);
+      form.replaceWith(container);
     }),
   );
+  buttonContainer.appendChild(
+    Button("cloud", "submit", "Save", "golf", true, (e) =>
+      editProfile(userData.name, e),
+    ),
+  );
 
-  formContainer.appendChild(buttonContainer);
-  container.replaceWith(formContainer);
+  form.appendChild(buttonContainer);
+  container.replaceWith(form);
+
+  // Create an error message container
+  const errorContainer = document.createElement("div");
+  errorContainer.id = "error-container";
+  errorContainer.classList.add("hidden", "text-red-600", "font-semibold");
+  form.appendChild(errorContainer);
 }
