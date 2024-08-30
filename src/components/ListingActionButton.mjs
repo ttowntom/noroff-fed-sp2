@@ -13,7 +13,9 @@ export default function ListingActionButton(listing) {
     "font-semibold",
     "rounded",
     "p-1",
-    "hover:bg-opacity-80",
+    "bg-opacity-80",
+    "hover:bg-opacity-100",
+    "shadow-md",
   );
 
   // Add the action styling and event listener
