@@ -1,5 +1,6 @@
 import { load } from "../storage/index.mjs";
 import getListingsFromProfile from "../api/profile/listings.mjs";
+import renderListings from "../handlers/renderListings.mjs";
 
 // Check if the current user is the same as the user being viewed
 const params = new URLSearchParams(location.search);
@@ -22,7 +23,7 @@ export default async function UserListings() {
   section.appendChild(h2);
 
   let listings = await getListingsFromProfile(currUser);
-  console.log(listings);
+  section.appendChild(renderListings(listings.data));
 
   if (listings.data.length === 0) {
     const msg = document.createElement("p");

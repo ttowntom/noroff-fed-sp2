@@ -1,5 +1,6 @@
 import { load } from "../storage/index.mjs";
 import getWinsFromProfile from "../api/profile/wins.mjs";
+import renderListings from "../handlers/renderListings.mjs";
 
 // Check if the current user is the same as the user being viewed
 const params = new URLSearchParams(location.search);
@@ -22,7 +23,7 @@ export default async function UserWins() {
   section.appendChild(h2);
 
   let listings = await getWinsFromProfile(currUser);
-  console.log(listings.data);
+  section.appendChild(renderListings(listings.data));
 
   if (listings.data.length === 0) {
     const msg = document.createElement("p");
