@@ -28,13 +28,13 @@ export default async function UserListings() {
 
   section.appendChild(h2);
 
-  let listings = await getListingsFromProfile(currUser);
+  let listings = await getListingsFromProfile(nameParam);
   section.appendChild(renderListings(listings.data));
 
   if (listings.data.length === 0) {
     const msg = document.createElement("p");
     msg.classList.add("text-lavender-dark");
-    msg.textContent = `${isSelf ? "You have" : `${currUser} has`} no listings yet.`;
+    msg.textContent = `${isSelf ? "You have" : `${nameParam} has`} no listings yet.`;
     section.appendChild(msg);
   }
 

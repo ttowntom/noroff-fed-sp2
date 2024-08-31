@@ -28,13 +28,13 @@ export default async function UserWins() {
 
   section.appendChild(h2);
 
-  let listings = await getWinsFromProfile(currUser);
+  let listings = await getWinsFromProfile(nameParam);
   section.appendChild(renderListings(listings.data));
 
   if (listings.data.length === 0) {
     const msg = document.createElement("p");
     msg.classList.add("text-lavender-dark");
-    msg.textContent = `${isSelf ? "You have" : `${currUser} has`} no wins yet.`;
+    msg.textContent = `${isSelf ? "You have" : `${nameParam} has`} no wins yet.`;
     section.appendChild(msg);
   }
 
