@@ -9,7 +9,7 @@ export function setListingFormListener() {
       e.preventDefault();
 
       const form = e.target;
-      const listing = createObjFromForm;
+      const listing = createObjFromForm();
       const action = form.action;
       const method = form.method;
 
