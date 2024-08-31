@@ -2,10 +2,16 @@ import { load } from "../storage/index.mjs";
 import getListingsFromProfile from "../api/profile/listings.mjs";
 import renderListings from "../handlers/renderListings.mjs";
 
-// Check if the current user is the same as the user being viewed
-const params = new URLSearchParams(location.search);
-const currUser = params.get("name");
-const isSelf = currUser === load("profile").name;
+// Get URL path and parameters
+const searchParams = new URLSearchParams(window.location.search);
+const nameParam = searchParams.get("name");
+
+// Check if the logged in user is viewing their own profile
+const loggedInUser = load("profile");
+let isSelf = false;
+if (loggedInUser) {
+  isSelf = nameParam === loggedInUser.name;
+}
 
 export default async function UserListings() {
   const section = document.createElement("section");

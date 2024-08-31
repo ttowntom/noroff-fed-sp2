@@ -9,7 +9,10 @@ const nameParam = searchParams.get("name");
 
 // Check if the logged in user is viewing their own profile
 const loggedInUser = load("profile");
-const isSelf = nameParam === loggedInUser.name;
+let isSelf = false;
+if (loggedInUser) {
+  isSelf = nameParam === loggedInUser.name;
+}
 
 export default async function UserBadge() {
   const user = await getProfile(nameParam);
