@@ -14,8 +14,6 @@ export default function ListingDescription(listing) {
   const descriptionHTML = marked.parse(listing.data.description);
   const descriptionEl = document.createElement("div");
   descriptionEl.innerHTML = descriptionHTML;
-  // const descriptionEl = document.createElement("p");
-  // descriptionEl.textContent = listing.data.description;
 
   container.appendChild(titleEl);
   container.appendChild(descriptionEl);

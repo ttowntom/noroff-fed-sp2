@@ -1,13 +1,10 @@
 export default function SellerBadge(sellerObj) {
-  const badgeContainer = document.createElement("div");
-  badgeContainer.id = "badge-container";
-  badgeContainer.classList.add("flex", "gap-4");
-
   const userBadge = document.createElement("div");
   userBadge.classList.add(
     "flex",
-    "flex-grow",
     "items-center",
+    "mt-4",
+    "sm:mt-0",
     "gap-4",
     "text-lavender-dark",
   );
@@ -32,7 +29,6 @@ export default function SellerBadge(sellerObj) {
 
   userBadge.appendChild(userAvatar);
   userBadge.appendChild(textContainer);
-  badgeContainer.appendChild(userBadge);
 
-  return badgeContainer;
+  return userBadge;
 }
