@@ -1,3 +1,11 @@
+import { marked } from "../../node_modules/marked/lib/marked.esm.js";
+
+// Configure marked to use GFM and breaks
+marked.use({
+  gfm: true,
+  breaks: true,
+});
+
 export default function ListingDescription(listing) {
   const container = document.createElement("div");
   container.classList.add("flex", "flex-col", "flex-grow", "gap-4");
@@ -11,6 +19,7 @@ export default function ListingDescription(listing) {
     "font-rowdies",
   );
 
+  console.log(listing.data.description);
   const descriptionHTML = marked.parse(listing.data.description);
   const descriptionEl = document.createElement("div");
   descriptionEl.innerHTML = descriptionHTML;
