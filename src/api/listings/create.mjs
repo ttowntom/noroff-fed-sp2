@@ -9,6 +9,9 @@ export async function createListing(listing, action, method) {
   const listingURL = `${API_AUCTION_URL}${actionURL.pathname}`;
   const body = JSON.stringify(listing);
 
+  console.log(listingURL);
+  console.log(body);
+
   let response;
   try {
     response = await authFetch(listingURL, {
@@ -33,9 +36,10 @@ export async function createListing(listing, action, method) {
     // Handle success
     const data = await response.json();
     console.log(data);
+    const id = data.data.id;
 
     // Redirect
-    // window.location.href = "/";
+    window.location.href = "/listings/?listing=" + id;
   } catch (error) {
     const errors = JSON.parse(error.message);
 
