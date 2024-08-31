@@ -1,4 +1,5 @@
 import ListingActionButton from "./ListingActionButton.mjs";
+import TimeLeftBar from "./TimeLeftBar.mjs";
 
 export default function ListingCard(listing) {
   const imgUrl =
@@ -83,6 +84,7 @@ export default function ListingCard(listing) {
   wrapper.appendChild(actionBtn);
   cardContent.appendChild(wrapper);
   cardLink.appendChild(cardContent);
+  cardLink.appendChild(TimeLeftBar(listing, false));
   card.appendChild(cardLink);
 
   return card;
