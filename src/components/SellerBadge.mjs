@@ -9,8 +9,6 @@ export default function SellerBadge(sellerObj) {
     "flex-grow",
     "items-center",
     "gap-4",
-    "bg-white",
-    "p-2",
     "text-lavender-dark",
   );
 
@@ -22,13 +20,14 @@ export default function SellerBadge(sellerObj) {
   userAvatar.alt = `${sellerObj.name}'s avatar`;
   userAvatar.classList.add("rounded-full", "w-16", "h-16");
 
-  const userEmail = document.createElement("p");
-  userEmail.textContent = "Seller";
-  textContainer.appendChild(userEmail);
+  const userLabel = document.createElement("p");
+  userLabel.textContent = "Seller";
+  textContainer.appendChild(userLabel);
 
-  const userName = document.createElement("p");
+  const userName = document.createElement("a");
   userName.textContent = sellerObj.name;
-  userName.classList.add("font-semibold", "text-lg");
+  userName.href = `/user/?name=${sellerObj.name}`;
+  userName.classList.add("font-semibold", "text-lg", "hover:underline");
   textContainer.appendChild(userName);
 
   userBadge.appendChild(userAvatar);
