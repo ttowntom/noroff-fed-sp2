@@ -7,6 +7,7 @@ export default function Footer() {
     "w-full",
     "sm:w-5/6",
     "sm:max-w-screen-xl",
+    "mt-16",
     "mx-auto",
     "p-4",
     "flex",
