@@ -48,8 +48,5 @@
     "*.html": [
       "prettier --write"
     ]
-  },
-  "dependencies": {
-    "marked": "^14.1.0"
   }
 }
