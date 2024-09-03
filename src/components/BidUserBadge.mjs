@@ -1,4 +1,4 @@
-export default function BidUserBadge(bidData) {
+export default function BidUserBadge(bidData, showPrice = true) {
   const badgeContainer = document.createElement("li");
   badgeContainer.classList.add("bids-badge", "flex", "gap-4");
 
@@ -30,7 +30,7 @@ export default function BidUserBadge(bidData) {
   const bidAmount = document.createElement("p");
   bidAmount.textContent = "$ " + bidData.amount;
   bidAmount.classList.add("text-lavender-dark", "text-sm", "font-semibold");
-  textContainer.appendChild(bidAmount);
+  showPrice && textContainer.appendChild(bidAmount);
 
   userBadge.appendChild(userAvatar);
   userBadge.appendChild(textContainer);
