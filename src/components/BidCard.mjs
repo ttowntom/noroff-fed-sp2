@@ -43,7 +43,7 @@ export default function BidCard(listing) {
   bidCard.appendChild(TimeLeftBar(listing, true));
 
   // Create the bid button
-  bidCard.appendChild(BidButton());
+  bidCard.appendChild(BidButton(listing));
 
   return bidCard;
 }
