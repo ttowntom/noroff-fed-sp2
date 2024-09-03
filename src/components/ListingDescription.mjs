@@ -8,7 +8,14 @@ marked.use({
 
 export default function ListingDescription(listing) {
   const container = document.createElement("div");
-  container.classList.add("flex", "flex-col", "flex-grow", "gap-4");
+  container.classList.add(
+    "w-full",
+    "md:w-1/3",
+    "flex",
+    "flex-col",
+    "flex-grow",
+    "gap-4",
+  );
 
   const titleEl = document.createElement("h2");
   titleEl.textContent = listing.data.title;
@@ -20,7 +27,9 @@ export default function ListingDescription(listing) {
   );
 
   console.log(listing.data.description);
-  const descriptionHTML = marked.parse(listing.data.description);
+  const descriptionHTML = listing.data.description
+    ? marked.parse(listing.data.description)
+    : "No description available";
   const descriptionEl = document.createElement("div");
   descriptionEl.innerHTML = descriptionHTML;
 
