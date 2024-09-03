@@ -51,7 +51,7 @@ export default function BidCard(listing) {
   }
   bidTitle.classList.add("text-sm", "text-lavender-dark", "-mb-4");
   if (hasEnded && priceArr.length === 0) {
-    bidTitle.classList.add("mb-1");
+    bidTitle.classList.add("mb-2");
   }
   bidCard.appendChild(bidTitle);
 
