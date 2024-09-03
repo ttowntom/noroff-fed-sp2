@@ -758,6 +758,10 @@ video {
   width: 100%;
 }
 
+.w-8 {
+  width: 2rem;
+}
+
 .flex-grow {
   flex-grow: 1;
 }
@@ -1255,6 +1259,11 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:my-0 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
   .md\:mt-10 {
     margin-top: 2.5rem;
   }

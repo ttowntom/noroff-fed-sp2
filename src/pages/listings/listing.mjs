@@ -3,6 +3,7 @@ import ListingDescription from "../../components/ListingDescription.mjs";
 import Slider from "../../components/Slider.mjs";
 import SellerBadge from "../../components/SellerBadge.mjs";
 import BidCard from "../../components/BidCard.mjs";
+import BiddingTimeline from "../../components/BiddingTimeline.mjs";
 
 const listingId = new URLSearchParams(location.search).get("listing");
 
@@ -12,7 +13,6 @@ export default async function loadListingPage() {
 
   try {
     const listing = await getListing(listingId);
-    console.log(listing);
 
     // Section for slider and bidding
     const topSection = document.createElement("section");
@@ -50,6 +50,7 @@ export default async function loadListingPage() {
       "sm:p-0",
     );
     bottomSection.appendChild(ListingDescription(listing));
+    bottomSection.appendChild(BiddingTimeline(listing.data));
     main.appendChild(bottomSection);
     return container;
   } catch (error) {
