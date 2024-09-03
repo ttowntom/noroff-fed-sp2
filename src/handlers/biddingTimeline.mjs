@@ -4,9 +4,13 @@ import renameDate from "./renameDate.mjs";
 
 export default function biddingTimeline(bidsArr) {
   let bids;
+  let lowestBid;
   let groupedBids;
   if (bidsArr.length > 0) {
     bids = bidsArr;
+    lowestBid = bids.reduce((acc, curr) => {
+      return acc.amount < curr.amount ? acc : curr;
+    });
     groupedBids = groupBidsByDate(bids);
   } else {
     bids = false;
@@ -30,10 +34,18 @@ export default function biddingTimeline(bidsArr) {
       const dateHeadline = document.createElement("h2");
       const renamedDate = renameDate(date);
       dateHeadline.textContent = renamedDate;
-      dateHeadline.classList.add("text-center", "text-lavender", "mt-4");
-
+      dateHeadline.classList.add(
+        "text-center",
+        "text-lavender",
+        "uppercase",
+        "mt-4",
+      );
       // Append the headline to the container
       container.appendChild(dateHeadline);
+
+      // Create a container for the badges
+      const badgeContainer = document.createElement("ul");
+      badgeContainer.classList.add("mb-8", "flex", "flex-col");
 
       // Loop through each bid for this date
       groupedBids[date].forEach((bid) => {
@@ -41,8 +53,23 @@ export default function biddingTimeline(bidsArr) {
         const badge = BidUserBadge(bid);
 
         // Append the badge to the container
-        container.appendChild(badge);
+        badgeContainer.appendChild(badge);
+
+        // Add icon to badge if bid is not the lowest
+        if (bid.amount !== lowestBid.amount) {
+          const icon = document.createElement("i");
+          icon.classList.add(
+            // "ml-4",
+            "text-center",
+            "text-sm",
+            "fa-solid",
+            "fa-arrow-up",
+            "text-lavender",
+          );
+          badgeContainer.appendChild(icon);
+        }
       });
+      container.appendChild(badgeContainer);
     }
   }
 

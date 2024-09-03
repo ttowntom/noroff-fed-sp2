@@ -1,6 +1,6 @@
 export default function BidUserBadge(bidData) {
-  const badgeContainer = document.createElement("div");
-  badgeContainer.classList.add("flex", "gap-4");
+  const badgeContainer = document.createElement("li");
+  badgeContainer.classList.add("bids-badge", "flex", "gap-4");
 
   const userBadge = document.createElement("div");
   userBadge.classList.add(
