@@ -7,6 +7,7 @@ export default function InputField(
   required = true,
   textArea = false,
   placeholder = "",
+  value = "",
 ) {
   const container = document.createElement("div");
   const inputLabel = document.createElement("label");
@@ -26,6 +27,7 @@ export default function InputField(
   input.id = `input-${name}-${uniqueId}`;
   input.name = `${name}`;
   input.placeholder = placeholder;
+  input.value = value;
   input.required = required;
   if (!textArea) {
     input.type = type;

@@ -37,6 +37,7 @@ export default function ListingActionButton(listing) {
   if (!hasEnded && isOwner) {
     button.addEventListener("click", (e) => {
       e.preventDefault();
+      window.location.href = `/listings/edit-listing/?listing=${listing.id}`;
     });
   }
 

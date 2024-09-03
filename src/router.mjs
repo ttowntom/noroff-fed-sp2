@@ -3,6 +3,7 @@ import loadRegistrationPage from "./pages/user/registration.mjs";
 import loadNewListingPage from "./pages/listings/newListing.mjs";
 import loadUserPage from "./pages/user/user.mjs";
 import loadListingPage from "./pages/listings/listing.mjs";
+import loadEditListingPage from "./pages/listings/editListing.mjs";
 
 export default function router() {
   // Get path
@@ -27,6 +28,10 @@ export default function router() {
     case "/listings/new-listing/":
       // New listing page
       loadNewListingPage();
+      break;
+    case "/listings/edit-listing/":
+      // Edit listing page
+      loadEditListingPage();
       break;
     case "/user/":
       // User page

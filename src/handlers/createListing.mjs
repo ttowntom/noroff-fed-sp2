@@ -1,7 +1,8 @@
 import createObjFromForm from "./createObjFromForm.mjs";
 import { createListing } from "../api/listings/create.mjs";
+import { editListing } from "../api/listings/edit.mjs";
 
-export function setListingFormListener() {
+export function setListingFormListener(id = null) {
   const form = document.querySelector("form");
 
   if (form) {
@@ -17,7 +18,8 @@ export function setListingFormListener() {
       const errContainer = document.querySelector(`#error-container`);
       errContainer.classList.add("hidden");
 
-      createListing(listing, action, method);
+      !id && createListing(listing, action, method);
+      id && editListing(listing, action, "put", id);
     });
   }
 }
