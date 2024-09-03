@@ -13,7 +13,7 @@ export default function ListingCard(listing) {
     price = priceArr[priceArr.length - 1].amount.toLocaleString();
     priceStr = `$${price}`;
   } else {
-    priceStr = "No bids yet";
+    priceStr = "No bids";
   }
 
   // Create the card container
