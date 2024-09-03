@@ -1,9 +1,12 @@
+let auctionEnded = false;
+
 function formatTimeLeft(endsAt) {
   const now = new Date();
   const end = new Date(endsAt);
   const timeDifference = end - now;
 
   if (timeDifference <= 0) {
+    auctionEnded = true;
     return "Auction ended";
   }
 
@@ -83,7 +86,7 @@ export default function TimeLeftBar(listing, showText = true) {
     "text-white",
     "font-semibold",
   );
-  timeLabel.textContent = `${timeLeft} left`;
+  timeLabel.textContent = `${timeLeft} ${!auctionEnded ? "left" : ""}`;
 
   // Append the progress bar and label to the container
   container.appendChild(progressBar);
