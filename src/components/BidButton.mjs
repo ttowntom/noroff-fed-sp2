@@ -1,4 +1,5 @@
 import { load } from "../storage/index.mjs";
+import BidModal from "./BidModal.mjs";
 
 const user = load("profile")?.name || false;
 
@@ -20,6 +21,11 @@ bidButton.classList.add(
   "hover:from-golf",
   "hover:to-golf",
 );
+
+bidButton.addEventListener("click", () => {
+  const modal = BidModal();
+  document.body.appendChild(modal);
+});
 
 const ownerNotice = document.createElement("p");
 ownerNotice.textContent = "You can't bid on your own item";
