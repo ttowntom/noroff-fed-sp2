@@ -4,6 +4,14 @@ import bidOnListing from "../api/listings/bid.mjs";
 import { load, save } from "../storage/index.mjs";
 import { getProfile } from "../api/profile/profileRead.mjs";
 
+// Function to close the modal
+function closeModal() {
+  const modalOverlay = document.getElementById("modal-overlay");
+  if (modalOverlay) {
+    modalOverlay.remove();
+  }
+}
+
 export default async function BidModal(listing) {
   const user = load("profile").name;
   const profile = await getProfile(user);
@@ -13,6 +21,8 @@ export default async function BidModal(listing) {
   // Create modal overlay
   const modalOverlay = document.createElement("div");
   modalOverlay.id = "modal-overlay";
+  // Show modal
+  modalOverlay.classList.remove("hidden");
   modalOverlay.classList.add(
     "fixed",
     "top-0",
@@ -27,6 +37,13 @@ export default async function BidModal(listing) {
     "z-50",
     "shadow-lg",
   );
+
+  // Event listener to close modal on clicking outside
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) {
+      closeModal();
+    }
+  });
 
   // Create modal content
   const modalContent = document.createElement("div");
@@ -61,6 +78,11 @@ export default async function BidModal(listing) {
     "border",
     "border-lavender-light",
   );
+
+  // Event listener to close modal on clicking the close button
+  closeButton.addEventListener("click", () => {
+    closeModal();
+  });
   modalContent.appendChild(closeButton);
 
   // Create title
