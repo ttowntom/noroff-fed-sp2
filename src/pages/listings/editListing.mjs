@@ -4,6 +4,7 @@ import addImage from "../../handlers/addImage.mjs";
 import renderImageFields from "../../handlers/renderImageFields.mjs";
 import { setListingFormListener } from "../../handlers/createListing.mjs";
 import { getListing } from "../../api/listings/read.mjs";
+import deleteListing from "../../api/listings/delete.mjs";
 
 // Get the listing ID from the URL
 const listingId = new URLSearchParams(location.search).get("listing");
@@ -66,7 +67,9 @@ export default async function loadEditListingPage() {
     "mt-2",
   );
   buttonContainer.appendChild(
-    Button("minus", "button", "Delete listing", "rust", true),
+    Button("minus", "button", "Delete listing", "rust", true, () =>
+      deleteListing(listingId),
+    ),
   );
   buttonContainer.appendChild(
     Button("plus", "submit", "Save listing", "golf", true, () =>
