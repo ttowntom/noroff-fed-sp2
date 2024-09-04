@@ -1,13 +1,15 @@
 import { API_AUCTION_URL } from "../constants.mjs";
 import { authFetch } from "../authFetch.mjs";
 
+const action = "?_seller=true&_bids=true";
+
 export default async function getListingsFromProfile(
   username,
   limit = 100,
   page = 1,
 ) {
   try {
-    const getPostURL = `${API_AUCTION_URL}/profiles/${username}/listings?limit=${limit}&page=${page}`;
+    const getPostURL = `${API_AUCTION_URL}/profiles/${username}/listings${action}&limit=${limit}&page=${page}`;
 
     const response = await authFetch(getPostURL);
 

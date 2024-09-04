@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://kit.fontawesome.com/8d12afa6e5.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../src/main.mjs" type="module"></script>
+    <title>Edit listing | QuickBid</title>
+  </head>
+  <body class="flex flex-col min-h-screen bg-white font-titillium">
+    <main>
+      <form
+        id="new-listing-form"
+        method="put"
+        action="/listings"
+        class="w-5/6 md:max-w-screen-sm flex flex-col gap-1 mx-auto"
+      >
+        <div id="img-container" class="flex flex-col gap-2"></div>
+      </form>
+      <div id="error-container" class="mt-2 text-red-500 text-center"></div>
+    </main>
+  </body>
+</html>

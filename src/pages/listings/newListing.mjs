@@ -2,7 +2,6 @@ import InputField from "../../components/InputField.mjs";
 import Button from "../../components/Button.mjs";
 import addImage from "../../handlers/addImage.mjs";
 import { setListingFormListener } from "../../handlers/createListing.mjs";
-// import { setRegistrationFormListener } from "../../handlers/registration.mjs";
 
 export default function loadNewListingPage() {
   // Grab the form element
@@ -44,7 +43,4 @@ export default function loadNewListingPage() {
     ),
   );
   form.appendChild(buttonContainer);
-
-  // Add "create listing" event listener to the form
-  // setRegistrationFormListener();
 }

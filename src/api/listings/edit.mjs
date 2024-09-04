@@ -4,9 +4,9 @@ import { authFetch } from "../authFetch.mjs";
 const errContainer = document.querySelector(`#error-container`);
 
 // Create listing
-export async function createListing(listing, action, method) {
+export async function editListing(listing, action, method, id) {
   const actionURL = new URL(action);
-  const listingURL = `${API_AUCTION_URL}${actionURL.pathname}`;
+  const listingURL = `${API_AUCTION_URL}${actionURL.pathname}/${id}`;
   const body = JSON.stringify(listing);
 
   let response;
@@ -16,7 +16,7 @@ export async function createListing(listing, action, method) {
       body,
     });
 
-    // Handle error
+    /// Handle error
     if (!response.ok) {
       const errorData = JSON.parse(response.message);
       errContainer.textContent = `Error: ${errorData[0].message}`;
