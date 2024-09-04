@@ -9,9 +9,6 @@ export async function createListing(listing, action, method) {
   const listingURL = `${API_AUCTION_URL}${actionURL.pathname}`;
   const body = JSON.stringify(listing);
 
-  console.log(listingURL);
-  console.log(body);
-
   let response;
   try {
     response = await authFetch(listingURL, {
@@ -21,37 +18,18 @@ export async function createListing(listing, action, method) {
 
     // Handle error
     if (!response.ok) {
-      const errorData = await response.json();
-      errContainer.innerHTML =
-        "<p class='font-bold'>Could not save listing</p>";
-
-      errorData.errors.forEach((error) => {
-        const errMsg = document.createElement("p");
-        errMsg.textContent = error.message;
-        errContainer.classList.remove("hidden");
-        errContainer.appendChild(errMsg);
-      });
+      const errorData = JSON.parse(response.message);
+      errContainer.textContent = `Error: ${errorData[0].message}`;
+      errContainer.classList.remove("hidden");
     }
 
     // Handle success
     const data = await response.json();
-    console.log(data);
     const id = data.data.id;
 
     // Redirect
     window.location.href = "/listings/?listing=" + id;
   } catch (error) {
-    const errors = JSON.parse(error.message);
-
-    errContainer.innerHTML = "<p class='font-bold'>Could not save listing</p>";
-
-    errors.forEach((error) => {
-      const errMsg = document.createElement("p");
-      errMsg.textContent = error.message;
-      errContainer.classList.remove("hidden");
-      errContainer.appendChild(errMsg);
-    });
-
     throw new Error(error);
   }
 }
