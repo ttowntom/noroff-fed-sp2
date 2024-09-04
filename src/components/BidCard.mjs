@@ -1,8 +1,11 @@
 import BidButton from "./BidButton.mjs";
 import TimeLeftBar from "./TimeLeftBar.mjs";
 import BidUserBadge from "./BidUserBadge.mjs";
+import { load } from "../storage/index.mjs";
 
 export default function BidCard(listing) {
+  const isOwner = listing.seller.name === load("profile").name;
+
   // Check if the listing has ended
   const now = new Date();
   const endsAt = new Date(listing.endsAt);
@@ -75,7 +78,7 @@ export default function BidCard(listing) {
     bidCard.appendChild(winner);
     bidCard.appendChild(BidUserBadge(highestBid, false));
   }
-  if (hasEnded && priceArr.length === 0) {
+  if (hasEnded && priceArr.length === 0 && isOwner) {
     bidCard.appendChild(BidButton(listing));
   }
 
