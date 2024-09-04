@@ -1,4 +1,5 @@
 import continuousInputValidation from "../handlers/continuousInputValildation.mjs";
+import dateTimeAuctionLimit from "../handlers/dateTimeAuctionLimit.mjs";
 
 export default function InputField(
   label,
@@ -31,6 +32,11 @@ export default function InputField(
   input.required = required;
   if (!textArea) {
     input.type = type;
+  }
+  if (type === "datetime-local") {
+    const { minValue, maxValue } = dateTimeAuctionLimit();
+    input.min = minValue;
+    input.max = maxValue;
   }
   input.classList.add(
     "w-full",
