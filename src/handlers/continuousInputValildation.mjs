@@ -35,6 +35,7 @@ function validateInput(name, value) {
 // Disable submit button if there are validation errors
 let validationErrors = {
   name: false,
+  title: false,
   email: false,
   password: false,
 };
@@ -42,16 +43,17 @@ let validationErrors = {
 function handleSubmitButton(validationErrors) {
   if (
     validationErrors.name ||
+    validationErrors.title ||
     validationErrors.email ||
     validationErrors.password
   ) {
-    const submitButton = document.querySelector(`#btn-sign-up`);
+    const submitButton = document.querySelector('button[type="submit"]');
     submitButton.disabled = true;
-    submitButton.classList.add(`cursor-not-allowed`, `opacity-50`);
+    submitButton.classList.add("cursor-not-allowed", "opacity-50");
   } else {
-    const submitButton = document.querySelector(`#btn-sign-up`);
+    const submitButton = document.querySelector('button[type="submit"]');
     submitButton.disabled = false;
-    submitButton.classList.remove(`cursor-not-allowed`, `opacity-50`);
+    submitButton.classList.remove("cursor-not-allowed", "opacity-50");
   }
 }
 
