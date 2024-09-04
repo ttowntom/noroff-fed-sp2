@@ -35,8 +35,8 @@ export default function BidButton(listing, openModal = true) {
   );
 
   if (openModal) {
-    bidButton.addEventListener("click", () => {
-      const modal = BidModal(listing);
+    bidButton.addEventListener("click", async () => {
+      const modal = await BidModal(listing);
       document.body.appendChild(modal);
     });
   }

@@ -1,8 +1,6 @@
 import { API_AUCTION_URL } from "../constants.mjs";
 import { authFetch } from "../authFetch.mjs";
-import { load } from "../../storage/index.mjs";
-
-const user = load("profile").name;
+import { load, save } from "../../storage/index.mjs";
 
 export default async function bidOnListing(id, bidAmount) {
   const action = "/listings";
@@ -22,9 +20,15 @@ export default async function bidOnListing(id, bidAmount) {
 
   if (!response.ok) {
     const resString = JSON.parse(response.message);
-    const errContainer = document.querySelector("#error-container");
+    const errContainer = document.querySelector("#error-bid");
     errContainer.textContent = `Error: ${resString[0].message}`;
+    errContainer.classList.add("text-white", "text-center");
   }
 
-  window.location.href = `/listings/?listing=${id}`;
+  if (response.ok) {
+    const credits = load("credits");
+    save("credits", credits - bidAmount);
+
+    window.location.href = `/listings/?listing=${id}`;
+  }
 }

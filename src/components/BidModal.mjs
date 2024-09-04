@@ -1,8 +1,15 @@
 import InputField from "./InputField.mjs";
 import BidButton from "./BidButton.mjs";
 import bidOnListing from "../api/listings/bid.mjs";
+import { load, save } from "../storage/index.mjs";
+import { getProfile } from "../api/profile/profileRead.mjs";
 
-export default function BidModal(listing) {
+export default async function BidModal(listing) {
+  const user = load("profile").name;
+  const profile = await getProfile(user);
+  const balance = profile.data.credits;
+  save("credits", balance);
+
   // Create modal overlay
   const modalOverlay = document.createElement("div");
   modalOverlay.id = "modal-overlay";
@@ -88,7 +95,7 @@ export default function BidModal(listing) {
   notice.appendChild(noticeIcon);
 
   const noticeText = document.createElement("p");
-  noticeText.textContent = "1 000";
+  noticeText.textContent = balance;
   noticeText.classList.add("font-semibold", "text-center");
   const textSpan = document.createElement("span");
   textSpan.textContent = "credits available";

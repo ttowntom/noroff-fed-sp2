@@ -43,10 +43,10 @@ export default function ListingActionButton(listing) {
   }
 
   if (!hasEnded && !isOwner) {
-    button.addEventListener("click", (e) => {
+    button.addEventListener("click", async (e) => {
       e.preventDefault();
 
-      const modal = BidModal(listing);
+      const modal = await BidModal(listing);
       document.body.appendChild(modal);
     });
   }
