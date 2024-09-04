@@ -75,6 +75,9 @@ export default function BidCard(listing) {
     bidCard.appendChild(winner);
     bidCard.appendChild(BidUserBadge(highestBid, false));
   }
+  if (hasEnded && priceArr.length === 0) {
+    bidCard.appendChild(BidButton(listing));
+  }
 
   return bidCard;
 }

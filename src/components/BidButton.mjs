@@ -3,23 +3,19 @@ import BidModal from "./BidModal.mjs";
 
 const user = load("profile")?.name || false;
 
-const ownerNotice = document.createElement("p");
-ownerNotice.textContent = "You can't bid on your own item";
-
 const loginNotice = document.createElement("a");
 loginNotice.href = "/user/login";
 loginNotice.textContent = "Log in to bid";
 loginNotice.classList.add("text-lavender-dark", "hover:underline");
 
-export default function BidButton(listing, openModal = true) {
+export default function actionButton(listing, openModal = true) {
   const seller = listing.seller.name;
   const isSeller = user === seller;
 
-  const bidButton = document.createElement("button");
-  bidButton.textContent = "Bid";
-  bidButton.classList.add(
+  const actionButton = document.createElement("button");
+
+  actionButton.classList.add(
     "w-4/5",
-    "text-white",
     "font-bold",
     "uppercase",
     "rounded-md",
@@ -27,24 +23,43 @@ export default function BidButton(listing, openModal = true) {
     "px-4",
     "my-4",
     "shadow-xl",
-    "bg-gradient-to-t",
-    "from-golf",
-    "to-[#00A8AA]",
-    "hover:from-golf",
-    "hover:to-golf",
   );
+  if (!isSeller) {
+    actionButton.textContent = "Bid";
+    actionButton.classList.add(
+      "text-white",
+      "bg-gradient-to-t",
+      "from-golf",
+      "to-[#00A8AA]",
+      "hover:from-golf",
+      "hover:to-golf",
+    );
+  }
+  if (isSeller) {
+    actionButton.textContent = "Edit";
+    actionButton.classList.add(
+      "text-white",
+      "bg-lavender",
+      "hover:bg-lavender-dark",
+    );
 
-  if (openModal) {
-    bidButton.addEventListener("click", async () => {
+    actionButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = `/listings/edit-listing/?listing=${listing.id}`;
+    });
+  }
+
+  if (!isSeller && openModal) {
+    actionButton.addEventListener("click", async () => {
       const modal = await BidModal(listing);
       document.body.appendChild(modal);
     });
   }
 
   if (user && !isSeller) {
-    return bidButton;
+    return actionButton;
   } else if (isSeller) {
-    return ownerNotice;
+    return actionButton;
   } else if (!user) {
     return loginNotice;
   }
