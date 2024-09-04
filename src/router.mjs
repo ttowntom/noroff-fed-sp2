@@ -4,6 +4,7 @@ import loadNewListingPage from "./pages/listings/newListing.mjs";
 import loadUserPage from "./pages/user/user.mjs";
 import loadListingPage from "./pages/listings/listing.mjs";
 import loadEditListingPage from "./pages/listings/editListing.mjs";
+import loadListingsPage from "./pages/listings/listings.mjs";
 
 export default function router() {
   // Get path
@@ -12,6 +13,7 @@ export default function router() {
   switch (path) {
     case "/":
       // Listings page
+      loadListingsPage();
       break;
     case "/user/sign-up/":
       // Registration page
