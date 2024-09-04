@@ -2,7 +2,7 @@ import { API_AUCTION_URL } from "../constants.mjs";
 import { authFetch } from "../authFetch.mjs";
 import { load } from "../../storage/index.mjs";
 
-const user = load("profile").name;
+const user = load("profile")?.name;
 
 const action = "/listings";
 const method = "DELETE";

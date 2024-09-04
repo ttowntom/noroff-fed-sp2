@@ -1,4 +1,5 @@
 import { load } from "../storage/index.mjs";
+import BidModal from "./BidModal.mjs";
 
 export default function ListingActionButton(listing) {
   const isOwner =
@@ -42,8 +43,11 @@ export default function ListingActionButton(listing) {
   }
 
   if (!hasEnded && !isOwner) {
-    button.addEventListener("click", (e) => {
+    button.addEventListener("click", async (e) => {
       e.preventDefault();
+
+      const modal = await BidModal(listing);
+      document.body.appendChild(modal);
     });
   }
 
