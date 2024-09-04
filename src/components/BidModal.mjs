@@ -1,5 +1,6 @@
 import InputField from "./InputField.mjs";
 import BidButton from "./BidButton.mjs";
+import bidOnListing from "../api/listings/bid.mjs";
 
 export default function BidModal(listing) {
   // Create modal overlay
@@ -31,6 +32,7 @@ export default function BidModal(listing) {
     "items-center",
     "bg-lavender-dark",
     "p-6",
+    "pt-2",
     "rounded-md",
   );
 
@@ -39,13 +41,20 @@ export default function BidModal(listing) {
   closeButton.id = "modal-close";
   closeButton.innerHTML = "✖";
   closeButton.classList.add(
-    "absolute",
-    "top-2",
-    "right-2",
+    "p-1",
+    "h-10",
+    "w-10",
+    "self-end",
+    "-mr-4",
+    "bg-lavender-dark",
     "text-white",
-    "text-2xl",
+    "text-xl",
     "cursor-pointer",
+    "rounded-full",
+    "border",
+    "border-lavender-light",
   );
+  modalContent.appendChild(closeButton);
 
   // Create title
   const title = document.createElement("h2");
@@ -100,10 +109,22 @@ export default function BidModal(listing) {
   bidField.classList.add("flex-grow");
   form.appendChild(bidField);
 
-  // Append elements to modal content
-  modalContent.appendChild(closeButton);
+  // Create bid button
+  const button = BidButton(listing, false);
+  button.type = "submit";
+  button.classList.add("w-full");
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    const form = e.target.closest("form");
+    const formData = new FormData(form);
+    const bidAmount = Number(formData.get("bid"));
+
+    bidOnListing(listing.id, bidAmount);
+  });
+  form.appendChild(button);
+
+  // Append form to modal content
   modalContent.appendChild(form);
-  modalContent.appendChild(BidButton(listing));
 
   // Append modal content to overlay
   modalOverlay.appendChild(modalContent);

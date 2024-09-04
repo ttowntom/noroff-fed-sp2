@@ -11,7 +11,7 @@ loginNotice.href = "/user/login";
 loginNotice.textContent = "Log in to bid";
 loginNotice.classList.add("text-lavender-dark", "hover:underline");
 
-export default function BidButton(listing) {
+export default function BidButton(listing, openModal = true) {
   const seller = listing.seller.name;
   const isSeller = user === seller;
 
@@ -34,10 +34,12 @@ export default function BidButton(listing) {
     "hover:to-golf",
   );
 
-  bidButton.addEventListener("click", () => {
-    const modal = BidModal(listing);
-    document.body.appendChild(modal);
-  });
+  if (openModal) {
+    bidButton.addEventListener("click", () => {
+      const modal = BidModal(listing);
+      document.body.appendChild(modal);
+    });
+  }
 
   if (user && !isSeller) {
     return bidButton;
