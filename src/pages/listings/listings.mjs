@@ -1,23 +1,12 @@
 import infiniteScroll from "../../handlers/infiniteScroll.mjs";
 import isScrollNearBottom from "../../handlers/isScrollNearBottom.mjs";
 import SearchBar from "../../components/SearchBar.mjs";
-import search from "../../handlers/search.mjs";
 
 export default async function loadListingsPage() {
   const main = document.querySelector("main");
 
   // Add search bar
-  const searchBar = SearchBar();
-  searchBar.addEventListener("submit", async (e) => {
-    const listings = await search(e);
-    console.log(listings);
-
-    const section = document.getElementById("user-listings");
-    if (section) {
-      section.remove();
-    }
-  });
-  main.appendChild(searchBar);
+  main.appendChild(SearchBar());
 
   window.addEventListener("scroll", async () => {
     if (isScrollNearBottom()) {
