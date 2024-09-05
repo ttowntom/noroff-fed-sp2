@@ -3,7 +3,7 @@ import { authFetch } from "../authFetch.mjs";
 
 const action = "?_seller=true&_bids=true";
 
-export async function getListings(limit = 100, page = 1) {
+export async function getListings(limit = 9, page = 1) {
   try {
     const getListingURL = `${API_AUCTION_URL}/listings${action}&limit=${limit}&page=${page}`;
 

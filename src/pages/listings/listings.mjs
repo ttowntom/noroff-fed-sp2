@@ -1,17 +1,24 @@
-import { getListings } from "../../api/listings/read.mjs";
-import AuctionListings from "../../components/AuctionListings.mjs";
+import infiniteScroll from "../../handlers/infiniteScroll.mjs";
+import isScrollNearBottom from "../../handlers/isScrollNearBottom.mjs";
+
+const main = document.querySelector("main");
 
 export default async function loadListingsPage() {
-  const main = document.querySelector("main");
-  const container = document.createElement("div");
+  window.addEventListener("scroll", async () => {
+    if (isScrollNearBottom(200)) {
+      try {
+        const content = await infiniteScroll();
+        if (content) {
+          // Ensure content is not undefined or null
+          const section = document.getElementById("user-listings");
+          section.append(content);
+        }
+      } catch (error) {
+        console.error("Error fetching infinite scroll content:", error);
+      }
+    }
+  });
 
-  try {
-    const listings = await getListings();
-    main.appendChild(await AuctionListings(listings));
-  } catch (error) {
-    console.error(error);
-
-    container.textContent = "An error occurred. Please try again later.";
-    main.appendChild(container);
-  }
+  // Initial load
+  main.appendChild(await infiniteScroll());
 }
