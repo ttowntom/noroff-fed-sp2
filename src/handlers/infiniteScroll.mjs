@@ -8,8 +8,9 @@ let hasMore = true;
 
 export default async function infiniteScroll(searchQuery = false) {
   if (isLoading || !hasMore) return;
-
   isLoading = true;
+
+  // Fetch listings
   try {
     let listings;
     if (searchQuery) {
@@ -22,7 +23,22 @@ export default async function infiniteScroll(searchQuery = false) {
       listings = await getListings(listingsPerPage, currentPage);
     }
 
-    if (listings.data.length > 0) {
+    // Create message element
+    const msg = document.createElement("p");
+    msg.classList.add(
+      "mt-4",
+      "text-white",
+      "text-center",
+      "py-2",
+      "bg-lavender",
+      "rounded-md",
+    );
+
+    // Check if there is data
+    const hasData = listings.data.length > 0;
+
+    // Return HTML
+    if (hasData) {
       const html = await AuctionListings(
         listings,
         currentPage === 1,
@@ -30,17 +46,11 @@ export default async function infiniteScroll(searchQuery = false) {
       );
       currentPage++;
       return html;
+    } else if (!hasData && currentPage === 1) {
+      msg.textContent = "Could not find any listings";
+      return msg;
     } else {
       hasMore = false;
-      const msg = document.createElement("p");
-      msg.classList.add(
-        "mt-4",
-        "text-white",
-        "text-center",
-        "py-2",
-        "bg-lavender",
-        "rounded-md",
-      );
       msg.textContent = "All listings loaded";
       return msg;
     }
