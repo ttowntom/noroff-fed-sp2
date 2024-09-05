@@ -23,8 +23,8 @@ export default function SearchBar() {
     false,
     null,
   );
+  searchButton.classList.remove("my-2");
   searchButton.classList.add(
-    "my-0",
     "absolute",
     "top-1",
     "right-0",
