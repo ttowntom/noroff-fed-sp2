@@ -13,25 +13,22 @@ export default async function infiniteScroll() {
   try {
     const listings = await getListings(listingsPerPage, currentPage);
     if (listings.data.length > 0) {
+      const html = await AuctionListings(listings, currentPage === 1);
       currentPage++;
-      return await AuctionListings(listings, currentPage <= 2);
+      return html;
     } else {
       hasMore = false;
-      const userListings = document.getElementById("user-listings");
-      if (userListings) {
-        const msg = document.createElement("p");
-        msg.classList.add(
-          "text-white",
-          "text-center",
-          "mt-4",
-          "py-2",
-          "px-4",
-          "bg-lavender",
-          "rounded",
-        );
-        msg.textContent = "All listings loaded";
-        userListings.appendChild(msg);
-      }
+      const msg = document.createElement("p");
+      msg.classList.add(
+        "mt-4",
+        "text-white",
+        "text-center",
+        "py-2",
+        "bg-lavender",
+        "rounded-md",
+      );
+      msg.textContent = "All listings loaded";
+      return msg;
     }
   } catch (error) {
     console.error(error);
