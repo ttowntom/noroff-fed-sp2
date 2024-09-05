@@ -2,7 +2,11 @@ import infiniteScroll from "../../handlers/infiniteScroll.mjs";
 import isScrollNearBottom from "../../handlers/isScrollNearBottom.mjs";
 import SearchBar from "../../components/SearchBar.mjs";
 
-export default async function loadListingsPage() {
+// Get params
+const urlParams = new URLSearchParams(window.location.search);
+const searchQuery = urlParams.get("q");
+
+export default async function loadSearchListingsPage() {
   const main = document.querySelector("main");
 
   // Add search bar
@@ -12,7 +16,7 @@ export default async function loadListingsPage() {
     if (isScrollNearBottom()) {
       const section = document.getElementById("user-listings");
       try {
-        const content = await infiniteScroll();
+        const content = await infiniteScroll(searchQuery);
         if (section && content) {
           // Ensure content is not undefined or null
           section.append(content);
@@ -24,5 +28,5 @@ export default async function loadListingsPage() {
   });
 
   // Initial load
-  main.appendChild(await infiniteScroll());
+  main.appendChild(await infiniteScroll(searchQuery));
 }

@@ -1,19 +1,33 @@
 import AuctionListings from "../components/AuctionListings.mjs";
-import { getListings } from "../api/listings/read.mjs";
+import { getListings, searchListings } from "../api/listings/read.mjs";
 
 const listingsPerPage = 9;
 let currentPage = 1;
 let isLoading = false;
 let hasMore = true;
 
-export default async function infiniteScroll() {
+export default async function infiniteScroll(searchQuery = false) {
   if (isLoading || !hasMore) return;
 
   isLoading = true;
   try {
-    const listings = await getListings(listingsPerPage, currentPage);
+    let listings;
+    if (searchQuery) {
+      listings = await searchListings(
+        listingsPerPage,
+        currentPage,
+        searchQuery,
+      );
+    } else {
+      listings = await getListings(listingsPerPage, currentPage);
+    }
+
     if (listings.data.length > 0) {
-      const html = await AuctionListings(listings, currentPage === 1);
+      const html = await AuctionListings(
+        listings,
+        currentPage === 1,
+        searchQuery,
+      );
       currentPage++;
       return html;
     } else {

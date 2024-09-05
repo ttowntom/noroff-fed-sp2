@@ -1,6 +1,10 @@
 import renderListings from "../handlers/renderListings.mjs";
 
-export default async function AuctionListings(listings, firstLoad = true) {
+export default async function AuctionListings(
+  listings,
+  firstLoad = true,
+  searchQuery = false,
+) {
   const bulk = document.createElement(`${firstLoad ? "section" : "div"}`);
   bulk.classList.add("w-full", "flex", "flex-col", "mt-2");
   if (firstLoad) {
@@ -15,6 +19,12 @@ export default async function AuctionListings(listings, firstLoad = true) {
       "font-rowdies",
     );
     bulk.appendChild(h2);
+  }
+  if (searchQuery) {
+    const searchNotice = document.createElement("p");
+    searchNotice.textContent = `with the search term: "${searchQuery}"`;
+    searchNotice.classList.add("-mt-4", "mb-4", "text-lavender-dark");
+    firstLoad && bulk.appendChild(searchNotice);
   }
 
   bulk.appendChild(renderListings(listings.data));

@@ -4,7 +4,7 @@ import Button from "./Button.mjs";
 export default function SearchBar() {
   const searchForm = document.createElement("form");
   searchForm.id = "search-form";
-  searchForm.classList.add("relative");
+  searchForm.classList.add("relative", "mb-8");
 
   const searchInput = InputField(
     null,
@@ -33,6 +33,18 @@ export default function SearchBar() {
   );
 
   searchForm.append(searchInput, searchButton);
+
+  searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const form = event.target.closest("form");
+    const searchInput = form.querySelector("input[name='search");
+    const searchQuery = searchInput.value;
+    if (!searchQuery) {
+      return;
+    }
+
+    window.location.href = `/listings/search/?q=${searchQuery}`;
+  });
 
   return searchForm;
 }
