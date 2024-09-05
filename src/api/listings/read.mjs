@@ -30,3 +30,15 @@ export async function getListing(id) {
     throw new Error("Error getting listing: " + error.message);
   }
 }
+
+export async function searchListings(limit = 9, page = 1, searchQuery) {
+  try {
+    const getListingURL = `${API_AUCTION_URL}/listings/search${action}&limit=${limit}&page=${page}&q=${searchQuery}`;
+
+    const response = await authFetch(getListingURL);
+
+    return await response.json();
+  } catch (error) {
+    throw new Error("Error getting listings: " + error.message);
+  }
+}
