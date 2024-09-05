@@ -34,7 +34,6 @@ export async function getListing(id) {
 export async function searchListings(limit = 9, page = 1, searchQuery) {
   try {
     const getListingURL = `${API_AUCTION_URL}/listings/search${action}&limit=${limit}&page=${page}&q=${searchQuery}`;
-
     const response = await authFetch(getListingURL);
 
     return await response.json();
