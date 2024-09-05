@@ -10,7 +10,8 @@ export default function Button(
   const iconElement = document.createElement("i");
   const labelElement = document.createElement("span");
 
-  button.id = `btn-${label.toLowerCase().replace(/\s/g, "-")}`;
+  const useId = label ? label : icon;
+  button.id = `btn-${useId.toLowerCase().replace(/\s/g, "-")}`;
   button.type = type;
   button.classList.add(
     "px-4",
@@ -48,11 +49,18 @@ export default function Button(
   }
 
   if (icon) {
-    iconElement.classList.add(`fa-solid`, `fa-${icon}`, `mr-2`);
+    iconElement.classList.add(
+      `fa-solid`,
+      `fa-${icon}`,
+      `${label ? "mr-2" : "mr-0"}`,
+    );
     button.appendChild(iconElement);
   }
-  labelElement.textContent = label;
-  button.appendChild(labelElement);
+
+  if (label) {
+    labelElement.textContent = label;
+    button.appendChild(labelElement);
+  }
 
   return button;
 }
