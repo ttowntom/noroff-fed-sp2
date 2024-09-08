@@ -1,7 +1,7 @@
 import { API_AUCTION_URL } from "../constants.mjs";
 import { authFetch } from "../authFetch.mjs";
 
-const action = "?_listings=true&_wins=true";
+const action = "?_listings=true&_wins=true&sort=created&order=desc";
 
 export async function getProfiles(limit = 100, page = 1) {
   try {
