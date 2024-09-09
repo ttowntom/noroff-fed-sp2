@@ -40,7 +40,9 @@ export default function Slider(imgArr) {
       "p-2",
       "rounded",
     );
-    slide.appendChild(imgCaption);
+    if (img.alt.length > 2) {
+      slide.appendChild(imgCaption);
+    }
 
     slide.appendChild(imgEl);
     slidesContainer.appendChild(slide);
