@@ -17,7 +17,10 @@ export default async function loadListingPage() {
     // Section for slider and bidding
     const topSection = document.createElement("section");
     topSection.classList.add("flex", "gap-4", "flex-wrap", "md:flex-nowrap");
-    topSection.appendChild(Slider(listing.data.media));
+    const sliderContainer = document.createElement("div");
+    sliderContainer.classList.add("w-full", "md:w-2/3");
+    sliderContainer.appendChild(Slider(listing.data.media));
+    topSection.appendChild(sliderContainer);
     main.appendChild(topSection);
 
     // Seller and bidding
