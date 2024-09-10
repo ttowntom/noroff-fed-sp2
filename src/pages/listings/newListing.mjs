@@ -12,6 +12,13 @@ export default function loadNewListingPage() {
     return;
   }
 
+  // Grab main
+  const main = document.querySelector("main");
+  const title = document.createElement("h1");
+  title.classList.add("sr-only");
+  title.textContent = "Create a new listing";
+  main.prepend(title);
+
   // Grab the form element
   const form = document.querySelector("form");
   const imgContainer = document.querySelector("#img-container");
