@@ -3,6 +3,13 @@ import Button from "../../components/Button.mjs";
 import { setLoginFormListener } from "../../handlers/login.mjs";
 
 export default function loadLoginPage() {
+  // Grab main
+  const main = document.querySelector("main");
+  const title = document.createElement("h1");
+  title.classList.add("sr-only");
+  title.textContent = "Log in";
+  main.appendChild(title);
+
   // Grab the form element
   const form = document.querySelector("form");
 

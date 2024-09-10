@@ -4,7 +4,7 @@ import BidUserBadge from "./BidUserBadge.mjs";
 import { load } from "../storage/index.mjs";
 
 export default function BidCard(listing) {
-  const isOwner = listing.seller.name === load("profile").name;
+  const isOwner = listing.seller.name === load("profile")?.name;
 
   // Check if the listing has ended
   const now = new Date();
@@ -39,7 +39,7 @@ export default function BidCard(listing) {
   );
 
   // Create the title element
-  const bidTitle = document.createElement("h3");
+  const bidTitle = document.createElement("h2");
   if (hasEnded && priceArr.length === 0) {
     bidTitle.textContent = "There were no bids";
   }

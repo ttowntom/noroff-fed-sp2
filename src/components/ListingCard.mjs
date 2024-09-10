@@ -1,10 +1,9 @@
 import ListingActionButton from "./ListingActionButton.mjs";
 import TimeLeftBar from "./TimeLeftBar.mjs";
+import { NO_IMG_URL } from "../api/constants.mjs";
 
 export default function ListingCard(listing) {
-  const imgUrl =
-    listing.media[0]?.url ||
-    "https://images.unsplash.com/photo-1519114563721-eb52c00b9129?q=80&w=2448&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+  const imgUrl = listing.media[0]?.url || NO_IMG_URL;
   const priceArr = listing.bids || [];
   let price;
   let priceStr;
@@ -31,6 +30,7 @@ export default function ListingCard(listing) {
     "rounded-md",
     "shadow-md",
     "overflow-hidden",
+    "bg-black",
   );
 
   const cardContent = document.createElement("div");
@@ -86,6 +86,59 @@ export default function ListingCard(listing) {
   cardLink.appendChild(cardContent);
   cardLink.appendChild(TimeLeftBar(listing, false));
   card.appendChild(cardLink);
+
+  return card;
+}
+
+export function ListingCardSkeleton() {
+  // Create the card container
+  const card = document.createElement("article");
+  card.classList.add(
+    "flex",
+    "flex-col",
+    "flex-grow",
+    "w-full",
+    "sm:w-1/3",
+    "md:w-1/4",
+    "rounded-md",
+    "shadow-md",
+    "overflow-hidden",
+    "bg-lavender",
+    "animate-pulse",
+  );
+
+  const cardContent = document.createElement("div");
+  cardContent.classList.add(
+    "relative",
+    "w-full",
+    "h-48",
+    "overflow-hidden",
+    "bg-gray-300",
+  );
+  card.appendChild(cardContent);
+
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("flex", "flex-col", "p-4", "space-y-2");
+
+  const titlePlaceholder = document.createElement("div");
+  titlePlaceholder.classList.add(
+    "w-3/4",
+    "h-6",
+    "bg-lavender-light",
+    "rounded",
+  );
+  wrapper.appendChild(titlePlaceholder);
+
+  const pricePlaceholder = document.createElement("div");
+  pricePlaceholder.classList.add(
+    "w-1/2",
+    "h-6",
+    "bg-lavender-light",
+    "rounded",
+  );
+  wrapper.appendChild(pricePlaceholder);
+
+  card.appendChild(wrapper);
 
   return card;
 }

@@ -31,6 +31,7 @@ export default function SearchBar() {
     "border",
     "border-lavender",
   );
+  searchButton.ariaLabel = "Search";
 
   searchForm.append(searchInput, searchButton);
 

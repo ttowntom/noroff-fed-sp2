@@ -13,7 +13,7 @@ export default function Header() {
   const col3 = createActionsColumn();
   const menuCard = MenuCard();
 
-  menuCard && header.append(menuCard);
+  menuCard && contentsContainer.append(menuCard);
   header.append(contentsContainer);
   contentsContainer.append(col1, col2, col3);
   return header;
@@ -21,14 +21,30 @@ export default function Header() {
 
 function createHeader() {
   const header = document.createElement("header");
-  header.classList.add("sm:w-5/6", "flex", "justify-end", "sm:mx-auto");
+  header.classList.add(
+    "py-2",
+    "sm:py-4",
+    "px-2",
+    "sm:px-0",
+    "w-full",
+    "flex",
+    "justify-end",
+    "sm:mx-auto",
+    "bg-white",
+    "z-50",
+    "sticky",
+    "top-0",
+    "shadow-lg",
+  );
   return header;
 }
 
 function createContentsContainer() {
   const container = document.createElement("div");
+  container.id = "header-contents";
   container.classList.add(
     "w-full",
+    "sm:w-5/6",
     "sm:max-w-screen-xl",
     "mx-auto",
     "flex",
@@ -36,16 +52,17 @@ function createContentsContainer() {
     "items-center",
     "justify-between",
     "gap-4",
+    "bg-white",
   );
   return container;
 }
 
 function createLogoColumn() {
   const col1 = document.createElement("div");
-  col1.classList.add("sm:w-1/4");
+  col1.classList.add("sm:w-1/4", "flex");
   col1.innerHTML = `
     <a href="/">
-      <img src="/assets/quickBid-logo.svg" alt="QuickBid Logo" class="w-full max-h-16" />
+      <img src="/assets/quickBid-logo.svg" alt="QuickBid Logo" class="w-full max-h-10" />
     </a>
   `;
   return col1;
@@ -58,7 +75,6 @@ function createCreditsColumn() {
     "sm:flex",
     "items-center",
     "gap-2",
-    "pt-2",
     "text-lavender-dark",
   );
 
@@ -78,7 +94,7 @@ function createCreditsColumn() {
 
 function createActionsColumn() {
   const col3 = document.createElement("nav");
-  col3.classList.add("flex", "justify-end", "gap-6", "pt-2");
+  col3.classList.add("flex", "justify-end", "gap-6");
 
   // New listing link
   let newListingLink;

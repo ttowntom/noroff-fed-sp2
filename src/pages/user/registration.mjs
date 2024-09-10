@@ -3,6 +3,13 @@ import Button from "../../components/Button.mjs";
 import { setRegistrationFormListener } from "../../handlers/registration.mjs";
 
 export default function loadRegistrationPage() {
+  // Grab main
+  const main = document.querySelector("main");
+  const title = document.createElement("h1");
+  title.classList.add("sr-only");
+  title.textContent = "Sign up";
+  main.appendChild(title);
+
   // Grab the form element
   const form = document.querySelector("form");
 

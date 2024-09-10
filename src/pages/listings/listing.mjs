@@ -4,15 +4,34 @@ import Slider from "../../components/Slider.mjs";
 import SellerBadge from "../../components/SellerBadge.mjs";
 import BidCard from "../../components/BidCard.mjs";
 import BiddingTimeline from "../../components/BiddingTimeline.mjs";
+import updateTitle from "../../handlers/updateTitle.mjs";
+import { NO_IMG_URL } from "../../api/constants.mjs";
+import ListingPageSkeleton from "../../components/ListingPageSkeleton.mjs";
 
 const listingId = new URLSearchParams(location.search).get("listing");
 
 export default async function loadListingPage() {
+  // Grab main
   const main = document.querySelector("main");
   const container = document.createElement("div");
 
+  // Render skeleton
+  const skeleton = ListingPageSkeleton();
+  main.appendChild(skeleton);
+
   try {
     const listing = await getListing(listingId);
+
+    // Remove skeleton
+    skeleton.remove();
+
+    // Update title
+    updateTitle(listing.data);
+
+    const title = document.createElement("h1");
+    title.classList.add("sr-only");
+    title.textContent = listing.data.title + " listing page";
+    main.appendChild(title);
 
     // Section for slider and bidding
     const topSection = document.createElement("section");
@@ -22,8 +41,7 @@ export default async function loadListingPage() {
     if (listing.data.media.length > 0) {
       sliderContainer.appendChild(Slider(listing.data.media));
     } else {
-      const noImgUrl =
-        "https://images.unsplash.com/photo-1519114563721-eb52c00b9129?q=80&w=2448&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+      const noImgUrl = NO_IMG_URL;
       const noImgAlt = "No images available for this listing";
       sliderContainer.appendChild(Slider([{ url: noImgUrl, alt: noImgAlt }]));
     }
@@ -39,7 +57,6 @@ export default async function loadListingPage() {
       "flex-col-reverse",
       "md:flex-col",
       "gap-4",
-      "p-2",
       "sm:p-0",
     );
     // Seller info
@@ -56,7 +73,6 @@ export default async function loadListingPage() {
       "gap-4",
       "mt-2",
       "md:mt-10",
-      "p-2",
       "sm:p-0",
     );
     bottomSection.appendChild(ListingDescription(listing));

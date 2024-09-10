@@ -3,10 +3,12 @@ import BidModal from "./BidModal.mjs";
 
 const user = load("profile")?.name || false;
 
+const body = document.querySelector("body");
+
 const loginNotice = document.createElement("a");
 loginNotice.href = "/user/login";
 loginNotice.textContent = "Log in to bid";
-loginNotice.classList.add("text-lavender-dark", "hover:underline");
+loginNotice.classList.add("text-lavender", "hover:underline");
 
 export default function actionButton(listing, openModal = true) {
   const seller = listing.seller.name;
@@ -52,7 +54,8 @@ export default function actionButton(listing, openModal = true) {
   if (!isSeller && openModal) {
     actionButton.addEventListener("click", async () => {
       const modal = await BidModal(listing);
-      document.body.appendChild(modal);
+      body.ariaLive = "assertive";
+      body.appendChild(modal);
     });
   }
 

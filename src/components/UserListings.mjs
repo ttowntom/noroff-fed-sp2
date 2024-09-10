@@ -1,6 +1,8 @@
 import { load } from "../storage/index.mjs";
 import getListingsFromProfile from "../api/profile/listings.mjs";
-import renderListings from "../handlers/renderListings.mjs";
+import renderListings, {
+  renderListingsSkeleton,
+} from "../handlers/renderListings.mjs";
 
 // Get URL path and parameters
 const searchParams = new URLSearchParams(window.location.search);

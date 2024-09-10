@@ -1,6 +1,7 @@
 export default function Slider(imgArr) {
   const slider = document.createElement("div");
   slider.classList.add("slider", "relative", "overflow-hidden");
+  slider.ariaLive = "polite";
 
   const slidesContainer = document.createElement("div");
   slidesContainer.classList.add(
@@ -61,6 +62,7 @@ export default function Slider(imgArr) {
     "transform",
     "-translate-y-1/2",
   );
+  btnLeft.ariaLabel = "Previous slide";
 
   const leftIcon = document.createElement("i");
   leftIcon.classList.add(
@@ -81,6 +83,7 @@ export default function Slider(imgArr) {
     "transform",
     "-translate-y-1/2",
   );
+  btnRight.ariaLabel = "Next slide";
 
   const rightIcon = document.createElement("i");
   rightIcon.classList.add(
@@ -110,6 +113,7 @@ export default function Slider(imgArr) {
     const dot = document.createElement("button");
     dot.classList.add("dots__dot", "w-2", "h-2", "bg-lavender", "rounded-full");
     dot.dataset.slide = index;
+    dot.ariaLabel = `Go to slide ${index + 1}`;
     dotsContainer.appendChild(dot);
   });
 
