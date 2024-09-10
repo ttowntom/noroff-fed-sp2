@@ -23,9 +23,14 @@ export default function InputField(
   const uniqueId = Math.floor(Math.random() * 100);
   const id = `input-${name}-${uniqueId}`;
 
-  inputLabel.textContent = label;
   inputLabel.htmlFor = id;
-  inputLabel.classList.add("block", "font-semibold", "text-gray-600");
+  if (label) {
+    inputLabel.classList.add("block", "font-semibold", "text-gray-600");
+    inputLabel.textContent = label;
+  } else {
+    inputLabel.classList.add("sr-only");
+    inputLabel.textContent = name;
+  }
 
   input.id = id;
   input.name = `${name}`;
