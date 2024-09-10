@@ -20,12 +20,14 @@ export default function InputField(
 
   container.classList.add("flex", "flex-col");
 
+  const uniqueId = Math.floor(Math.random() * 100);
+  const id = `input-${name}-${uniqueId}`;
+
   inputLabel.textContent = label;
+  inputLabel.htmlFor = id;
   inputLabel.classList.add("block", "font-semibold", "text-gray-600");
 
-  const uniqueId = Math.floor(Math.random() * 100);
-
-  input.id = `input-${name}-${uniqueId}`;
+  input.id = id;
   input.name = `${name}`;
   input.placeholder = placeholder;
   input.value = value;
@@ -57,6 +59,7 @@ export default function InputField(
   // Error field
   errorField.id = `error-${name}`;
   errorField.classList.add("text-red-500", "text-sm", "mt-1");
+  errorField.ariaLive = "polite";
   container.appendChild(errorField);
 
   // Add event listener for input validation
