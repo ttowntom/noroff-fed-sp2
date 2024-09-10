@@ -19,7 +19,7 @@ export default async function UserBadge() {
 
   const badgeContainer = document.createElement("div");
   badgeContainer.id = "badge-container";
-  badgeContainer.classList.add("flex", "gap-4");
+  badgeContainer.classList.add("flex", "gap-4", "flex-wrap");
 
   const userBadge = document.createElement("div");
   userBadge.classList.add(
@@ -42,11 +42,12 @@ export default async function UserBadge() {
 
   const userName = document.createElement("p");
   userName.textContent = user.data.name;
-  userName.classList.add("font-semibold", "text-lg");
+  userName.classList.add("font-semibold", "text-lg", "break-all");
   textContainer.appendChild(userName);
 
   const userEmail = document.createElement("p");
   userEmail.textContent = user.data.email;
+  userEmail.classList.add("break-all");
   textContainer.appendChild(userEmail);
 
   userBadge.appendChild(userAvatar);
