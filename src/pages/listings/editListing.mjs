@@ -8,12 +8,24 @@ import deleteListing from "../../api/listings/delete.mjs";
 
 // Get the listing ID from the URL
 const listingId = new URLSearchParams(location.search).get("listing");
+const main = document.querySelector("main");
 
 export default async function loadEditListingPage() {
   const res = await getListing(listingId);
   const listing = res.data;
   const endsAtDate = new Date(listing.endsAt);
   const formattedEndsAt = endsAtDate.toISOString().slice(0, 16);
+
+  const title = document.createElement("h1");
+  title.classList.add(
+    "flex",
+    "justify-center",
+    "text-2xl",
+    "font-bold",
+    "text-lavender-dark",
+  );
+  title.textContent = `Edit "${listing.title}" listing`;
+  main.prepend(title);
 
   // Grab the form element
   const form = document.querySelector("form");
@@ -48,7 +60,6 @@ export default async function loadEditListingPage() {
   );
 
   // Append the image container to the form
-  console.log(listing);
   if (listing.media.length > 0) {
     listing.media.forEach((img) => {
       renderImageFields(img);
@@ -74,6 +85,16 @@ export default async function loadEditListingPage() {
   buttonContainer.appendChild(
     Button("plus", "submit", "Save listing", "golf", true, () =>
       setListingFormListener(listingId),
+    ),
+  );
+  buttonContainer.appendChild(
+    Button(
+      "ban",
+      "button",
+      "Cancel",
+      "lavender",
+      true,
+      () => (location.href = `/listings/?listing=${listingId}`),
     ),
   );
   form.appendChild(buttonContainer);
