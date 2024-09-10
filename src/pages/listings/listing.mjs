@@ -45,7 +45,6 @@ export default async function loadListingPage() {
       "flex-col-reverse",
       "md:flex-col",
       "gap-4",
-      "p-2",
       "sm:p-0",
     );
     // Seller info
@@ -62,7 +61,6 @@ export default async function loadListingPage() {
       "gap-4",
       "mt-2",
       "md:mt-10",
-      "p-2",
       "sm:p-0",
     );
     bottomSection.appendChild(ListingDescription(listing));

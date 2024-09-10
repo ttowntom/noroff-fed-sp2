@@ -45,7 +45,7 @@ export default function biddingTimeline(bidsArr) {
 
       // Create a container for the badges
       const badgeContainer = document.createElement("ul");
-      badgeContainer.classList.add("mb-8", "flex", "flex-col");
+      badgeContainer.classList.add("mb-8", "flex", "flex-col", "items-center");
 
       // Loop through each bid for this date
       groupedBids[date].forEach((bid) => {
@@ -59,7 +59,6 @@ export default function biddingTimeline(bidsArr) {
         if (bid.amount !== lowestBid.amount) {
           const icon = document.createElement("i");
           icon.classList.add(
-            // "ml-4",
             "text-center",
             "text-sm",
             "fa-solid",

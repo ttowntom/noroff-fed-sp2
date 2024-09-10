@@ -75,6 +75,8 @@ export default function MenuCard() {
     "sm:w-1/4",
     "mt-20",
     "absolute",
+    "right-0",
+    "sm:right-auto",
     "z-50",
     "py-4",
     "px-6",
