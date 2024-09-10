@@ -52,12 +52,14 @@ export default async function UserBadge() {
   userBadge.appendChild(userAvatar);
   userBadge.appendChild(textContainer);
   badgeContainer.appendChild(userBadge);
-  isSelf &&
+  if (isSelf) {
+    badgeContainer.ariaLive = "polite";
     badgeContainer.appendChild(
       Button("user-pen", "button", "Edit avatar", "lavender", false, () =>
         editAvatar(user.data),
       ),
     );
+  }
 
   return badgeContainer;
 }
