@@ -21,7 +21,14 @@ export default function Header() {
 
 function createHeader() {
   const header = document.createElement("header");
-  header.classList.add("sm:w-5/6", "flex", "justify-end", "sm:mx-auto");
+  header.classList.add(
+    "px-2",
+    "sm:px-0",
+    "sm:w-5/6",
+    "flex",
+    "justify-end",
+    "sm:mx-auto",
+  );
   return header;
 }
 
