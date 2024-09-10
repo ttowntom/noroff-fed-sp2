@@ -1,10 +1,9 @@
 import ListingActionButton from "./ListingActionButton.mjs";
 import TimeLeftBar from "./TimeLeftBar.mjs";
+import { NO_IMG_URL } from "../api/constants.mjs";
 
 export default function ListingCard(listing) {
-  const imgUrl =
-    listing.media[0]?.url ||
-    "https://images.unsplash.com/photo-1519114563721-eb52c00b9129?q=80&w=2448&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+  const imgUrl = listing.media[0]?.url || NO_IMG_URL;
   const priceArr = listing.bids || [];
   let price;
   let priceStr;

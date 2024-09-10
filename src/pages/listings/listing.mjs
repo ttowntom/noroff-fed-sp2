@@ -5,6 +5,7 @@ import SellerBadge from "../../components/SellerBadge.mjs";
 import BidCard from "../../components/BidCard.mjs";
 import BiddingTimeline from "../../components/BiddingTimeline.mjs";
 import updateTitle from "../../handlers/updateTitle.mjs";
+import { NO_IMG_URL } from "../../api/constants.mjs";
 
 const listingId = new URLSearchParams(location.search).get("listing");
 
@@ -32,8 +33,7 @@ export default async function loadListingPage() {
     if (listing.data.media.length > 0) {
       sliderContainer.appendChild(Slider(listing.data.media));
     } else {
-      const noImgUrl =
-        "https://images.unsplash.com/photo-1519114563721-eb52c00b9129?q=80&w=2448&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+      const noImgUrl = NO_IMG_URL;
       const noImgAlt = "No images available for this listing";
       sliderContainer.appendChild(Slider([{ url: noImgUrl, alt: noImgAlt }]));
     }
