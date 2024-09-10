@@ -16,7 +16,12 @@ async function triggerInfiniteScroll() {
 }
 
 export default async function loadListingsPage() {
+  // Grab main
   const main = document.querySelector("main");
+  const title = document.createElement("h1");
+  title.classList.add("sr-only");
+  title.textContent = "Home";
+  main.appendChild(title);
 
   // Add search bar
   main.appendChild(SearchBar());
