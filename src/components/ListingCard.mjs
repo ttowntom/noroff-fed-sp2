@@ -31,6 +31,7 @@ export default function ListingCard(listing) {
     "rounded-md",
     "shadow-md",
     "overflow-hidden",
+    "bg-black",
   );
 
   const cardContent = document.createElement("div");
