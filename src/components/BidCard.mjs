@@ -4,7 +4,7 @@ import BidUserBadge from "./BidUserBadge.mjs";
 import { load } from "../storage/index.mjs";
 
 export default function BidCard(listing) {
-  const isOwner = listing.seller.name === load("profile").name;
+  const isOwner = listing.seller.name === load("profile")?.name;
 
   // Check if the listing has ended
   const now = new Date();

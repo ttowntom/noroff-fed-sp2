@@ -8,6 +8,8 @@ import loadListingsPage from "./pages/listings/listings.mjs";
 import loadSearchListingsPage from "./pages/listings/search.mjs";
 import { load } from "./storage/index.mjs";
 
+const isUserLoggedIn = load("token") !== null;
+
 export default function router() {
   // Get path
   const path = location.pathname;
@@ -34,14 +36,26 @@ export default function router() {
       loadSearchListingsPage();
       break;
     case "/listings/new-listing/":
+      // Redirect to login page using window.location
+      if (!isUserLoggedIn) {
+        window.location.href = "/user/login/";
+      }
       // New listing page
       loadNewListingPage();
       break;
     case "/listings/edit-listing/":
+      // Redirect to login page using window.location
+      if (!isUserLoggedIn) {
+        window.location.href = "/user/login/";
+      }
       // Edit listing page
       loadEditListingPage();
       break;
     case "/user/":
+      // Redirect to login page using window.location
+      if (!isUserLoggedIn) {
+        window.location.href = "/user/login/";
+      }
       // User page
       loadUserPage();
       break;

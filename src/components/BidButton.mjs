@@ -8,7 +8,7 @@ const body = document.querySelector("body");
 const loginNotice = document.createElement("a");
 loginNotice.href = "/user/login";
 loginNotice.textContent = "Log in to bid";
-loginNotice.classList.add("text-lavender-dark", "hover:underline");
+loginNotice.classList.add("text-lavender", "hover:underline");
 
 export default function actionButton(listing, openModal = true) {
   const seller = listing.seller.name;
