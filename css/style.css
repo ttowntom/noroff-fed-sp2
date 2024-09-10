@@ -620,6 +620,10 @@ video {
   position: relative;
 }
 
+.sticky{
+  position: sticky;
+}
+
 .bottom-0{
   bottom: 0px;
 }
@@ -740,10 +744,6 @@ video {
   margin-top: 0.5rem;
 }
 
-.mt-20{
-  margin-top: 5rem;
-}
-
 .mt-4{
   margin-top: 1rem;
 }
@@ -802,6 +802,10 @@ video {
 
 .h-full{
   height: 100%;
+}
+
+.max-h-10{
+  max-height: 2.5rem;
 }
 
 .max-h-16{
@@ -867,6 +871,10 @@ video {
 
 .cursor-pointer{
   cursor: pointer;
+}
+
+.resize{
+  resize: both;
 }
 
 .flex-row{
@@ -945,10 +953,6 @@ video {
 
 .overflow-hidden{
   overflow: hidden;
-}
-
-.break-words{
-  overflow-wrap: break-word;
 }
 
 .break-all{
@@ -1359,8 +1363,8 @@ video {
 }
 
 @media (min-width: 640px){
-  .sm\:relative{
-    position: relative;
+  .sm\:right-\[30px\]{
+    right: 30px;
   }
 
   .sm\:right-auto{
@@ -1374,6 +1378,26 @@ video {
 
   .sm\:mt-0{
     margin-top: 0px;
+  }
+
+  .sm\:mt-14{
+    margin-top: 3.5rem;
+  }
+
+  .sm\:-mr-20{
+    margin-right: -5rem;
+  }
+
+  .sm\:-mr-1{
+    margin-right: -0.25rem;
+  }
+
+  .sm\:-mr-2{
+    margin-right: -0.5rem;
+  }
+
+  .sm\:-mr-4{
+    margin-right: -1rem;
   }
 
   .sm\:flex{
@@ -1423,6 +1447,11 @@ video {
   .sm\:px-0{
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .sm\:py-4{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   .sm\:text-start{

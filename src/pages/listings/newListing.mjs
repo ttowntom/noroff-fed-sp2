@@ -15,7 +15,13 @@ export default function loadNewListingPage() {
   // Grab main
   const main = document.querySelector("main");
   const title = document.createElement("h1");
-  title.classList.add("sr-only");
+  title.classList.add(
+    "flex",
+    "justify-center",
+    "text-2xl",
+    "font-bold",
+    "text-lavender-dark",
+  );
   title.textContent = "Create a new listing";
   main.prepend(title);
 
