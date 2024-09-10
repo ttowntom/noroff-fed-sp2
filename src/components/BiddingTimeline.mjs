@@ -1,7 +1,7 @@
 import biddingTimeline from "../handlers/biddingTimeline.mjs";
 
 export default function BiddingTimeline(listing) {
-  const container = document.createElement("div");
+  const container = document.createElement("aside");
   container.classList.add("w-full", "md:w-1/3", "my-4", "md:my-0");
 
   const titleEl = document.createElement("h2");

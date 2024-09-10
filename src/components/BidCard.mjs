@@ -39,7 +39,7 @@ export default function BidCard(listing) {
   );
 
   // Create the title element
-  const bidTitle = document.createElement("h3");
+  const bidTitle = document.createElement("h2");
   if (hasEnded && priceArr.length === 0) {
     bidTitle.textContent = "There were no bids";
   }

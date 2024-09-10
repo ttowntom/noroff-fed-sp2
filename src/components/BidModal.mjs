@@ -77,6 +77,7 @@ export default async function BidModal(listing) {
     "rounded-full",
     "border",
     "border-lavender-light",
+    "hover:bg-lavender-light",
   );
 
   // Event listener to close modal on clicking the close button

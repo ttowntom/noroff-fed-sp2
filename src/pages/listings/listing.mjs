@@ -8,11 +8,17 @@ import BiddingTimeline from "../../components/BiddingTimeline.mjs";
 const listingId = new URLSearchParams(location.search).get("listing");
 
 export default async function loadListingPage() {
+  // Grab main
   const main = document.querySelector("main");
   const container = document.createElement("div");
 
   try {
     const listing = await getListing(listingId);
+
+    const title = document.createElement("h1");
+    title.classList.add("sr-only");
+    title.textContent = listing.data.title + " listing page";
+    main.appendChild(title);
 
     // Section for slider and bidding
     const topSection = document.createElement("section");
