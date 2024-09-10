@@ -4,6 +4,7 @@ import Slider from "../../components/Slider.mjs";
 import SellerBadge from "../../components/SellerBadge.mjs";
 import BidCard from "../../components/BidCard.mjs";
 import BiddingTimeline from "../../components/BiddingTimeline.mjs";
+import updateTitle from "../../handlers/updateTitle.mjs";
 
 const listingId = new URLSearchParams(location.search).get("listing");
 
@@ -14,6 +15,9 @@ export default async function loadListingPage() {
 
   try {
     const listing = await getListing(listingId);
+
+    // Update title
+    updateTitle(listing.data);
 
     const title = document.createElement("h1");
     title.classList.add("sr-only");
