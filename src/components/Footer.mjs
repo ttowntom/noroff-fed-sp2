@@ -40,7 +40,7 @@ export default function Footer() {
   const navigation = document.createElement("div");
   navigation.classList.add("sm:w-1/4");
   navigation.innerHTML = `
-		<h3 class="text-lg font-semibold">Navigation</h3>
+		<h2 class="text-lg font-semibold">Navigation</h2>
 		<ul class="flex flex-col gap-1 text-sm">
 			<li><a href="/" class="hover:underline">Browse listings</a></li>
 			<li><a href="/user/" class="hover:underline">My account</a></li>
@@ -53,7 +53,7 @@ export default function Footer() {
   const legal = document.createElement("div");
   legal.classList.add("sm:w-1/4");
   legal.innerHTML = `
-		<h3 class="text-lg font-semibold">Legal</h3>
+		<h2 class="text-lg font-semibold">Legal</h2>
 		<ul class="flex flex-col gap-1 text-sm">
 			<li><a href="#" class="hover:underline">Terms of Service</a></li>
 			<li><a href="#" class="hover:underline">Privacy Policy</a></li>
@@ -67,7 +67,7 @@ export default function Footer() {
   const col3 = document.createElement("div");
   col3.classList.add("sm:w-1/4");
   col3.innerHTML = `
-		<h3 class="text-lg text-center sm:text-start font-semibold">Social channels</h3>
+		<h2 class="text-lg text-center sm:text-start font-semibold">Social channels</h2>
 		<ul class="flex justify-center sm:justify-start gap-2 text-2xl text-lavender">
 			<li class="hover:text-lavender-light"><a href="#" ><i class="fa-brands fa-square-x-twitter"></i></a></li>
 			<li class="hover:text-lavender-light"><a href="#" ><i class="fa-brands fa-square-facebook"></i></a></li>
