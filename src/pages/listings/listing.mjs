@@ -6,6 +6,7 @@ import BidCard from "../../components/BidCard.mjs";
 import BiddingTimeline from "../../components/BiddingTimeline.mjs";
 import updateTitle from "../../handlers/updateTitle.mjs";
 import { NO_IMG_URL } from "../../api/constants.mjs";
+import ListingPageSkeleton from "../../components/ListingPageSkeleton.mjs";
 
 const listingId = new URLSearchParams(location.search).get("listing");
 
@@ -14,8 +15,15 @@ export default async function loadListingPage() {
   const main = document.querySelector("main");
   const container = document.createElement("div");
 
+  // Render skeleton
+  const skeleton = ListingPageSkeleton();
+  main.appendChild(skeleton);
+
   try {
     const listing = await getListing(listingId);
+
+    // Remove skeleton
+    skeleton.remove();
 
     // Update title
     updateTitle(listing.data);

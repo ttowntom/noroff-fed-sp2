@@ -89,3 +89,56 @@ export default function ListingCard(listing) {
 
   return card;
 }
+
+export function ListingCardSkeleton() {
+  // Create the card container
+  const card = document.createElement("article");
+  card.classList.add(
+    "flex",
+    "flex-col",
+    "flex-grow",
+    "w-full",
+    "sm:w-1/3",
+    "md:w-1/4",
+    "rounded-md",
+    "shadow-md",
+    "overflow-hidden",
+    "bg-lavender",
+    "animate-pulse",
+  );
+
+  const cardContent = document.createElement("div");
+  cardContent.classList.add(
+    "relative",
+    "w-full",
+    "h-48",
+    "overflow-hidden",
+    "bg-gray-300",
+  );
+  card.appendChild(cardContent);
+
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("flex", "flex-col", "p-4", "space-y-2");
+
+  const titlePlaceholder = document.createElement("div");
+  titlePlaceholder.classList.add(
+    "w-3/4",
+    "h-6",
+    "bg-lavender-light",
+    "rounded",
+  );
+  wrapper.appendChild(titlePlaceholder);
+
+  const pricePlaceholder = document.createElement("div");
+  pricePlaceholder.classList.add(
+    "w-1/2",
+    "h-6",
+    "bg-lavender-light",
+    "rounded",
+  );
+  wrapper.appendChild(pricePlaceholder);
+
+  card.appendChild(wrapper);
+
+  return card;
+}

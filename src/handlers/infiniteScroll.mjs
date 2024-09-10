@@ -1,5 +1,6 @@
 import AuctionListings from "../components/AuctionListings.mjs";
 import { getListings, searchListings } from "../api/listings/read.mjs";
+import { renderListingsSkeleton } from "./renderListings.mjs";
 
 const listingsPerPage = 9;
 let currentPage = 1;
@@ -9,6 +10,10 @@ let hasMore = true;
 export default async function infiniteScroll(searchQuery = false) {
   if (isLoading || !hasMore) return;
   isLoading = true;
+
+  const main = document.querySelector("main");
+  const skeleton = renderListingsSkeleton();
+  main.appendChild(skeleton);
 
   // Fetch listings
   try {
@@ -58,5 +63,6 @@ export default async function infiniteScroll(searchQuery = false) {
     console.error(error);
   } finally {
     isLoading = false;
+    skeleton.remove();
   }
 }
