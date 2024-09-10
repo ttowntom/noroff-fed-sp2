@@ -2,8 +2,16 @@ import InputField from "../../components/InputField.mjs";
 import Button from "../../components/Button.mjs";
 import addImage from "../../handlers/addImage.mjs";
 import { setListingFormListener } from "../../handlers/createListing.mjs";
+import { load } from "../../storage/index.mjs";
+
+const user = load("profile")?.name || null;
 
 export default function loadNewListingPage() {
+  if (!user) {
+    window.location.href = "/user/login/";
+    return;
+  }
+
   // Grab the form element
   const form = document.querySelector("form");
   const imgContainer = document.querySelector("#img-container");
