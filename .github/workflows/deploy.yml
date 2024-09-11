@@ -18,6 +18,9 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v3
 
+      - name: List files in current directory (for debugging)
+        run: ls -la
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
