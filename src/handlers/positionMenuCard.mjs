@@ -10,6 +10,8 @@ export default function positionMenuCard() {
   const menuCard = document.getElementById("menu-card");
   const mediaQuery = window.matchMedia("(min-width: 640px)");
 
+  if (!menuCard) return;
+
   if (mediaQuery.matches) {
     menuCard.style.right = `${calcPosition()}px`;
   }
