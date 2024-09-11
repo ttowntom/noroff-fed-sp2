@@ -47,17 +47,18 @@ export default async function loadEditListingPage() {
   form.prepend(
     InputField("Title", "text", "title", true, false, "", listing.title),
   );
-  form.appendChild(
-    InputField(
-      "Auction ends at",
-      "datetime-local",
-      "end-date",
-      true,
-      false,
-      "",
-      formattedEndsAt,
-    ),
+  const endsAt = InputField(
+    "Auction ends at",
+    "datetime-local",
+    "end-date",
+    true,
+    false,
+    "",
+    formattedEndsAt,
   );
+  const endsAtInput = endsAt.querySelector("input");
+  endsAtInput.disabled = true;
+  form.appendChild(endsAt);
 
   // Append the image container to the form
   if (listing.media.length > 0) {
