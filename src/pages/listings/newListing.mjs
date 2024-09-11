@@ -53,7 +53,7 @@ export default function loadNewListingPage() {
   );
   buttonContainer.appendChild(
     Button(
-      "plus",
+      "cloud",
       "submit",
       "Save listing",
       "golf",

@@ -85,7 +85,7 @@ export default async function loadEditListingPage() {
     ),
   );
   buttonContainer.appendChild(
-    Button("plus", "submit", "Save listing", "golf", true, () =>
+    Button("cloud", "submit", "Save listing", "golf", true, () =>
       setListingFormListener(listingId),
     ),
   );

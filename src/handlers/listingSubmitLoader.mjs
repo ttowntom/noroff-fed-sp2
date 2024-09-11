@@ -38,6 +38,6 @@ export function listingSubmitLoaderOff() {
   saveBtn.textContent = "Save listing";
 
   const icon = document.createElement("i");
-  icon.classList.add("fa-solid", "fa-plus", "mr-2");
+  icon.classList.add("fa-solid", "fa-cloud", "mr-2");
   saveBtn.prepend(icon);
 }
