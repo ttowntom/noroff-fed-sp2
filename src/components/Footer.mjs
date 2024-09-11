@@ -26,7 +26,7 @@ export default function Footer() {
   col1.classList.add("sm:w-1/4");
   col1.innerHTML = `
 		<a href="/">
-		<img src="/assets/quickBid-logo.svg" alt="QuickBid Logo" class="w-full max-h-8 mb-2" />
+		<img src="/images/quickBid-logo.svg" alt="QuickBid Logo" class="w-full max-h-8 mb-2" />
 		</a>
 	`;
   if (screenWidth >= 640) {

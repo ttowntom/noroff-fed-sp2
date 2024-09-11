@@ -62,7 +62,7 @@ function createLogoColumn() {
   col1.classList.add("sm:w-1/4", "flex");
   col1.innerHTML = `
     <a href="/">
-      <img src="/assets/quickBid-logo.svg" alt="QuickBid Logo" class="w-full max-h-10" />
+      <img src="/images/quickBid-logo.svg" alt="QuickBid Logo" class="w-full max-h-10" />
     </a>
   `;
   return col1;
