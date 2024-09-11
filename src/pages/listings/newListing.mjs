@@ -46,12 +46,10 @@ export default function loadNewListingPage() {
   buttonContainer.classList.add(
     "flex",
     "flex-row",
+    "flex-wrap",
     "gap-2",
     "justify-between",
     "mt-2",
-  );
-  buttonContainer.appendChild(
-    Button("minus", "button", "Delete listing", "rust", true),
   );
   buttonContainer.appendChild(
     Button(
@@ -61,6 +59,16 @@ export default function loadNewListingPage() {
       "golf",
       true,
       setListingFormListener,
+    ),
+  );
+  buttonContainer.appendChild(
+    Button(
+      "ban",
+      "button",
+      "Cancel",
+      "lavender",
+      true,
+      () => (location.href = `/user/?name=${user}`),
     ),
   );
   form.appendChild(buttonContainer);

@@ -756,6 +756,14 @@ video {
   margin-top: 2rem;
 }
 
+.-mt-\[2\.5em\]{
+  margin-top: -2.5em;
+}
+
+.-mt-\[2em\]{
+  margin-top: -2em;
+}
+
 .block{
   display: block;
 }
@@ -810,6 +818,10 @@ video {
 
 .h-full{
   height: 100%;
+}
+
+.h-4{
+  height: 1rem;
 }
 
 .max-h-10{
@@ -1276,6 +1288,11 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-lavender-light{
+  --tw-text-opacity: 1;
+  color: hsl(250 18% 60% / var(--tw-text-opacity));
+}
+
 .opacity-50{
   opacity: 0.5;
 }
@@ -1326,6 +1343,53 @@ video {
   height: 100%;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   pointer-events: none;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  animation-fill-mode: both;
+  animation: bblFadInOut 1.8s infinite ease-in-out;
+}
+
+.loader {
+  color: #fff;
+  font-size: 7px;
+  position: relative;
+  text-indent: -9999em;
+  transform: translateZ(0);
+  animation-delay: -0.16s;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 0;
+}
+
+.loader:before {
+  left: -3.5em;
+  animation-delay: -0.32s;
+}
+
+.loader:after {
+  left: 3.5em;
+}
+
+@keyframes bblFadInOut {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
 }
 
 .hover\:bg-lavender-dark:hover{

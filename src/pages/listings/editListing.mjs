@@ -74,6 +74,7 @@ export default async function loadEditListingPage() {
   buttonContainer.classList.add(
     "flex",
     "flex-row",
+    "flex-wrap",
     "gap-2",
     "justify-between",
     "mt-2",
