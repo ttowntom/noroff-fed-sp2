@@ -1,5 +1,7 @@
 export function listingSubmitLoader() {
-  const saveBtn = document.querySelector(`#btn-save-listing`);
+  const saveBtn =
+    document.querySelector(`#btn-save-listing`) ||
+    document.querySelector(`#btn-save`);
   const cancelBtn = document.querySelector(`#btn-cancel`);
 
   // Handle the cancel button
@@ -19,7 +21,9 @@ export function listingSubmitLoader() {
 }
 
 export function listingSubmitLoaderOff() {
-  const saveBtn = document.querySelector(`#btn-save-listing`);
+  const saveBtn =
+    document.querySelector(`#btn-save-listing`) ||
+    document.querySelector(`#btn-save`);
   const cancelBtn = document.querySelector(`#btn-cancel`);
 
   // Handle the cancel button
