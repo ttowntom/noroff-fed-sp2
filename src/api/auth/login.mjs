@@ -1,6 +1,10 @@
 import { API_BASE_URL } from "../constants.mjs";
 import { getProfile } from "../profile/profileRead.mjs";
 import * as storage from "../../storage/index.mjs";
+import {
+  listingSubmitLoader,
+  listingSubmitLoaderOff,
+} from "../../handlers/listingSubmitLoader.mjs";
 
 export async function login(profile, action, method) {
   const actionURL = new URL(action);
@@ -9,6 +13,10 @@ export async function login(profile, action, method) {
 
   let response;
   try {
+    // Set loader
+    listingSubmitLoader();
+
+    // Fetch
     response = await fetch(loginURL, {
       method,
       headers: {
@@ -19,6 +27,7 @@ export async function login(profile, action, method) {
 
     // Handle error
     if (!response.ok) {
+      listingSubmitLoaderOff();
       const errorData = await response.json();
       const errContainer = document.querySelector(`#error-container`);
       errContainer.innerHTML = "";
@@ -46,6 +55,7 @@ export async function login(profile, action, method) {
     // Redirect
     window.location.href = "/";
   } catch (error) {
+    listingSubmitLoaderOff();
     throw new Error(error);
   }
 }

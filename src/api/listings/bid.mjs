@@ -1,6 +1,10 @@
 import { API_AUCTION_URL } from "../constants.mjs";
 import { authFetch } from "../authFetch.mjs";
 import { load, save } from "../../storage/index.mjs";
+import {
+  listingSubmitLoader,
+  listingSubmitLoaderOff,
+} from "../../handlers/listingSubmitLoader.mjs";
 
 export default async function bidOnListing(id, bidAmount) {
   const action = "/listings";
@@ -13,12 +17,16 @@ export default async function bidOnListing(id, bidAmount) {
 
   const bidOnListingURL = `${API_AUCTION_URL}${action}/${id}/bids`;
 
+  // Set loader
+  listingSubmitLoader();
+
   const response = await authFetch(bidOnListingURL, {
     method,
     body,
   });
 
   if (!response.ok) {
+    listingSubmitLoaderOff();
     const resString = JSON.parse(response.message);
     const errContainer = document.querySelector("#error-bid");
     errContainer.textContent = `Error: ${resString[0].message}`;

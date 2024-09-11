@@ -1,5 +1,9 @@
 import { API_BASE_URL } from "../constants.mjs";
 import { login } from "./login.mjs";
+import {
+  listingSubmitLoader,
+  listingSubmitLoaderOff,
+} from "../../handlers/listingSubmitLoader.mjs";
 
 export async function register(profile, action, method) {
   const actionURL = new URL(action);
@@ -7,6 +11,10 @@ export async function register(profile, action, method) {
   const body = JSON.stringify(profile);
 
   try {
+    // Set loader
+    listingSubmitLoader();
+
+    // Fetch
     const response = await fetch(registrationURL, {
       method,
       headers: {
@@ -15,8 +23,9 @@ export async function register(profile, action, method) {
       body,
     });
 
+    // Handle error
     if (!response.ok) {
-      // Handle error
+      listingSubmitLoaderOff();
       const errorData = await response.json();
       const errContainer = document.querySelector(`#error-container`);
       errContainer.innerHTML = "";
@@ -40,6 +49,7 @@ export async function register(profile, action, method) {
       login(loginProfile, loginAction, loginMethod);
     }
   } catch (error) {
+    listingSubmitLoaderOff();
     throw new Error(error);
   }
 }
