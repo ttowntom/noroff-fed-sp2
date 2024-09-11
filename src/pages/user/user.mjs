@@ -37,6 +37,5 @@ export default async function loadUserPage() {
     main.appendChild(userWins);
   } catch (error) {
     console.error("Failed to load user page:", error);
-    // Handle error (e.g., show an error message)
   }
 }

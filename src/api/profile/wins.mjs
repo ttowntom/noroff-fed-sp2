@@ -3,20 +3,16 @@ import { authFetch } from "../authFetch.mjs";
 import { renderListingsSkeleton } from "../../handlers/renderListings.mjs";
 
 const main = document.querySelector("main");
-const sort = "&sort=created&order=desc";
+const sort = "?sort=created&order=desc";
 
-export default async function getWinsFromProfile(
-  username,
-  limit = 100,
-  page = 1,
-) {
+export default async function getWinsFromProfile(username) {
   try {
     // Render skeleton
     const skeleton = renderListingsSkeleton();
     skeleton.id = "listings-skeleton";
     main.appendChild(skeleton);
 
-    const getPostURL = `${API_AUCTION_URL}/profiles/${username}/wins?limit=${limit}&page=${page}${sort}`;
+    const getPostURL = `${API_AUCTION_URL}/profiles/${username}/wins${sort}`;
 
     const response = await authFetch(getPostURL);
 
