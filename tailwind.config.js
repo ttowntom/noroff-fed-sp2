@@ -12,7 +12,6 @@ module.exports = {
         rust: "hsl(5, 36%, 51%)",
         golf: "hsl(169, 100%, 27%)",
       },
-      "golf-light": "hsl(181, 100%, 33%)",
       fontFamily: {
         rowdies: ["Rowdies", "sans-serif"],
         titillium: ["Titillium Web", "sans-serif"],

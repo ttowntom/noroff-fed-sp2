@@ -7,11 +7,12 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --cache --fix",
     "format": "prettier --write .",
-    "build": "tailwindcss -i ./input.css -o ./css/style.css",
-    "watch": "tailwindcss -i ./input.css -o ./css/style.css --watch",
-    "start": "live-server",
-    "dev": "npm-run-all --parallel watch start",
-    "prepare": "husky"
+    "t:build": "tailwindcss -i ./input.css -o ./css/style.css",
+    "t:watch": "tailwindcss -i ./input.css -o ./css/style.css --watch",
+    "prepare": "husky",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -48,5 +49,10 @@
     "*.html": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.45",
+    "vite": "^5.4.4"
   }
 }
