@@ -12,7 +12,7 @@ export default async function getWinsFromProfile(username) {
     skeleton.id = "listings-skeleton";
     main.appendChild(skeleton);
 
-    const getPostURL = `${API_AUCTION_URL}/profiles/${username}/wins${sort}`;
+    const getPostURL = `${API_AUCTION_URL}/profiles/${username}/wins${sort}&_bids=true`;
 
     const response = await authFetch(getPostURL);
 
