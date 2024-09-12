@@ -1,5 +1,6 @@
 import { load } from "../storage/index.mjs";
 import hamburgerMenuToggle from "../handlers/hamburgerMenuToggle.mjs";
+import logoUrl from "../assets/quickBid-logo.svg";
 
 import MenuCard from "./MenuCard.mjs";
 import MenuButton from "./MenuButton.mjs";
@@ -61,11 +62,18 @@ function createContentsContainer() {
 function createLogoColumn() {
   const col1 = document.createElement("div");
   col1.classList.add("sm:w-1/4", "flex");
-  col1.innerHTML = `
-    <a href="/">
-      <img src="/images/quickBid-logo.svg" alt="QuickBid Logo" class="w-full max-h-10" />
-    </a>
-  `;
+
+  const logoLink = document.createElement("a");
+  logoLink.href = "/";
+
+  const logo = document.createElement("img");
+  logo.src = logoUrl;
+  logo.alt = "QuickBid Logo";
+  logo.classList.add("w-full", "max-h-10");
+
+  logoLink.append(logo);
+  col1.append(logoLink);
+
   return col1;
 }
 

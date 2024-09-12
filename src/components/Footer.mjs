@@ -1,4 +1,6 @@
 // Get screen width
+import logoUrl from "../assets/quickBid-logo.svg";
+
 let screenWidth = window.innerWidth;
 
 export default function Footer() {
@@ -24,11 +26,18 @@ export default function Footer() {
 
   const col1 = document.createElement("div");
   col1.classList.add("sm:w-1/4");
-  col1.innerHTML = `
-		<a href="/">
-		<img src="/images/quickBid-logo.svg" alt="QuickBid Logo" class="w-full max-h-8 mb-2" />
-		</a>
-	`;
+
+  const logoLink = document.createElement("a");
+  logoLink.href = "/";
+
+  const logo = document.createElement("img");
+  logo.src = logoUrl;
+  logo.alt = "QuickBid Logo";
+  logo.classList.add("w-full", "max-h-8", "mb-2");
+
+  logoLink.append(logo);
+  col1.append(logoLink);
+
   if (screenWidth >= 640) {
     col1.innerHTML += `<p class="text-center text-sm text-gray-500">&copy; 2024 QuickBid.</p>
 		<p class="text-center text-sm text-gray-500">All rights reserved.</p>`;
