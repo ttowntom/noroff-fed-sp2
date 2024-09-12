@@ -3,10 +3,14 @@ import UserListings from "../../components/UserListings.mjs";
 import UserWins from "../../components/UserWins.mjs";
 import updateTitle from "../../handlers/updateTitle.mjs";
 import UserPageSkeleton from "../../components/UserPageSkeleton.mjs";
+import { load } from "../../storage/index.mjs";
+
+// Load logged in user
+const user = load("profile")?.name;
 
 // Get URL parameters
 const urlParams = new URLSearchParams(window.location.search);
-const userName = urlParams.get("name");
+let userName = urlParams.get("name") || user;
 
 export default async function loadUserPage() {
   // Update title

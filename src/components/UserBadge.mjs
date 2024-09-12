@@ -6,13 +6,14 @@ import Button from "./Button.mjs";
 
 // Get URL path and parameters
 const searchParams = new URLSearchParams(window.location.search);
-const nameParam = searchParams.get("name");
+let nameParam = searchParams.get("name");
 
 // Check if the logged in user is viewing their own profile
 const loggedInUser = load("profile");
 let isSelf = false;
 if (loggedInUser) {
   isSelf = nameParam === loggedInUser.name;
+  nameParam = loggedInUser.name;
 }
 
 export default async function UserBadge() {
