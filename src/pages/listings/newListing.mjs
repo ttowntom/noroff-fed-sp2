@@ -20,7 +20,7 @@ export default function loadNewListingPage() {
     "justify-center",
     "text-2xl",
     "font-bold",
-    "text-lavender-dark",
+    "text-lavender-dark"
   );
   title.textContent = "Create a new listing";
   main.prepend(title);
@@ -34,12 +34,12 @@ export default function loadNewListingPage() {
   form.prepend(InputField("Description", "text", "description", false, true));
   form.prepend(InputField("Title", "text", "title", true));
   form.appendChild(
-    InputField("Auction ends at", "datetime-local", "end-date", true),
+    InputField("Auction ends at", "datetime-local", "end-date", true)
   );
 
   // Append the image container to the form
   imgContainer.appendChild(
-    Button("plus", "button", "Add Image", "lavender", false, addImage),
+    Button("plus", "button", "Add Image", "lavender", false, addImage)
   );
 
   // Append the button container to the form
@@ -49,7 +49,7 @@ export default function loadNewListingPage() {
     "flex-wrap",
     "gap-2",
     "justify-between",
-    "mt-2",
+    "mt-2"
   );
   buttonContainer.appendChild(
     Button(
@@ -58,8 +58,8 @@ export default function loadNewListingPage() {
       "Save listing",
       "golf",
       true,
-      setListingFormListener,
-    ),
+      setListingFormListener
+    )
   );
   buttonContainer.appendChild(
     Button(
@@ -68,8 +68,8 @@ export default function loadNewListingPage() {
       "Cancel",
       "lavender",
       true,
-      () => (location.href = `/user/?name=${user}`),
-    ),
+      () => (location.href = `/user/?name=${user}`)
+    )
   );
   form.appendChild(buttonContainer);
 }

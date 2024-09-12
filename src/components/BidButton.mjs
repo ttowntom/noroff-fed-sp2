@@ -25,7 +25,7 @@ export default function actionButton(listing, openModal = true) {
     "py-2",
     "px-4",
     "my-4",
-    "shadow-xl",
+    "shadow-xl"
   );
   if (!isSeller) {
     actionButton.textContent = "Bid";
@@ -35,7 +35,7 @@ export default function actionButton(listing, openModal = true) {
       "from-golf",
       "to-[#00A8AA]",
       "hover:from-golf",
-      "hover:to-golf",
+      "hover:to-golf"
     );
   }
   if (isSeller) {
@@ -43,7 +43,7 @@ export default function actionButton(listing, openModal = true) {
     actionButton.classList.add(
       "text-white",
       "bg-lavender",
-      "hover:bg-lavender-dark",
+      "hover:bg-lavender-dark"
     );
 
     actionButton.addEventListener("click", (e) => {

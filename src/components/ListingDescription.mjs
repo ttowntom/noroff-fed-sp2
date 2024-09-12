@@ -8,7 +8,7 @@ export default function ListingDescription(listing) {
     "flex",
     "flex-col",
     "flex-grow",
-    "gap-4",
+    "gap-4"
   );
 
   const titleEl = document.createElement("h2");
@@ -17,7 +17,7 @@ export default function ListingDescription(listing) {
     "text-2xl",
     "font-semibold",
     "text-lavender-dark",
-    "font-rowdies",
+    "font-rowdies"
   );
 
   const descriptionText = listing.data.description

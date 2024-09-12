@@ -18,7 +18,7 @@ export default function addImage() {
     "mt-2",
     "border",
     "border-gray-200",
-    "rounded-md",
+    "rounded-md"
   );
 
   // Create the icon
@@ -35,7 +35,7 @@ export default function addImage() {
     "w-12",
     "h-12",
     "cursor-pointer",
-    "hover:bg-opacity-90",
+    "hover:bg-opacity-90"
   );
 
   const icon = document.createElement("i");
@@ -48,10 +48,10 @@ export default function addImage() {
   inputContainer.classList.add("flex", "flex-col", "flex-grow");
 
   inputContainer.appendChild(
-    InputField("Image URL", "url", "image-url", true, false),
+    InputField("Image URL", "url", "image-url", true, false)
   );
   inputContainer.appendChild(
-    InputField("Image description", "text", "image-description", true, false),
+    InputField("Image description", "text", "image-description", true, false)
   );
 
   // Append the input fields and button to the form

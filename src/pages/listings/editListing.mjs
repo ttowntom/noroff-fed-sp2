@@ -22,7 +22,7 @@ export default async function loadEditListingPage() {
     "justify-center",
     "text-2xl",
     "font-bold",
-    "text-lavender-dark",
+    "text-lavender-dark"
   );
   title.textContent = `Edit "${listing.title}" listing`;
   main.prepend(title);
@@ -41,11 +41,11 @@ export default async function loadEditListingPage() {
       false,
       true,
       "",
-      listing.description,
-    ),
+      listing.description
+    )
   );
   form.prepend(
-    InputField("Title", "text", "title", true, false, "", listing.title),
+    InputField("Title", "text", "title", true, false, "", listing.title)
   );
   const endsAt = InputField(
     "Auction ends at",
@@ -54,7 +54,7 @@ export default async function loadEditListingPage() {
     true,
     false,
     "",
-    formattedEndsAt,
+    formattedEndsAt
   );
   const endsAtInput = endsAt.querySelector("input");
   endsAtInput.disabled = true;
@@ -67,7 +67,7 @@ export default async function loadEditListingPage() {
     });
   }
   imgContainer.appendChild(
-    Button("plus", "button", "Add Image", "lavender", false, addImage),
+    Button("plus", "button", "Add Image", "lavender", false, addImage)
   );
 
   // Append the button container to the form
@@ -77,17 +77,17 @@ export default async function loadEditListingPage() {
     "flex-wrap",
     "gap-2",
     "justify-between",
-    "mt-2",
+    "mt-2"
   );
   buttonContainer.appendChild(
     Button("minus", "button", "Delete listing", "rust", true, () =>
-      deleteListing(listingId),
-    ),
+      deleteListing(listingId)
+    )
   );
   buttonContainer.appendChild(
     Button("cloud", "submit", "Save listing", "golf", true, () =>
-      setListingFormListener(listingId),
-    ),
+      setListingFormListener(listingId)
+    )
   );
   buttonContainer.appendChild(
     Button(
@@ -96,8 +96,8 @@ export default async function loadEditListingPage() {
       "Cancel",
       "lavender",
       true,
-      () => (location.href = `/listings/?listing=${listingId}`),
-    ),
+      () => (location.href = `/listings/?listing=${listingId}`)
+    )
   );
   form.appendChild(buttonContainer);
 }

@@ -8,7 +8,7 @@ export default function InputField(
   required = true,
   textArea = false,
   placeholder = "",
-  value = "",
+  value = ""
 ) {
   const container = document.createElement("div");
   const inputLabel = document.createElement("label");
@@ -55,7 +55,7 @@ export default function InputField(
     "rounded-md",
     "focus:outline-none",
     "focus:ring",
-    "focus:ring-lavender",
+    "focus:ring-lavender"
   );
 
   container.appendChild(inputLabel);

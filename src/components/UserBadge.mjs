@@ -30,7 +30,7 @@ export default async function UserBadge() {
     "gap-4",
     "bg-white",
     "p-2",
-    "text-lavender-dark",
+    "text-lavender-dark"
   );
 
   const textContainer = document.createElement("div");
@@ -58,8 +58,8 @@ export default async function UserBadge() {
     badgeContainer.ariaLive = "polite";
     badgeContainer.appendChild(
       Button("user-pen", "button", "Edit avatar", "lavender", false, () =>
-        editAvatar(user.data),
-      ),
+        editAvatar(user.data)
+      )
     );
   }
 

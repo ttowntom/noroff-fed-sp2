@@ -57,7 +57,7 @@ export default async function loadListingPage() {
       "flex-col-reverse",
       "md:flex-col",
       "gap-4",
-      "sm:p-0",
+      "sm:p-0"
     );
     // Seller info
     biddingSection.appendChild(SellerBadge(listing.data.seller));
@@ -73,7 +73,7 @@ export default async function loadListingPage() {
       "gap-4",
       "mt-2",
       "md:mt-10",
-      "sm:p-0",
+      "sm:p-0"
     );
     bottomSection.appendChild(ListingDescription(listing));
     bottomSection.appendChild(BiddingTimeline(listing.data));

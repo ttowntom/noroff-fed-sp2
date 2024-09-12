@@ -31,7 +31,7 @@ export default function ListingCard(listing) {
     "rounded-md",
     "shadow-md",
     "overflow-hidden",
-    "bg-black",
+    "bg-black"
   );
 
   const cardContent = document.createElement("div");
@@ -40,7 +40,7 @@ export default function ListingCard(listing) {
     "w-full",
     "h-48",
     "overflow-hidden",
-    "gradient-overlay",
+    "gradient-overlay"
   );
 
   // Add img as background to the cardContent
@@ -59,7 +59,7 @@ export default function ListingCard(listing) {
     "absolute",
     "bottom-0",
     "left-0",
-    "right-0",
+    "right-0"
   );
 
   const textContainer = document.createElement("div");
@@ -105,7 +105,7 @@ export function ListingCardSkeleton() {
     "shadow-md",
     "overflow-hidden",
     "bg-lavender",
-    "animate-pulse",
+    "animate-pulse"
   );
 
   const cardContent = document.createElement("div");
@@ -114,7 +114,7 @@ export function ListingCardSkeleton() {
     "w-full",
     "h-48",
     "overflow-hidden",
-    "bg-gray-300",
+    "bg-gray-300"
   );
   card.appendChild(cardContent);
 
@@ -126,7 +126,7 @@ export function ListingCardSkeleton() {
     "w-3/4",
     "h-6",
     "bg-lavender-light",
-    "rounded",
+    "rounded"
   );
   wrapper.appendChild(titlePlaceholder);
 
@@ -135,7 +135,7 @@ export function ListingCardSkeleton() {
     "w-1/2",
     "h-6",
     "bg-lavender-light",
-    "rounded",
+    "rounded"
   );
   wrapper.appendChild(pricePlaceholder);
 

@@ -36,7 +36,7 @@ export default function BidCard(listing) {
     "rounded-md",
     "border",
     "border-battleship",
-    "border-1",
+    "border-1"
   );
 
   // Create the title element

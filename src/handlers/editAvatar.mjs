@@ -15,7 +15,7 @@ export default function editAvatar(userData) {
     "flex-grow",
     "gap-2",
     "p-4",
-    "shadow-lg",
+    "shadow-lg"
   );
   form.appendChild(
     InputField(
@@ -24,8 +24,8 @@ export default function editAvatar(userData) {
       "avatarurl",
       true,
       false,
-      userData.avatar.url,
-    ),
+      userData.avatar.url
+    )
   );
   form.appendChild(
     InputField(
@@ -34,8 +34,8 @@ export default function editAvatar(userData) {
       "avataralt",
       false,
       false,
-      userData.avatar.alt,
-    ),
+      userData.avatar.alt
+    )
   );
 
   // Add buttons
@@ -44,12 +44,12 @@ export default function editAvatar(userData) {
   buttonContainer.appendChild(
     Button("ban", "button", "Cancel", "rust", true, () => {
       form.replaceWith(container);
-    }),
+    })
   );
   buttonContainer.appendChild(
     Button("cloud", "submit", "Save", "golf", true, (e) =>
-      editProfile(userData.name, e),
-    ),
+      editProfile(userData.name, e)
+    )
   );
 
   form.appendChild(buttonContainer);

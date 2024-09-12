@@ -35,7 +35,7 @@ function createHeader() {
     "z-50",
     "sticky",
     "top-0",
-    "shadow-lg",
+    "shadow-lg"
   );
   return header;
 }
@@ -53,7 +53,7 @@ function createContentsContainer() {
     "items-center",
     "justify-between",
     "gap-4",
-    "bg-white",
+    "bg-white"
   );
   return container;
 }
@@ -76,7 +76,7 @@ function createCreditsColumn() {
     "sm:flex",
     "items-center",
     "gap-2",
-    "text-lavender-dark",
+    "text-lavender-dark"
   );
 
   if (!user) {
@@ -106,7 +106,7 @@ function createActionsColumn() {
       () => {
         window.location.href = "/listings/new-listing/";
       },
-      true,
+      true
     );
     col3.append(newListingLink);
   }

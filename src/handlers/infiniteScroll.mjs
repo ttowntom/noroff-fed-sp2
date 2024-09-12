@@ -23,7 +23,7 @@ export default async function infiniteScroll(searchQuery = false) {
       listings = await searchListings(
         listingsPerPage,
         currentPage,
-        searchQuery,
+        searchQuery
       );
     } else {
       listings = await getListings(listingsPerPage, currentPage);
@@ -37,7 +37,7 @@ export default async function infiniteScroll(searchQuery = false) {
       "text-center",
       "py-2",
       "bg-lavender",
-      "rounded-md",
+      "rounded-md"
     );
 
     // Check if there is data
@@ -48,7 +48,7 @@ export default async function infiniteScroll(searchQuery = false) {
       const html = await AuctionListings(
         listings,
         currentPage === 1,
-        searchQuery,
+        searchQuery
       );
       currentPage++;
       return html;
