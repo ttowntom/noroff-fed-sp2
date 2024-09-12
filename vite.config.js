@@ -7,7 +7,7 @@ import { defineConfig } from "vite";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: "/noroff-fed-sp2/",
+  base: "./",
   root: "./",
   build: {
     outDir: "dist",
