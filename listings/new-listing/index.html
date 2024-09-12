@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Create a listing on QuickBid - a auction platform that connects buyers and sellers of goods and services."
+    />
+    <meta
+      name="keywords"
+      content="QuickBid, auction, buy, sell, goods, services"
+    />
+
+    <meta name="author" content="QuickBid" />
+    <link
+      rel="stylesheet"
+      href="https://kit.fontawesome.com/8d12afa6e5.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../src/main.mjs" type="module"></script>
+    <title>New listing | QuickBid</title>
+  </head>
+  <body class="flex flex-col min-h-screen bg-white font-titillium">
+    <main class="px-2 sm:px-0">
+      <form
+        id="new-listing-form"
+        method="post"
+        action="/listings"
+        class="w-5/6 md:max-w-screen-sm flex flex-col gap-1 mx-auto"
+      >
+        <div
+          id="img-container"
+          aria-live="polite"
+          class="flex flex-col gap-2"
+        ></div>
+      </form>
+      <div id="error-container" class="mt-2 text-red-500 text-center"></div>
+    </main>
+  </body>
+</html>
