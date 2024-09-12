@@ -45,7 +45,7 @@ export default function TimeLeftBar(listing, showText = true) {
   const timeLeft = formatTimeLeft(listing.endsAt);
   const percentageLeft = calculateTimePercentage(
     listing.created,
-    listing.endsAt,
+    listing.endsAt
   );
 
   // Create the container for the progress bar
@@ -56,7 +56,7 @@ export default function TimeLeftBar(listing, showText = true) {
     "bg-gradient-to-r",
     "from-[#BAB0D4]",
     "to-[#4C1A57]",
-    "overflow-hidden",
+    "overflow-hidden"
   );
   if (!showText) {
     container.classList.add("h-3");
@@ -71,7 +71,7 @@ export default function TimeLeftBar(listing, showText = true) {
     "h-full",
     "bg-gradient-to-r",
     "from-golf",
-    "to-golf-light",
+    "to-golf-light"
   );
   progressBar.style.width = `${percentageLeft}%`;
 
@@ -84,7 +84,7 @@ export default function TimeLeftBar(listing, showText = true) {
     "transform",
     "-translate-y-1/2",
     "text-white",
-    "font-semibold",
+    "font-semibold"
   );
   timeLabel.textContent = `${timeLeft} ${!auctionEnded ? "left" : ""}`;
 

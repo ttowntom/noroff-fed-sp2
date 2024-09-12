@@ -1,5 +1,10 @@
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
+
 import { defineConfig } from "vite";
-import { resolve } from "path";
+
+// Convert import.meta.url to __dirname
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   base: "/",

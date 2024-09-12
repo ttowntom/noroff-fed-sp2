@@ -1,17 +1,19 @@
 import { load } from "../storage/index.mjs";
 import { getProfile } from "../api/profile/profileRead.mjs";
-import Button from "./Button.mjs";
 import editAvatar from "../handlers/editAvatar.mjs";
+
+import Button from "./Button.mjs";
 
 // Get URL path and parameters
 const searchParams = new URLSearchParams(window.location.search);
-const nameParam = searchParams.get("name");
+let nameParam = searchParams.get("name");
 
 // Check if the logged in user is viewing their own profile
 const loggedInUser = load("profile");
 let isSelf = false;
 if (loggedInUser) {
   isSelf = nameParam === loggedInUser.name;
+  nameParam = loggedInUser.name;
 }
 
 export default async function UserBadge() {
@@ -29,7 +31,7 @@ export default async function UserBadge() {
     "gap-4",
     "bg-white",
     "p-2",
-    "text-lavender-dark",
+    "text-lavender-dark"
   );
 
   const textContainer = document.createElement("div");
@@ -57,8 +59,8 @@ export default async function UserBadge() {
     badgeContainer.ariaLive = "polite";
     badgeContainer.appendChild(
       Button("user-pen", "button", "Edit avatar", "lavender", false, () =>
-        editAvatar(user.data),
-      ),
+        editAvatar(user.data)
+      )
     );
   }
 

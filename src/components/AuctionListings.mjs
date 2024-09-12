@@ -3,7 +3,7 @@ import renderListings from "../handlers/renderListings.mjs";
 export default async function AuctionListings(
   listings,
   firstLoad = true,
-  searchQuery = false,
+  searchQuery = false
 ) {
   const bulk = document.createElement(`${firstLoad ? "section" : "div"}`);
   bulk.classList.add("w-full", "flex", "flex-col", "mt-2");
@@ -16,7 +16,7 @@ export default async function AuctionListings(
       "text-3xl",
       "font-bold",
       "text-lavender-dark",
-      "font-rowdies",
+      "font-rowdies"
     );
     bulk.appendChild(h2);
   }

@@ -1,6 +1,7 @@
-import createObjFromForm from "./createObjFromForm.mjs";
 import { createListing } from "../api/listings/create.mjs";
 import { editListing } from "../api/listings/edit.mjs";
+
+import createObjFromForm from "./createObjFromForm.mjs";
 
 export function setListingFormListener(id = false) {
   const trueId = id.length === 36 ? id : false;

@@ -1,7 +1,6 @@
 import infiniteScroll from "../../handlers/infiniteScroll.mjs";
 import isScrollNearBottom from "../../handlers/isScrollNearBottom.mjs";
 import SearchBar from "../../components/SearchBar.mjs";
-import { renderListingsSkeleton } from "../../handlers/renderListings.mjs";
 
 async function triggerInfiniteScroll() {
   const section = document.getElementById("user-listings");
