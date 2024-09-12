@@ -11,6 +11,9 @@ const loggedInUser = load("profile");
 let isSelf = false;
 if (loggedInUser) {
   isSelf = nameParam === loggedInUser.name;
+}
+
+if (!nameParam && loggedInUser) {
   nameParam = loggedInUser.name;
 }
 
