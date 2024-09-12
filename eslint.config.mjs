@@ -7,7 +7,11 @@ export default [
   pluginJs.configs.recommended,
   {
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        es2021: true,
+      },
     },
     plugins: {
       import: pluginImport,
