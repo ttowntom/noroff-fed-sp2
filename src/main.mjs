@@ -10,7 +10,7 @@ main.classList.add(
   "sm:max-w-screen-xl",
   "mx-auto",
   "mt-4",
-  "flex-grow",
+  "flex-grow"
 );
 
 // Call the router function

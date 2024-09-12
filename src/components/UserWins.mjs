@@ -23,7 +23,7 @@ export default async function UserWins() {
     "text-3xl",
     "font-bold",
     "text-lavender-dark",
-    "font-rowdies",
+    "font-rowdies"
   );
 
   section.appendChild(h2);

@@ -8,7 +8,7 @@ export default function Slider(imgArr) {
     "slides",
     "flex",
     "transition-transform",
-    "duration-500",
+    "duration-500"
   );
 
   imgArr.forEach((img) => {
@@ -21,7 +21,7 @@ export default function Slider(imgArr) {
       "transition-transform",
       "duration-500",
       "rounded-lg",
-      "overflow-hidden",
+      "overflow-hidden"
     );
 
     const imgEl = document.createElement("img");
@@ -39,7 +39,7 @@ export default function Slider(imgArr) {
       "bg-black",
       "bg-opacity-50",
       "p-2",
-      "rounded",
+      "rounded"
     );
     if (img.alt.length > 2) {
       slide.appendChild(imgCaption);
@@ -60,7 +60,7 @@ export default function Slider(imgArr) {
     "top-1/2",
     "left-2",
     "transform",
-    "-translate-y-1/2",
+    "-translate-y-1/2"
   );
   btnLeft.ariaLabel = "Previous slide";
 
@@ -69,7 +69,7 @@ export default function Slider(imgArr) {
     "fa-solid",
     "fa-circle-chevron-left",
     "text-white",
-    "text-3xl",
+    "text-3xl"
   );
   btnLeft.appendChild(leftIcon);
 
@@ -81,7 +81,7 @@ export default function Slider(imgArr) {
     "top-1/2",
     "right-2",
     "transform",
-    "-translate-y-1/2",
+    "-translate-y-1/2"
   );
   btnRight.ariaLabel = "Next slide";
 
@@ -90,7 +90,7 @@ export default function Slider(imgArr) {
     "fa-solid",
     "fa-circle-chevron-right",
     "text-white",
-    "text-3xl",
+    "text-3xl"
   );
   btnRight.appendChild(rightIcon);
 
@@ -106,7 +106,7 @@ export default function Slider(imgArr) {
     "flex",
     "gap-4",
     "justify-center",
-    "mt-2",
+    "mt-2"
   );
 
   imgArr.forEach((_, index) => {
@@ -129,7 +129,7 @@ export default function Slider(imgArr) {
     dotsContainer
       .querySelectorAll(".dots__dot")
       .forEach((dot) =>
-        dot.classList.remove("bg-lavender-dark", "dot--active"),
+        dot.classList.remove("bg-lavender-dark", "dot--active")
       );
     dotsContainer
       .querySelector(`.dots__dot[data-slide="${slide}"]`)

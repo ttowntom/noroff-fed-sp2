@@ -1,4 +1,5 @@
 import InputField from "../components/InputField.mjs";
+
 import deleteImageDiv from "./deleteImageDiv.mjs";
 
 export default function renderImageFields(img) {
@@ -18,7 +19,7 @@ export default function renderImageFields(img) {
     "mt-2",
     "border",
     "border-gray-200",
-    "rounded-md",
+    "rounded-md"
   );
 
   // Create the icon
@@ -35,7 +36,7 @@ export default function renderImageFields(img) {
     "w-12",
     "h-12",
     "cursor-pointer",
-    "hover:bg-opacity-90",
+    "hover:bg-opacity-90"
   );
 
   const icon = document.createElement("i");
@@ -48,7 +49,7 @@ export default function renderImageFields(img) {
   inputContainer.classList.add("flex", "flex-col", "flex-grow");
 
   inputContainer.appendChild(
-    InputField("Image URL", "url", "image-url", true, false, "", img.url),
+    InputField("Image URL", "url", "image-url", true, false, "", img.url)
   );
   inputContainer.appendChild(
     InputField(
@@ -58,8 +59,8 @@ export default function renderImageFields(img) {
       true,
       false,
       "",
-      img.alt,
-    ),
+      img.alt
+    )
   );
 
   // Append the input fields and button to the form

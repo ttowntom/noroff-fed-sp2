@@ -1,8 +1,9 @@
-import InputField from "./InputField.mjs";
-import BidButton from "./BidButton.mjs";
 import bidOnListing from "../api/listings/bid.mjs";
 import { load, save } from "../storage/index.mjs";
 import { getProfile } from "../api/profile/profileRead.mjs";
+
+import BidButton from "./BidButton.mjs";
+import InputField from "./InputField.mjs";
 
 // Function to close the modal
 function closeModal() {
@@ -35,7 +36,7 @@ export default async function BidModal(listing) {
     "bg-black",
     "bg-opacity-50",
     "z-50",
-    "shadow-lg",
+    "shadow-lg"
   );
 
   // Event listener to close modal on clicking outside
@@ -57,7 +58,7 @@ export default async function BidModal(listing) {
     "bg-lavender-dark",
     "p-6",
     "pt-2",
-    "rounded-md",
+    "rounded-md"
   );
 
   // Create close button
@@ -77,7 +78,7 @@ export default async function BidModal(listing) {
     "rounded-full",
     "border",
     "border-lavender-light",
-    "hover:bg-lavender-light",
+    "hover:bg-lavender-light"
   );
 
   // Event listener to close modal on clicking the close button
@@ -94,7 +95,7 @@ export default async function BidModal(listing) {
     "text-2xl",
     "font-bold",
     "mb-6",
-    "text-rowdies",
+    "text-rowdies"
   );
   modalContent.appendChild(title);
 
@@ -110,7 +111,7 @@ export default async function BidModal(listing) {
     "mb-4",
     "bg-white",
     "p-1",
-    "rounded-md",
+    "rounded-md"
   );
 
   const noticeIcon = document.createElement("i");

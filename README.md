@@ -12,7 +12,6 @@ The full assignment description can be found [here](https://content.noroff.dev/s
 The site is built with a mobile-first approach and is responsive. The site is built with a focus on accessibility and usability.
 
 The site is built with a component based approach. Each page's JS calls the necessary components and the components are built to be reusable. The handlers for the components are built to be reusable when possible.
-
 The pages created for the assignment are:
 
 - Sign up page
@@ -33,6 +32,12 @@ The page is built with the following technologies:
 - [JavaScript](https://www.javascript.com/)
 - [Node.js](https://nodejs.org/en/)
 - [Vite](https://vitejs.dev/)
+
+In development:
+
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [Husky](https://typicode.github.io/husky/#/)
 
 ## Getting Started
 

@@ -12,7 +12,7 @@ export default function SearchBar() {
     "search",
     false,
     false,
-    "Search listings...",
+    "Search listings..."
   );
 
   const searchButton = Button(
@@ -21,7 +21,7 @@ export default function SearchBar() {
     false,
     "lavender",
     false,
-    null,
+    null
   );
   searchButton.classList.remove("my-2");
   searchButton.classList.add(
@@ -29,7 +29,7 @@ export default function SearchBar() {
     "top-1",
     "right-0",
     "border",
-    "border-lavender",
+    "border-lavender"
   );
   searchButton.ariaLabel = "Search";
 

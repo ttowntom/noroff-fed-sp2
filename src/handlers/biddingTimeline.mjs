@@ -1,4 +1,5 @@
 import BidUserBadge from "../components/BidUserBadge.mjs";
+
 import groupBidsByDate from "./groupBids.mjs";
 import renameDate from "./renameDate.mjs";
 
@@ -38,7 +39,7 @@ export default function biddingTimeline(bidsArr) {
         "text-center",
         "text-lavender",
         "uppercase",
-        "mt-4",
+        "mt-4"
       );
       // Append the headline to the container
       container.appendChild(dateHeadline);
@@ -63,7 +64,7 @@ export default function biddingTimeline(bidsArr) {
             "text-sm",
             "fa-solid",
             "fa-arrow-up",
-            "text-lavender",
+            "text-lavender"
           );
           badgeContainer.appendChild(icon);
         }

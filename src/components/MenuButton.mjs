@@ -8,7 +8,7 @@ export default function MenuButton(iconClasses, text, onClick, hideOnMobile) {
     "hover:text-opacity-90",
     "group",
 
-    hideOnMobile ? "hidden" : "flex",
+    hideOnMobile ? "hidden" : "flex"
   );
 
   const icon = document.createElement("i");
@@ -18,7 +18,7 @@ export default function MenuButton(iconClasses, text, onClick, hideOnMobile) {
     "text-4xl",
     "sm:text-3xl",
     "text-lavender",
-    "group-hover:text-opacity-90",
+    "group-hover:text-opacity-90"
   );
   button.appendChild(icon);
 
@@ -29,7 +29,7 @@ export default function MenuButton(iconClasses, text, onClick, hideOnMobile) {
     "font-semibold",
     "text-sm",
     "text-lavender-dark",
-    "group-hover:text-opacity-90",
+    "group-hover:text-opacity-90"
   );
   buttonText.textContent = text;
   button.appendChild(buttonText);

@@ -1,4 +1,5 @@
 import { load } from "../storage/index.mjs";
+
 import BidModal from "./BidModal.mjs";
 
 export default function ListingActionButton(listing) {
@@ -31,7 +32,7 @@ export default function ListingActionButton(listing) {
     "rounded",
     "p-1",
     "bg-opacity-80",
-    "shadow-md",
+    "shadow-md"
   );
 
   // Add the action styling and event listener

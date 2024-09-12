@@ -10,7 +10,7 @@ export default function BiddingTimeline(listing) {
     "text-xl",
     "font-semibold",
     "text-lavender-dark",
-    "text-center",
+    "text-center"
   );
   container.appendChild(titleEl);
 

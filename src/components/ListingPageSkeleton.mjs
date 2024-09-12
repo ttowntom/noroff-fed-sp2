@@ -12,7 +12,7 @@ export default function ListingPageSkeleton() {
     "h-96",
     "bg-gray-300",
     "rounded-lg",
-    "animate-pulse",
+    "animate-pulse"
   );
   topSection.appendChild(sliderPlaceholder);
 
@@ -23,7 +23,7 @@ export default function ListingPageSkeleton() {
     "h-48",
     "bg-lavender-light",
     "rounded",
-    "animate-pulse",
+    "animate-pulse"
   );
   topSection.appendChild(biddingPlaceholder);
 
@@ -41,7 +41,7 @@ export default function ListingPageSkeleton() {
     "bg-gray-100",
     "rounded",
     "mt-4",
-    "animate-pulse",
+    "animate-pulse"
   );
   bottomSection.appendChild(descriptionPlaceholder);
 
@@ -54,7 +54,7 @@ export default function ListingPageSkeleton() {
     "bg-gray-300",
     "rounded",
     "mt-4",
-    "animate-pulse",
+    "animate-pulse"
   );
   bottomSection.appendChild(timelinePlaceholder);
 

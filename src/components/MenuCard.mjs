@@ -1,5 +1,6 @@
 import { load } from "../storage/index.mjs";
 import logout from "../handlers/logout.mjs";
+
 import Button from "./Button.mjs";
 
 const user = load("profile");
@@ -18,7 +19,7 @@ function createCreditsContainer() {
     "px-4",
     "my-2",
     "rounded-md",
-    "text-lavender-dark",
+    "text-lavender-dark"
   );
   creditsContainer.innerHTML = `
     <i class="fa-solid fa-dollar-sign"></i>
@@ -45,7 +46,7 @@ function createMenuList() {
   menuList.classList.add("flex", "flex-col", "gap-2", "items-center");
 
   menuList.appendChild(
-    createMenuItem("Profile", `/user/?name=${encodeURIComponent(user.name)}`),
+    createMenuItem("Profile", `/user/?name=${encodeURIComponent(user.name)}`)
   );
   menuList.appendChild(createMenuItem("New listing", "/listings/new-listing/"));
   menuList.appendChild(createCreditsContainer());
@@ -56,8 +57,8 @@ function createMenuList() {
       "Log out",
       "lavender-light",
       true,
-      logout,
-    ),
+      logout
+    )
   );
 
   return menuList;
@@ -85,7 +86,7 @@ export default function MenuCard() {
     "px-6",
     "bg-lavender-dark",
     "shadow-lg",
-    "rounded-md",
+    "rounded-md"
   );
 
   menuCard.appendChild(createMenuList());

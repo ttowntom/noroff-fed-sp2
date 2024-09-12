@@ -10,7 +10,7 @@ export default function UserPageSkeleton() {
     "bg-lavender-light",
     "rounded",
     "animate-pulse",
-    "mb-6",
+    "mb-6"
   );
   container.appendChild(userBadgePlaceholder);
 

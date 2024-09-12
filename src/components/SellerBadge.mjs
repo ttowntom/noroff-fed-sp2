@@ -6,7 +6,7 @@ export default function SellerBadge(sellerObj) {
     "mt-4",
     "sm:mt-0",
     "gap-4",
-    "text-lavender-dark",
+    "text-lavender-dark"
   );
 
   const textContainer = document.createElement("div");

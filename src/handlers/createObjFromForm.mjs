@@ -6,7 +6,7 @@ export default function createObjFromForm() {
 
   // Select all image URL and description inputs
   const imageContainers = document.querySelectorAll(
-    '#img-container > div[id^="img-"]',
+    '#img-container > div[id^="img-"]'
   );
   const media = [];
 
@@ -14,7 +14,7 @@ export default function createObjFromForm() {
   imageContainers.forEach((container) => {
     const imageUrl = container.querySelector('input[name="image-url"]').value;
     const imageDescription = container.querySelector(
-      'input[name="image-description"]',
+      'input[name="image-description"]'
     ).value;
 
     // Push each image's details into the media array

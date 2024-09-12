@@ -19,7 +19,7 @@ export default function Footer() {
     "gap-4",
     "border",
     "border-battleship",
-    "rounded-md",
+    "rounded-md"
   );
 
   const col1 = document.createElement("div");

@@ -4,7 +4,7 @@ export default function Button(
   label,
   color = "lavender",
   flexGrow = false,
-  onClick = null,
+  onClick = null
 ) {
   const button = document.createElement("button");
   const iconElement = document.createElement("i");
@@ -21,7 +21,7 @@ export default function Button(
     "rounded-md",
     "hover:bg-opacity-90",
     "shadow-md",
-    "self-center",
+    "self-center"
   );
 
   // Set background color based on color prop
@@ -52,7 +52,7 @@ export default function Button(
     iconElement.classList.add(
       `fa-solid`,
       `fa-${icon}`,
-      `${label ? "mr-2" : "mr-0"}`,
+      `${label ? "mr-2" : "mr-0"}`
     );
     button.appendChild(iconElement);
   }

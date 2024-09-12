@@ -10,7 +10,7 @@ export default function BidUserBadge(bidData, showPrice = true) {
     "gap-4",
     "bg-white",
     "p-2",
-    "text-lavender-dark",
+    "text-lavender-dark"
   );
 
   const textContainer = document.createElement("div");
