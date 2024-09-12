@@ -1,7 +1,8 @@
+import { load } from "../storage/index.mjs";
+
 import BidButton from "./BidButton.mjs";
 import TimeLeftBar from "./TimeLeftBar.mjs";
 import BidUserBadge from "./BidUserBadge.mjs";
-import { load } from "../storage/index.mjs";
 
 export default function BidCard(listing) {
   const isOwner = listing.seller.name === load("profile")?.name;

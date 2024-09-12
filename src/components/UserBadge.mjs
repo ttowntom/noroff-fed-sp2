@@ -1,7 +1,8 @@
 import { load } from "../storage/index.mjs";
 import { getProfile } from "../api/profile/profileRead.mjs";
-import Button from "./Button.mjs";
 import editAvatar from "../handlers/editAvatar.mjs";
+
+import Button from "./Button.mjs";
 
 // Get URL path and parameters
 const searchParams = new URLSearchParams(window.location.search);

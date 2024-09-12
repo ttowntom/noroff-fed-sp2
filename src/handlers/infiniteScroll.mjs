@@ -1,5 +1,6 @@
 import AuctionListings from "../components/AuctionListings.mjs";
 import { getListings, searchListings } from "../api/listings/read.mjs";
+
 import { renderListingsSkeleton } from "./renderListings.mjs";
 
 const listingsPerPage = 9;

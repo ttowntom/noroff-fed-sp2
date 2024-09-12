@@ -1,4 +1,5 @@
 import InputField from "../components/InputField.mjs";
+
 import deleteImageDiv from "./deleteImageDiv.mjs";
 
 export default function addImage() {

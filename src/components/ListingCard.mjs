@@ -1,6 +1,7 @@
+import { NO_IMG_URL } from "../api/constants.mjs";
+
 import ListingActionButton from "./ListingActionButton.mjs";
 import TimeLeftBar from "./TimeLeftBar.mjs";
-import { NO_IMG_URL } from "../api/constants.mjs";
 
 export default function ListingCard(listing) {
   const imgUrl = listing.media[0]?.url || NO_IMG_URL;

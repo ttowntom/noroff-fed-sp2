@@ -1,7 +1,8 @@
 import { load } from "../storage/index.mjs";
+import hamburgerMenuToggle from "../handlers/hamburgerMenuToggle.mjs";
+
 import MenuCard from "./MenuCard.mjs";
 import MenuButton from "./MenuButton.mjs";
-import hamburgerMenuToggle from "../handlers/hamburgerMenuToggle.mjs";
 const user = load("profile");
 const credits = load("credits");
 

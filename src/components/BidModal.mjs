@@ -1,8 +1,9 @@
-import InputField from "./InputField.mjs";
-import BidButton from "./BidButton.mjs";
 import bidOnListing from "../api/listings/bid.mjs";
 import { load, save } from "../storage/index.mjs";
 import { getProfile } from "../api/profile/profileRead.mjs";
+
+import BidButton from "./BidButton.mjs";
+import InputField from "./InputField.mjs";
 
 // Function to close the modal
 function closeModal() {

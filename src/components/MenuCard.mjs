@@ -1,5 +1,6 @@
 import { load } from "../storage/index.mjs";
 import logout from "../handlers/logout.mjs";
+
 import Button from "./Button.mjs";
 
 const user = load("profile");

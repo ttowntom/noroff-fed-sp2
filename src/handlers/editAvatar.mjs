@@ -1,6 +1,7 @@
-import editProfile from "./editProfile.mjs";
 import InputField from "../components/InputField.mjs";
 import Button from "../components/Button.mjs";
+
+import editProfile from "./editProfile.mjs";
 
 export default function editAvatar(userData) {
   // Keep badge in memory in case of cancel

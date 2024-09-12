@@ -1,4 +1,5 @@
 import { load } from "../storage/index.mjs";
+
 import BidModal from "./BidModal.mjs";
 
 const user = load("profile")?.name || false;
