@@ -7,7 +7,6 @@ import Button from "./Button.mjs";
 // Get URL path and parameters
 const searchParams = new URLSearchParams(window.location.search);
 let nameParam = searchParams.get("name");
-console.log(nameParam);
 
 // Check if the logged in user is viewing their own profile
 const loggedInUser = load("profile");

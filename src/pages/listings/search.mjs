@@ -28,7 +28,10 @@ export default async function loadSearchListingsPage() {
           section.append(content);
         }
       } catch (error) {
-        console.error("Error fetching infinite scroll content:", error);
+        const errMsg = document.createElement("p");
+        errMsg.classList.add("text-red-500", "text-center", "mt-4");
+        errMsg.textContent = "An error occurred while fetching listings";
+        section.append(errMsg);
       }
     }
   });

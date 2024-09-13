@@ -20,7 +20,6 @@ export default function hamburgerMenuToggle() {
         !e.target.closest("#menu-card") &&
         !e.target.closest("button")
       ) {
-        console.log("closing menu");
         const menuCard = document.querySelector("#menu-card");
         const menuIcon = document.querySelector(`#btn-${user.name} i`);
         menuCard.classList.add("hidden");
