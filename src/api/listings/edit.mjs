@@ -8,6 +8,12 @@ import {
 const errContainer = document.querySelector(`#error-container`);
 
 // Create listing
+/**
+ * Creates a listing
+ * @param {object} listing - Listing object
+ * @param {string} action - URL to fetch
+ * @param {string} method - HTTP method
+ */
 export async function editListing(listing, action, method, id) {
   const actionURL = new URL(action);
   const listingURL = `${API_AUCTION_URL}${actionURL.pathname}/${id}`;

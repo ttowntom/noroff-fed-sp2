@@ -13,6 +13,11 @@ function closeModal() {
   }
 }
 
+/**
+ * Creates a modal to place a bid on a listing
+ * @param {object} listing - Listing object to bid on
+ * @returns {HTMLElement} - Bid modal overlay
+ */
 export default async function BidModal(listing) {
   const user = load("profile").name;
   const profile = await getProfile(user);

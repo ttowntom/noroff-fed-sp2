@@ -12,6 +12,12 @@ export function headers() {
   };
 }
 
+/**
+ * Fetch with authentication
+ * @param {string} url - URL to fetch
+ * @param {object} options - Options for fetch
+ * @returns {Promise} - Promise object represents the response
+ */
 export async function authFetch(url, options = {}) {
   return fetch(url, {
     ...options,

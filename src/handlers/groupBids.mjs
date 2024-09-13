@@ -1,3 +1,8 @@
+/**
+ * Groups bids by date
+ * @param {Array} bids - Array of bids
+ * @returns {Object} - Object with bids grouped by date
+ */
 export default function groupBidsByDate(bids) {
   const sortedBids = bids
     .slice()

@@ -6,6 +6,12 @@ import {
 } from "../../handlers/listingSubmitLoader.mjs";
 
 // Create listing
+/**
+ * Creates a listing
+ * @param {object} listing - Listing object
+ * @param {string} action - URL to fetch
+ * @param {string} method - HTTP method
+ */
 export async function createListing(listing, action, method) {
   const errContainer = document.querySelector(`#error-container`);
   const actionURL = new URL(action);

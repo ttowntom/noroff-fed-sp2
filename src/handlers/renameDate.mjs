@@ -1,3 +1,8 @@
+/**
+ * Rename date to a more readable format
+ * @param {string} date - Date string
+ * @returns {string} - Renamed date
+ */
 export default function renameDate(date) {
   const today = new Date();
   const inputDate = window.dateFns.parseISO(date); // Using parseISO from date-fns

@@ -5,6 +5,11 @@ import { renderListingsSkeleton } from "../../handlers/renderListings.mjs";
 const main = document.querySelector("main");
 const sort = "?sort=created&order=desc";
 
+/**
+ * Fetches a list of wins from the API
+ * @param {string} username - Username of the profile to fetch wins for
+ * @returns {Promise} - Promise object represents the list of wins
+ */
 export default async function getWinsFromProfile(username) {
   try {
     // Render skeleton

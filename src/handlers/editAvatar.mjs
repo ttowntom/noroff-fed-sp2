@@ -3,6 +3,10 @@ import Button from "../components/Button.mjs";
 
 import editProfile from "./editProfile.mjs";
 
+/**
+ * Creates a form to edit the user's avatar
+ * @param {object} userData - User data object
+ */
 export default function editAvatar(userData) {
   // Keep badge in memory in case of cancel
   const container = document.querySelector(`#badge-container`);

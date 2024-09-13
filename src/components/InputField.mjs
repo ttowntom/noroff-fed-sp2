@@ -1,6 +1,17 @@
 import continuousInputValidation from "../handlers/continuousInputValildation.mjs";
 import dateTimeAuctionLimit from "../handlers/dateTimeAuctionLimit.mjs";
 
+/**
+ * Creates an input field
+ * @param {string} label - Label for the input field
+ * @param {string} type - Type of input field
+ * @param {string} name - Name of input field
+ * @param {boolean} required - Is input field required
+ * @param {boolean} textArea - Is input field a textarea
+ * @param {string} placeholder - Placeholder for input field
+ * @param {string} value - Value for input field
+ * @returns {HTMLElement} - Input field
+ */
 export default function InputField(
   label,
   type,

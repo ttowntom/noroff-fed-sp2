@@ -1,3 +1,11 @@
+/**
+ * Creates a button with an icon and text
+ * @param {string[]} iconClasses - Array of classes for the icon element
+ * @param {string} text - Text to display on the button
+ * @param {function} onClick - Click event listener
+ * @param {boolean} hideOnMobile - Hide on mobile
+ * @returns {HTMLElement} - Button element
+ */
 export default function MenuButton(iconClasses, text, onClick, hideOnMobile) {
   const button = document.createElement("button");
   button.id = `btn-${text.toLowerCase().replace(" ", "-")}`;

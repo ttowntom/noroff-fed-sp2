@@ -41,6 +41,12 @@ function calculateTimePercentage(createdAt, endsAt) {
   return Math.max(0, Math.min(100, percentageLeft));
 }
 
+/**
+ * Creates a time left bar for a listing
+ * @param {object} listing - Listing object to display time left for
+ * @param {boolean} showText - Show the time left text
+ * @returns {HTMLElement} - Time left bar element
+ */
 export default function TimeLeftBar(listing, showText = true) {
   const timeLeft = formatTimeLeft(listing.endsAt);
   const percentageLeft = calculateTimePercentage(

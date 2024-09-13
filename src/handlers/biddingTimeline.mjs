@@ -3,6 +3,11 @@ import BidUserBadge from "../components/BidUserBadge.mjs";
 import groupBidsByDate from "./groupBids.mjs";
 import renameDate from "./renameDate.mjs";
 
+/**
+ * Renders a timeline of bids
+ * @param {array} bidsArr - Array of bids
+ * @returns {HTMLElement} - Timeline of bids
+ */
 export default function biddingTimeline(bidsArr) {
   let bids;
   let lowestBid;

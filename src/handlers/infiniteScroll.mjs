@@ -8,6 +8,11 @@ let currentPage = 1;
 let isLoading = false;
 let hasMore = true;
 
+/**
+ * Fetches listings and renders them
+ * @param {string} searchQuery - Search query to filter listings
+ * @returns {Promise} - Promise object represents the HTML content
+ */
 export default async function infiniteScroll(searchQuery = false) {
   if (isLoading || !hasMore) return;
   isLoading = true;

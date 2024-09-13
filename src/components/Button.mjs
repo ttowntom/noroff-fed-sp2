@@ -1,3 +1,13 @@
+/**
+ * Button component
+ * @param {string} icon - Font Awesome icon name
+ * @param {string} type - Button type
+ * @param {string} label - Button label
+ * @param {string} color - Button color
+ * @param {boolean} flexGrow - Flex grow
+ * @param {function} onClick - Click event listener
+ * @returns {HTMLElement} - Button element
+ */
 export default function Button(
   icon,
   type,

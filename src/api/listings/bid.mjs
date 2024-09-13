@@ -6,6 +6,11 @@ import {
   listingSubmitLoaderOff,
 } from "../../handlers/listingSubmitLoader.mjs";
 
+/**
+ * Places a bid on a listing
+ * @param {string} id - ID of the listing to bid on
+ * @param {number} bidAmount - Amount to bid on the listing
+ */
 export default async function bidOnListing(id, bidAmount) {
   const action = "/listings";
   const method = "POST";

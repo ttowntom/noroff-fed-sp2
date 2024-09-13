@@ -7,6 +7,10 @@ const user = load("profile")?.name;
 const action = "/listings";
 const method = "DELETE";
 
+/**
+ * Deletes a listing
+ * @param {string} id - ID of the listing to delete
+ */
 export default async function deleteListing(id) {
   if (!id) {
     throw new Error("No listing ID provided");

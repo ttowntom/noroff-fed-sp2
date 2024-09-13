@@ -6,6 +6,12 @@ import {
   listingSubmitLoaderOff,
 } from "../../handlers/listingSubmitLoader.mjs";
 
+/**
+ * Logs in a user
+ * @param {object} profile - User profile
+ * @param {string} action - URL to fetch
+ * @param {string} method - HTTP method
+ */
 export async function login(profile, action, method) {
   const actionURL = new URL(action);
   const loginURL = `${API_BASE_URL}${actionURL.pathname}`;

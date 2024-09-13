@@ -2,6 +2,11 @@ import { load } from "../storage/index.mjs";
 
 import BidModal from "./BidModal.mjs";
 
+/**
+ * Creates a button to perform an action on a listing
+ * @param {object} listing - Listing object to act on
+ * @returns {HTMLElement} - Action button element
+ */
 export default function ListingActionButton(listing) {
   const isOwner =
     listing.seller && listing.seller.name === load("profile")?.name;

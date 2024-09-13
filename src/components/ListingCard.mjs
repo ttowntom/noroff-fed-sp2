@@ -3,6 +3,11 @@ import { NO_IMG_URL } from "../api/constants.mjs";
 import ListingActionButton from "./ListingActionButton.mjs";
 import TimeLeftBar from "./TimeLeftBar.mjs";
 
+/**
+ * Creates a listing card
+ * @param {object} listing - Listing object to display
+ * @returns {HTMLElement} - Listing card element
+ */
 export default function ListingCard(listing) {
   const imgUrl = listing.media[0]?.url || NO_IMG_URL;
   const priceArr = listing.bids || [];

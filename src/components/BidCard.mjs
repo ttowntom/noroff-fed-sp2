@@ -4,6 +4,11 @@ import BidButton from "./BidButton.mjs";
 import TimeLeftBar from "./TimeLeftBar.mjs";
 import BidUserBadge from "./BidUserBadge.mjs";
 
+/**
+ * Creates a card to display the bid information
+ * @param {object} listing - Listing object to display
+ * @returns {HTMLElement} - Bid card element
+ */
 export default function BidCard(listing) {
   const isOwner = listing.seller.name === load("profile")?.name;
 
