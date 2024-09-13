@@ -55,6 +55,12 @@ git clone git@github.com:ttowntom/noroff-fed-sp2.git
 npm install
 ```
 
+3. Create a `.env` file in root by copying the `.env.example` file and filling in the necessary values.
+
+```bash
+cp .env.example .env
+```
+
 ### Running
 
 To run the app in dev mode, run the following commands:
