@@ -24,7 +24,7 @@ export async function editListing(listing, action, method, id) {
       body,
     });
 
-    /// Handle error
+    // Handle error
     if (!response.ok) {
       listingSubmitLoaderOff();
       const errorData = JSON.parse(response.message);
