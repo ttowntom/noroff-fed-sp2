@@ -24,7 +24,6 @@ function validateInput(name, value) {
         new URL(value);
         return null;
       } catch (err) {
-        console.error("Error:", err.message);
         return "Please enter a valid URL (including 'http' or 'https')";
       }
     default:

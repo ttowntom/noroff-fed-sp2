@@ -80,8 +80,6 @@ export default async function loadListingPage() {
     main.appendChild(bottomSection);
     return container;
   } catch (error) {
-    console.error(error);
-
     container.textContent = "An error occurred. Please try again later.";
     main.appendChild(container);
     return container;

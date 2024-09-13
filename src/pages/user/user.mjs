@@ -40,6 +40,9 @@ export default async function loadUserPage() {
     main.appendChild(userListings);
     main.appendChild(userWins);
   } catch (error) {
-    console.error("Failed to load user page:", error);
+    const errMsg = document.createElement("p");
+    errMsg.classList.add("text-red-500", "text-center", "mt-4");
+    errMsg.textContent = "An error occurred while fetching user data";
+    main.appendChild(errMsg);
   }
 }

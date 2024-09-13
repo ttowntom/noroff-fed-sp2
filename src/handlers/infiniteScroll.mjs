@@ -61,7 +61,11 @@ export default async function infiniteScroll(searchQuery = false) {
       return msg;
     }
   } catch (error) {
-    console.error(error);
+    skeleton.remove();
+    const errMsg = document.createElement("p");
+    errMsg.classList.add("text-red-500", "text-center", "mt-4");
+    errMsg.textContent = "An error occurred while fetching listings";
+    main.appendChild(errMsg);
   } finally {
     isLoading = false;
     skeleton.remove();

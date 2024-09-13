@@ -27,7 +27,6 @@ export async function authFetch(url, options = {}) {
       return response;
     })
     .catch((error) => {
-      console.error("Error:", error);
       return error;
     });
 }
