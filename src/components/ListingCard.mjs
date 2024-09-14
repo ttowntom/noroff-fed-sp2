@@ -109,8 +109,7 @@ export function ListingCardSkeleton() {
     "rounded-md",
     "shadow-md",
     "overflow-hidden",
-    "bg-lavender",
-    "animate-pulse"
+    "bg-lavender"
   );
 
   const cardContent = document.createElement("div");

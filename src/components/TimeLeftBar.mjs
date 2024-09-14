@@ -56,14 +56,17 @@ export default function TimeLeftBar(listing, showText = true) {
 
   // Create the container for the progress bar
   const container = document.createElement("div");
-  container.classList.add(
-    "relative",
-    "w-full",
-    "bg-gradient-to-r",
-    "from-[#BAB0D4]",
-    "to-[#4C1A57]",
-    "overflow-hidden"
-  );
+  container.classList.add("relative", "w-full", "overflow-hidden");
+  if (percentageLeft === 0) {
+    container.classList.add("bg-lavender");
+  } else {
+    container.classList.add(
+      "bg-gradient-to-r",
+      "from-[#BAB0D4]",
+      "to-[#4C1A57]"
+    );
+  }
+
   if (!showText) {
     container.classList.add("h-3");
   } else {
@@ -77,6 +80,10 @@ export default function TimeLeftBar(listing, showText = true) {
     "h-full",
     "bg-gradient-to-r",
     "from-golf",
+    "from-0%",
+    "via-golf",
+    "via-70%",
+    "to-100%",
     "to-golf-light"
   );
   progressBar.style.width = `${percentageLeft}%`;
