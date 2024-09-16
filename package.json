@@ -7,6 +7,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --cache --fix",
     "format": "prettier --write .",
+    "e2e": "cypress run",
     "t:build": "tailwindcss -i ./input.css -o ./css/style.css",
     "t:watch": "tailwindcss -i ./input.css -o ./css/style.css --watch",
     "prepare": "husky install",
@@ -32,6 +33,7 @@
   },
   "homepage": "https://github.com/ttowntom/noroff-fed-sp2#readme",
   "devDependencies": {
+    "cypress": "^13.14.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.30.0",
