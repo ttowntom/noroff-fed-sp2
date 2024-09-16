@@ -1,3 +1,5 @@
+[![Automated E2E Testing](https://github.com/ttowntom/noroff-fed-sp2/actions/workflows/test-e2e.yml/badge.svg)](https://github.com/ttowntom/noroff-fed-sp2/actions/workflows/test-e2e.yml)
+
 # Semester Project 2, QuickBid auction site
 
 ![image](https://i.postimg.cc/QxTRjsJp/ttowntom-Quick-Bid.png)
