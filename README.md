@@ -40,6 +40,7 @@ In development:
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [Husky](https://typicode.github.io/husky/#/)
+- [Cypress](https://www.cypress.io/)
 
 ## Getting Started
 
