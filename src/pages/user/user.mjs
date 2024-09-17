@@ -1,6 +1,7 @@
 import UserBadge from "../../components/UserBadge.mjs";
 import UserListings from "../../components/UserListings.mjs";
 import UserWins from "../../components/UserWins.mjs";
+import UserBids from "../../components/UserBids.mjs";
 import updateTitle from "../../handlers/updateTitle.mjs";
 import UserPageSkeleton from "../../components/UserPageSkeleton.mjs";
 import { load } from "../../storage/index.mjs";
@@ -32,12 +33,14 @@ export default async function loadUserPage() {
     const userBadge = await UserBadge();
     const userListings = await UserListings();
     const userWins = await UserWins();
+    const userBids = await UserBids();
 
     // Remove skeleton loader
     main.removeChild(skeletonLoader);
 
     main.appendChild(userBadge);
     main.appendChild(userListings);
+    main.appendChild(userBids);
     main.appendChild(userWins);
   } catch (error) {
     const errMsg = document.createElement("p");
